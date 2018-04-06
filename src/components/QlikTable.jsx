@@ -32,9 +32,11 @@ TableHead.propTypes = {
   setSortColumn: PropTypes.func.isRequired,
 };
 
+
 const TableBody = ({
   qMatrix, rowHeight, columnWidths, select,
 }) => (
+
   <Table className="fixed-table w-100">
     <tbody className="d-block">
       {qMatrix.map(row => (
@@ -45,7 +47,7 @@ const TableBody = ({
         >
           {row.map((col, i) => (
             <td
-              key={col.qText}
+              key={col.qText} // col.qText}
               className="d-inline-block"
               style={{ height: `${rowHeight}px`, width: `${columnWidths[i]}%` }}
               data-q-elem-number={col.qElemNumber}

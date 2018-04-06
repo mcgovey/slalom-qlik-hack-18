@@ -1,6 +1,10 @@
 import React from 'react';
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
 import qDocPromise from '../qDoc';
 import Main from './Main';
+// import '../styles/material_styles.css';
 
 export default class Root extends React.Component {
   constructor(props) {
@@ -32,6 +36,13 @@ export default class Root extends React.Component {
     // <Header />
     return (
       <div>
+        <AppBar position="static" color="primary">
+          <Toolbar>
+            <Typography variant="title" color="inherit">
+              Title
+            </Typography>
+          </Toolbar>
+        </AppBar>
         <Main />
       </div>
     );

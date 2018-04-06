@@ -30,6 +30,7 @@ qProps.testCube = {
       qDef: {
         qDef: 'Sum(BERDOBuildingListCounter)',
         qLabel: 'Count of Buildings',
+        qSuppressMissing: true,
         // qNumFormat: {
         //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
         // },

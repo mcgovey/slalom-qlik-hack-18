@@ -4,7 +4,7 @@ import QlikFilter from './QlikFilter';
 import QlikTable from './QlikTable';
 import qProps from '../qProps';
 
-const Compliance = () => (
+const PageOne = () => (
   <div className="container">
     <section className="my-3">
       <QlikObject qProp={qProps.testList} type="qListObject" Component={QlikFilter} />
@@ -15,4 +15,4 @@ const Compliance = () => (
   </div>
 );
 
-export default Compliance;
+export default PageOne;

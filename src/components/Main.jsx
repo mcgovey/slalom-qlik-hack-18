@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './Home';
-import Compliance from './Compliance';
+import PageOne from './PageOne';
+import PageTwo from './PageTwo';
 // import Schedule from './Schedule'
 
 // The Main component renders one of the three provided
@@ -15,8 +15,8 @@ import Compliance from './Compliance';
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/compliance" component={Compliance} />
+      <Route exact path="/" component={PageOne} />
+      <Route exact path="/compliance" component={PageTwo} />
     </Switch>
   </main>
 );
