@@ -12,11 +12,12 @@ import PageTwo from './PageTwo';
 
 // <Route path='/roster' component={Roster}/>
 // <Route path='/schedule' component={Schedule}/>
+
 const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={PageOne} />
-      <Route exact path="/compliance" component={PageTwo} />
+      <Route path="/compliance" component={PageTwo} />
     </Switch>
   </main>
 );

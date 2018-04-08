@@ -2,8 +2,14 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
+import {
+  Route,
+  NavLink,
+  HashRouter,
+} from 'react-router-dom';
 import qDocPromise from '../qDoc';
-import Main from './Main';
+import PageOne from './PageOne';
+import PageTwo from './PageTwo';
 // import '../styles/material_styles.css';
 
 export default class Root extends React.Component {
@@ -34,17 +40,27 @@ export default class Root extends React.Component {
     }
 
     // <Header />
+    // <Main />
     return (
-      <div>
-        <AppBar position="static" color="primary">
-          <Toolbar>
-            <Typography variant="title" color="inherit">
-              Title
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <Main />
-      </div>
+      <HashRouter>
+        <div>
+          <AppBar position="static" color="primary">
+            <Toolbar>
+              <Typography variant="title" color="inherit">
+                Title
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <ul className="header">
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/compliance">Stuff</NavLink></li>
+          </ul>
+          <div className="content">
+            <Route exact path="/" component={PageOne} />
+            <Route path="/compliance" component={PageTwo} />
+          </div>
+        </div>
+      </HashRouter>
     );
   }
 }
