@@ -8,10 +8,11 @@
     "bootstrap": "^4.0.0-beta",
     "d3": "^4.11.0",
     "enigma.js": "^2.1.1",
+    "mapbox-gl": "^0.44.2",
     "material-ui": "^1.0.0-beta.40",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.3.1",
     "react-hot-loader": "^3.1.1",
     "react-router-dom": "^4.2.2",
     "reactstrap": "^5.0.0-alpha.3"
