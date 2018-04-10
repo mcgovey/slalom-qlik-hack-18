@@ -1,8 +1,7 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
-import 'mapbox-gl/dist/mapbox-gl.css';
-// import QlikObject from './QlikObject';
-// import qProps from '../qProps';
+import QlikObject from './QlikObject';
+import qProps from '../qProps';
 import Mapbox from './Mapbox';
 
 
@@ -27,12 +26,13 @@ const styles = {
     textAlign: 'center',
   },
 };
+// <Mapbox />
 
 const PageOne = () => (
   <div>
     <div style={styles.div}>
       <Paper style={styles.paperLeft}>
-        <Mapbox />
+        <QlikObject qProp={qProps.buildingPts} type="qHyperCube" Component={Mapbox} />
       </Paper>
       <Paper style={styles.paperRight}>
         <h4>Second Vertical component</h4>

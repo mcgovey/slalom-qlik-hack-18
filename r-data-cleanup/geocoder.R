@@ -30,3 +30,4 @@ temp[,c('lng', 'lat', 'status')] <- t(apply(temp, 1, function(x) geocodeAdddress
 
 #temp remove non null fields
 temp <- temp[grep("[[:digit:]]", temp$LATITUDE) ,]
+temp[] <- lapply(temp, function(x) if(is.factor(x)) factor(x) else x)

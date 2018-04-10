@@ -10,10 +10,11 @@ ma.map <- readOGR("data/ZillowNeighborhoods-MA.shp", layer="ZillowNeighborhoods-
 
 sodo <- ma.map[ma.map$CITY == "Boston", ]
 
+
 # Don't use df as name, it is an R function
 # Better to set longitudes as the first column and latitudes as the second
-dat <- data.frame(Longitude = temp$LONGITUDE,
-                  Latitude =temp$LATITUDE,
+dat <- data.frame(Longitude = as.numeric(temp$LONGITUDE),
+                  Latitude =as.numeric(temp$LATITUDE),
                   names = temp$MAIL_ADDRESS)
 # Assignment modified according
 coordinates(dat) <- ~ Longitude + Latitude

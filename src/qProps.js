@@ -40,4 +40,41 @@ qProps.testCube = {
   },
 };
 
+qProps.buildingPts = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qHyperCubeDef: {
+    qDimensions: [{
+      qDef: {
+        qFieldDefs: ['PID'],
+        qFieldLabels: ['Property'],
+        qSortCriterias: [{ qSortByAscii: 1 }],
+        qSuppressMissing: true,
+      },
+    }],
+    qMeasures: [{
+      qDef: {
+        qDef: 'MAX(LATITUDE)',
+        qLabel: 'Latitude',
+        qSuppressMissing: true,
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: 'MAX(LONGITUDE)',
+        qLabel: 'Longitude',
+        qSuppressMissing: true,
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      qSortBy: { qSortByNumeric: -1 },
+    }],
+  },
+};
+
 export default qProps;
