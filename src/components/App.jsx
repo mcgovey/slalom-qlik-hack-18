@@ -1,10 +1,6 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
 import {
   Route,
-  NavLink,
   HashRouter,
   Switch,
 } from 'react-router-dom';
@@ -12,7 +8,7 @@ import qDocPromise from '../qDoc';
 import PageOne from './PageOne';
 import PageTwo from './PageTwo';
 import ErrorCard from './ErrorCard';
-// import '../styles/material_styles.css';
+import SimpleTabs from './Header';
 
 export default class Root extends React.Component {
   constructor(props) {
@@ -44,17 +40,7 @@ export default class Root extends React.Component {
     return (
       <HashRouter>
         <div>
-          <AppBar position="static" color="primary">
-            <Toolbar>
-              <Typography variant="title" color="inherit">
-                Title
-              </Typography>
-            </Toolbar>
-          </AppBar>
-          <ul className="header">
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/compliance">Stuff</NavLink></li>
-          </ul>
+          <SimpleTabs />
           <div className="content">
             <Switch>
               <Route exact path="/" component={PageOne} />

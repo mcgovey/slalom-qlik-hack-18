@@ -1,6 +1,8 @@
 install.packages('RJSONIO')
 
-berdo_data <- read.csv('data/berdo2017.csv')
+berdo_data <- read.csv('data/property-assessment-fy2016.csv')
+
+summary(berdo_data)
 
 temp <- berdo_data[1:5,]
 temp$fullAddress <- paste(temp$Address,' ',temp$ZIP)
