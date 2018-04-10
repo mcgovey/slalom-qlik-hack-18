@@ -2,22 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
-import Tabs, { Tab } from 'material-ui/Tabs';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import { NavLink } from 'react-router-dom';
+import AppTabsHandler from './AppTabs';
 
-// function TabContainer(props) {
-//   return (
-//     <Typography component="div" style={{ padding: 8 * 3 }}>
-//       {props.children}
-//     </Typography>
-//   );
-// }
-
-// TabContainer.propTypes = {
-//   children: PropTypes.node.isRequired,
-// };
 
 const styles = theme => ({
   root: {
@@ -27,18 +15,14 @@ const styles = theme => ({
   },
 });
 
-class SimpleTabs extends React.Component {
-  state = {
-    value: 0,
-  };
 
-  handleChange = (event, value) => {
-    this.setState({ value });
-  };
+class SimpleTabs extends React.Component {
+  // <NavLink to="/" style={{ textDecoration: 'none' }}><Tab label="Emissions Tracking" /></NavLink>
+  // <NavLink to="/compliance"><Tab label="Compliance Overview" /></NavLink>
 
   render() {
     const { classes } = this.props;
-    const { value } = this.state;
+    // const { value } = this.state;
 
     return (
       <div className={classes.root}>
@@ -48,10 +32,7 @@ class SimpleTabs extends React.Component {
               Title
             </Typography>
           </Toolbar>
-          <Tabs value={value} onChange={this.handleChange}>
-            <NavLink to="/"><Tab label="Emissions Tracking" /></NavLink>
-            <NavLink to="/compliance"><Tab label="Compliance Overview" /></NavLink>
-          </Tabs>
+          <AppTabsHandler />
         </AppBar>
         {/* {value === 0 && <TabContainer>Item One</TabContainer>}
         {value === 1 && <TabContainer>Item Two</TabContainer>} */}
