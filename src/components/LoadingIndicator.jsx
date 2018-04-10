@@ -1,9 +1,14 @@
 import React from 'react';
+import { CircularProgress } from 'material-ui/Progress';
 
-const Template = () => (
-  <div className="container">
-
+const LoadingIndicator = () => (
+  <div>
+    <CircularProgress
+      size={100}
+      top={20}
+      style={{ marginLeft: '45%' }}
+    />
   </div>
 );
 
-export default Template;
+export default LoadingIndicator;

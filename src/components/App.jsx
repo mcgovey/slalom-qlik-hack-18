@@ -9,6 +9,7 @@ import PageOne from './PageOne';
 import PageTwo from './PageTwo';
 import ErrorCard from './ErrorCard';
 import SimpleTabs from './Header';
+import LoadingIndicator from './LoadingIndicator';
 
 export default class Root extends React.Component {
   constructor(props) {
@@ -32,7 +33,9 @@ export default class Root extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return <div>Loading...</div>;
+      return (
+        <LoadingIndicator />
+      );
     } else if (this.state.error) {
       return <ErrorCard error={this.state.error} />;
     }
