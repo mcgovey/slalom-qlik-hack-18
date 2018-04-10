@@ -1,8 +1,10 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
+import 'mapbox-gl/dist/mapbox-gl.css';
 // import QlikObject from './QlikObject';
 // import qProps from '../qProps';
 import Mapbox from './Mapbox';
+
 
 const styles = {
   div: {
@@ -13,15 +15,15 @@ const styles = {
   },
   paperLeft: {
     flex: 4,
-    height: '100%',
-    margin: 10,
+    height: 600,
+    margin: 0,
     textAlign: 'center',
-    padding: 10,
+    padding: 0,
   },
   paperRight: {
     height: 600,
     flex: 1,
-    margin: 10,
+    marginLeft: 10,
     textAlign: 'center',
   },
 };
@@ -29,9 +31,9 @@ const styles = {
 const PageOne = () => (
   <div>
     <div style={styles.div}>
-      <section className="mapbox" style={styles.paperLeft}>
+      <Paper style={styles.paperLeft}>
         <Mapbox />
-      </section>
+      </Paper>
       <Paper style={styles.paperRight}>
         <h4>Second Vertical component</h4>
       </Paper>

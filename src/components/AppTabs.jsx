@@ -27,6 +27,7 @@ class AppTabs extends React.Component {
       <Tabs
         value={this.state.value}
         onChange={this.handleChange}
+        centered
       >
         <Tab label="Emissions Tracking" />
         <Tab label="Compliance Overview" />

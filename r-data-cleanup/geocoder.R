@@ -5,7 +5,7 @@ berdo_data <- read.csv('data/property-assessment-fy2016.csv')
 summary(berdo_data)
 
 temp <- berdo_data[1:5,]
-temp$fullAddress <- paste(temp$Address,' ',temp$ZIP)
+temp$fullAddress <- paste(temp$MAIL_ADDRESS,' ',temp$MAIL_ZIPCODE)
 
 geocodeAdddress <- function(address) {
   require(RJSONIO)
@@ -27,3 +27,6 @@ geocodeAdddress <- function(address) {
 }
 
 temp[,c('lng', 'lat', 'status')] <- t(apply(temp, 1, function(x) geocodeAdddress(x['fullAddress'])))
+
+#temp remove non null fields
+temp <- temp[grep("[[:digit:]]", temp$LATITUDE) ,]

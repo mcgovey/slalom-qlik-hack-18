@@ -31,8 +31,8 @@ class SimpleTabs extends React.Component {
             <Typography variant="title" color="inherit">
               Title
             </Typography>
+            <AppTabsHandler />
           </Toolbar>
-          <AppTabsHandler />
         </AppBar>
         {/* {value === 0 && <TabContainer>Item One</TabContainer>}
         {value === 1 && <TabContainer>Item Two</TabContainer>} */}
