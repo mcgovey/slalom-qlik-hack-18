@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
+import bbox from '@turf/bbox';
+import { lineString } from '@turf/helpers';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWNnb3ZleSIsImEiOiJjamZzYnltdDUwZGI4MzNxbDczeG5tZzJ5In0.8k2lw8EcAl9UCyNBHmvlVQ';
@@ -82,9 +84,9 @@ export default class Mapbox extends React.Component {
           },
         },
       });
-      this.moveBoundingBox();
 
       this.setState({ map });
+      this.moveBoundingBox();
     });
 
     // console.log('map', map);
@@ -133,9 +135,9 @@ export default class Mapbox extends React.Component {
 
     // console.log('sourceGeojson', sourceGeojson);
 
-    this.moveBoundingBox();
-
     this.state.map.getSource('pts').setData(sourceGeojson);
+
+    this.moveBoundingBox();
 
 
     // this.state.map.setPaintProperty('pts', 'circle-radius', {
@@ -159,7 +161,15 @@ export default class Mapbox extends React.Component {
   }
 
   moveBoundingBox = function () {
-    console.log('bounding box');
+    const pts = this.props.qData.qMatrix.map(d => [d[2].qNum, d[1].qNum]);
+    const line = lineString(pts);
+    const bound = bbox(line);
+    console.log('bounding box', this.state.map, bound);
+
+    this.state.map.fitBounds([
+      [bound[0], bound[1]],
+      [bound[2], bound[3]],
+    ], { padding: 50 });
   }
 
   render() {
