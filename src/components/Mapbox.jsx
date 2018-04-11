@@ -7,15 +7,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWNnb3ZleSIsImEiOiJjamZzYnltdDUwZGI4MzNxbDcze
 
 
 export default class Mapbox extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     lng: 5,
-  //     lat: 34,
-  //     zoom: 1.5,
-  //   };
-  // }
-
   // componentDidMount() {
   //   const { lng, lat, zoom } = this.state;
 
@@ -51,53 +42,82 @@ export default class Mapbox extends React.Component {
   // }
   static propTypes = {
     qData: PropTypes.object.isRequired,
+    qLayout: PropTypes.object.isRequired,
+    // select: PropTypes.func.isRequired,
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      map: {},
+    };
+  }
 
   componentDidMount() {
     console.log('map data', this.props.qData, 'props', this.props);
-    this.map = new mapboxgl.Map({
+
+    // const {
+    //   sourceGeojson, valMin, valMax, dotMin, dotMax,
+    // } = this.state;
+
+    const map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/mcgovey/cj4fxtkfr23bv2so0r31krygf',
-      center: [-75.272, 42.646], // starting position
+      style: 'mapbox://styles/mapbox/dark-v9',
+      center: [-71.0589, 42.3601], // starting position
+      zoom: 10,
     });
 
-    // Initialize geojson data source for points
+    const valMin = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMin;
+    const valMax = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMax;
+    const dotMin = 10;
+    const dotMax = 40;
+
+    // Build the geojson based on your hypercube data
     const sourceGeojson = {
       type: 'FeatureCollection',
-      features: [],
+      features: this.props.qData.qMatrix.map(d => ({
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [d[2].qNum, d[1].qNum],
+        },
+        properties: {
+          pid: d[0].qText,
+          // metric: d[3].qNum,
+        },
+      })),
     };
 
-    // const valMin = 1;
-    // const valMax = 50;
-    // const dotMin = 5;
-    // const dotMax = 12;
+    map.on('style.load', () => {
+      // console.log('style param', e);
+      // Add a data source
+      map.addSource('pts', {
+        type: 'geojson',
+        data: sourceGeojson,
+      });
 
-    // // Add a data source
-    // this.map.addSource('pts', {
-    //   type: 'geojson',
-    //   data: sourceGeojson,
-    // });
+      // Add a layer
+      map.addLayer({
+        id: 'pts',
+        source: 'pts',
+        type: 'circle',
+        layout: {},
+        paint: {
+          'circle-color': '#ffffff',
+          'circle-opacity': 1,
+          'circle-radius': {
+            property: 'metric',
+            stops: [
+              [valMin, dotMin],
+              [valMax, dotMax],
+            ],
+          },
+        },
+      });
+      // this.setState({ map });
+    });
 
-    // // Add a layer
-    // this.map.addLayer({
-    //   id: 'pts',
-    //   source: 'pts',
-    //   type: 'circle',
-    //   layout: {},
-    //   paint: {
-    //     circleColor: '#ffffff',
-    //     circleOpacity: 1,
-    //     circleRadius: {
-    //       property: 'metric',
-    //       stops: [
-    //         [valMin, dotMin],
-    //         [valMax, dotMax],
-    //       ],
-    //     },
-    //   },
-    // });
-
+    console.log('map', map);
     // map.on('click', 'pts', function (e) {
     // // var features = map.queryRenderedFeatures(e.point);
     // // console.log('features clicked', e.features[0]);
@@ -113,31 +133,50 @@ export default class Mapbox extends React.Component {
     // // Change it back to a pointer when it leaves.
     // map.on('mouseleave', 'pts', function () {
     // map.getCanvas().style.cursor = '';
-    // });    
+    // });
   }
 
   componentDidUpdate() {
-    console.log('updated');
+    console.log('updated', this.props, this.state, 'layout', this.props.qLayout, 'map', this.state.map);
 
-  //   var valMin = data.qHyperCube.qMeasureInfo[0].qMin,
-  //   valMax = data.qHyperCube.qMeasureInfo[0].qMax,
-  //   dotMin = 10,
-  //   dotMax = 40;
+    // const valMin = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMin;
+    // const valMax = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMax;
+    // const dotMin = 10;
+    // const dotMax = 40;
 
-  // // Build the geojson based on your hypercube data
-  // sourceGeojson.features = data.qHyperCube.qDataPages[0].qMatrix.map(function(d) {
-  //   return {
-  //     "type": "Feature",
-  //     "geometry": {
-  //       "type": "Point",
-  //       "coordinates": [d[2].qNum, d[1].qNum]
-  //     },
-  //     "properties": {
-  //       "area": d[0].qText,
-  //       "metric": d[3].qNum
-  //     }
-  //   }
-  //   });
+    // Build the geojson based on your hypercube data
+    const sourceGeojson = {
+      type: 'FeatureCollection',
+      features: this.props.qData.qMatrix.map(d => ({
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [d[2].qNum, d[1].qNum],
+        },
+        properties: {
+          pid: d[0].qText,
+          // metric: d[3].qNum,
+        },
+      })),
+    };
+
+    console.log('sourceGeojson', sourceGeojson);
+
+    this.state.map.getSource('pts').setData(sourceGeojson);
+    // this.state.map.setPaintProperty('pts', 'circle-radius', {
+    //   property: 'metric',
+    //   stops: [
+    //     [valMin, dotMin],
+    //     [valMax, dotMax],
+    //   ],
+    // });
+    // this.state.map.setPaintProperty('pts', 'circle-color', {
+    //   property: 'metric',
+    //   stops: [
+    //     [valMin, '#ece7f2'],
+    //     [valMax, '#023858'],
+    //   ],
+    // });
   }
 
   componentWillUnmount() {
