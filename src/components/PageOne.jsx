@@ -1,6 +1,7 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import QlikObject from './QlikObject';
+import QlikFilter from './QlikFilter';
 import qProps from '../qProps';
 import Mapbox from './Mapbox';
 
@@ -39,6 +40,7 @@ const PageOne = () => (
       </Paper>
       <Paper style={styles.paperRight}>
         <h4>Second Vertical component</h4>
+        <QlikObject qProp={qProps.neighborhoodList} type="qListObject" Component={QlikFilter} />
       </Paper>
     </div>
   </div>

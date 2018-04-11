@@ -77,4 +77,17 @@ qProps.buildingPts = {
   },
 };
 
+qProps.neighborhoodList = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['Neighborhood'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
+
 export default qProps;

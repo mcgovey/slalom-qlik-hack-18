@@ -29,13 +29,11 @@ class SimpleTabs extends React.Component {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="title" color="inherit">
-              Title
+              C40 Boston Building Energy
             </Typography>
             <AppTabsHandler />
           </Toolbar>
         </AppBar>
-        {/* {value === 0 && <TabContainer>Item One</TabContainer>}
-        {value === 1 && <TabContainer>Item Two</TabContainer>} */}
       </div>
     );
   }
