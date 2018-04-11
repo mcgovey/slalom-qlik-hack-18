@@ -10,6 +10,7 @@ import PageTwo from './PageTwo';
 import ErrorCard from './ErrorCard';
 import SimpleTabs from './Header';
 import LoadingIndicator from './LoadingIndicator';
+import LeftDrawer from './LeftDrawer';
 
 export default class Root extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export default class Root extends React.Component {
     this.state = {
       loading: false,
       error: false,
+      leftDrawer: false,
     };
   }
 
@@ -31,6 +33,12 @@ export default class Root extends React.Component {
     }
   }
 
+  toggleDrawer = (side, open) => () => {
+    this.setState({
+      [side]: open,
+    });
+  };
+
   render() {
     if (this.state.loading) {
       return (
@@ -43,7 +51,8 @@ export default class Root extends React.Component {
     return (
       <HashRouter>
         <div>
-          <SimpleTabs />
+          <SimpleTabs toggleDrawer={this.toggleDrawer} />
+          <LeftDrawer toggleDrawer={this.toggleDrawer} openState={this.state.leftDrawer} />
           <div className="content">
             <Switch>
               <Route exact path="/" component={PageOne} />

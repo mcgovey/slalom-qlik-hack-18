@@ -4,6 +4,8 @@ import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
+import IconButton from 'material-ui/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 import AppTabsHandler from './AppTabs';
 
 
@@ -28,6 +30,9 @@ class SimpleTabs extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
+            <IconButton onClick={this.props.toggleDrawer('leftDrawer', true)} color="inherit" aria-label="Menu">
+              <MenuIcon />
+            </IconButton>
             <Typography variant="title" color="inherit">
               C40 Boston Building Energy
             </Typography>
@@ -41,6 +46,7 @@ class SimpleTabs extends React.Component {
 
 SimpleTabs.propTypes = {
   classes: PropTypes.object.isRequired,
+  toggleDrawer: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(SimpleTabs);

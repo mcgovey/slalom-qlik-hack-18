@@ -25,10 +25,6 @@ export default class Mapbox extends React.Component {
   componentDidMount() {
     // console.log('map data', this.props.qData, 'props', this.props);
 
-    // const {
-    //   sourceGeojson, valMin, valMax, dotMin, dotMax,
-    // } = this.state;
-
     const map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/dark-v9',
@@ -109,13 +105,7 @@ export default class Mapbox extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('updated', this.props, this.state, 'layout', this.props.qLayout, 'map', this.state.map);
-
-    // const valMin = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMin;
-    // const valMax = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMax;
-    // const dotMin = 10;
-    // const dotMax = 40;
-
+    // console.log('updated', 'layout', this.props.qLayout, 'map', this.state.map);
 
     // Build the geojson based on your hypercube data
     const sourceGeojson = {
@@ -138,33 +128,17 @@ export default class Mapbox extends React.Component {
     this.state.map.getSource('pts').setData(sourceGeojson);
 
     this.moveBoundingBox();
-
-
-    // this.state.map.setPaintProperty('pts', 'circle-radius', {
-    //   property: 'metric',
-    //   stops: [
-    //     [valMin, dotMin],
-    //     [valMax, dotMax],
-    //   ],
-    // });
-    // this.state.map.setPaintProperty('pts', 'circle-color', {
-    //   property: 'metric',
-    //   stops: [
-    //     [valMin, '#ece7f2'],
-    //     [valMax, '#023858'],
-    //   ],
-    // });
   }
 
   componentWillUnmount() {
     this.map.remove();
   }
 
-  moveBoundingBox = function () {
+  moveBoundingBox() {
     const pts = this.props.qData.qMatrix.map(d => [d[2].qNum, d[1].qNum]);
     const line = lineString(pts);
     const bound = bbox(line);
-    console.log('bounding box', this.state.map, bound);
+    // console.log('bounding box', this.state.map, bound);
 
     this.state.map.fitBounds([
       [bound[0], bound[1]],
