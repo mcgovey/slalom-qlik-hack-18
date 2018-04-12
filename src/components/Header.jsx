@@ -7,6 +7,7 @@ import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AppTabsHandler from './AppTabs';
+// import CurrentSelectionsBox from './CurrentSelectionsBox';
 
 
 const styles = theme => ({

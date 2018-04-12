@@ -1,56 +1,56 @@
 import React from 'react';
-import autobind from 'autobind-decorator';
-import PropTypes from 'prop-types';
+// import autobind from 'autobind-decorator';
+// import PropTypes from 'prop-types';
 import qDocPromise from '../qDoc';
 
-const settings = {
-  qHyperCube: {
-    path: '/qHyperCubeDef',
-    dataFunc: 'getHyperCubeData',
-    selectFunc: 'selectHyperCubeValues',
-    selectArgs: {
-      path: '/qHyperCubeDef', dimIndex: 0, values: [], toggle: true,
-    },
-  },
-  qListObject: {
-    path: '/qListObjectDef',
-    dataFunc: 'getListObjectData',
-    selectFunc: 'selectListObjectValues',
-    selectArgs: { path: '/qListObjectDef', values: [], toggle: true },
-  },
-  expression: {
-    path: null,
-    dataFunc: null,
-  },
-};
+// const settings = {
+//   qHyperCube: {
+//     path: '/qHyperCubeDef',
+//     dataFunc: 'getHyperCubeData',
+//     selectFunc: 'selectHyperCubeValues',
+//     selectArgs: {
+//       path: '/qHyperCubeDef', dimIndex: 0, values: [], toggle: true,
+//     },
+//   },
+//   qListObject: {
+//     path: '/qListObjectDef',
+//     dataFunc: 'getListObjectData',
+//     selectFunc: 'selectListObjectValues',
+//     selectArgs: { path: '/qListObjectDef', values: [], toggle: true },
+//   },
+//   expression: {
+//     path: null,
+//     dataFunc: null,
+//   },
+// };
 
 export default class QlikObject extends React.Component {
-  static propTypes = {
-    type: PropTypes.oneOf(['qHyperCube', 'qListObject', 'expression']).isRequired,
-    Component: PropTypes.func.isRequired,
-    componentProps: PropTypes.object,
-    qPage: PropTypes.object,
-  };
-  static defaultProps = {
-    componentProps: {},
-    qPage: {
-      qTop: 0,
-      qLeft: 0,
-      qWidth: 10,
-      qHeight: 100,
-    },
-  }
+  // static propTypes = {
+  //   type: PropTypes.oneOf(['qHyperCube', 'qListObject', 'expression']).isRequired,
+  //   Component: PropTypes.func.isRequired,
+  //   componentProps: PropTypes.object,
+  //   qPage: PropTypes.object,
+  // };
+  // static defaultProps = {
+  //   componentProps: {},
+  //   qPage: {
+  //     qTop: 0,
+  //     qLeft: 0,
+  //     qWidth: 10,
+  //     qHeight: 100,
+  //   },
+  // }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-      updating: false,
-      error: null,
-      qLayout: {},
-      qData: {},
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     loading: true,
+  //     updating: false,
+  //     error: null,
+  //     qLayout: {},
+  //     qData: {},
+  //   };
+  // }
 
   componentWillMount() {
     this.qObjectPromise = this.create();
@@ -68,11 +68,11 @@ export default class QlikObject extends React.Component {
     return qLayout;
   }
 
-  async getData(qTop) {
-    const qObject = await this.qObjectPromise;
-    const qDataPages = await qObject[this.settings.dataFunc](this.settings.path, [{ ...this.props.qPage, qTop }]); // eslint-disable-line max-len
-    return qDataPages[0];
-  }
+  // async getData(qTop) {
+  //   const qObject = await this.qObjectPromise;
+  //   const qDataPages = await qObject[this.settings.dataFunc](this.settings.path, [{ ...this.props.qPage, qTop }]); // eslint-disable-line max-len
+  //   return qDataPages[0];
+  // }
 
   async create() {
     try {

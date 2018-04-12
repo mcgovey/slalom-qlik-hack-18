@@ -107,7 +107,7 @@ export default class QlikFilter extends React.Component {
     return (
       <Dropdown className="d-inline-block" isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle color="secondary" caret>
-          Dropdown
+          {qLayout.qListObject.qDimensionInfo.qFallbackTitle}
         </DropdownToggle>
         <DropdownMenu style={{ width: '15rem' }}>
           <Input

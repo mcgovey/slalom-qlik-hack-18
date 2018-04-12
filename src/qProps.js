@@ -90,4 +90,12 @@ qProps.neighborhoodList = {
   },
 };
 
+qProps.sessionLists = { qInfo: { qType: 'SelectionObject' }, qSelectionObjectDef: {} };
+// {
+//   qInfo: {
+//     qType: 'SessionLists',
+//   },
+//   qSelectionObjectDef: {},
+// };
+
 export default qProps;
