@@ -3,27 +3,51 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="66" y="54" />
+        <Position x="114" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Passwords />
-          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\latlon.xlsx|||`Sheet1$`</File>
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="12">C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp</File>
           <FormatSpecificOptions>
-            <FirstRowData>False</FirstRowData>
-            <ImportLine>1</ImportLine>
+            <Projection />
+            <AllStrings>False</AllStrings>
           </FormatSpecificOptions>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>latlon.xlsx
-Table=`Sheet1$`</DefaultAnnotationText>
+          <DefaultAnnotationText>Municipal_Building_Energy_Reporting_BERDO.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="LATITUDE" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\latlon.xlsx|||`Sheet1$`" type="Double" />
-            <Field name="LONGITUDE" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\latlon.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="OBJECTID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Int32" />
+            <Field name="Address" size="85" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Property_T" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Property_U" size="173" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Site_EUI" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="GHG_Intens" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="ShapeSTAre" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="ShapeSTLen" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="Reported" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Property_N" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Gross_Sq_F" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="EnergyStar" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Int32" />
+            <Field name="EnergySt_1" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Year_Built" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="GHG_Emissi" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="Site_Energ" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="Water_Inte" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="OnSite_Sol" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Owner_Subm" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="ZIP" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Tax_Parcel" size="230" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Pct_Electr" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="Pct_Gas" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="Pct_Steam" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Owner_Su_1" size="254" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Years_Repo" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="SpatialObj" size="2147483647" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="SpatialObj" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -31,7 +55,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="222" />
+        <Position x="103" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -62,7 +86,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
-        <Position x="558" y="102" />
+        <Position x="559" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -73,6 +97,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
             <Configuration outputConnection="Matched">
               <OrderChanged value="False" />
               <SelectFields>
+                <SelectField field="Universe_SpatialObj" selected="True" rename="Universe_SpatialObj" />
                 <SelectField field="*Unknown" selected="True" />
               </SelectFields>
             </Configuration>
@@ -87,30 +112,13 @@ Table=`Sheet1$`</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialMatch" />
     </Node>
-    <Node ToolID="4">
-      <GuiSettings Plugin="AlteryxSpatialPluginsGui.CreatePoints.CreatePoints">
-        <Position x="162" y="90" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Fields fieldX="LONGITUDE" fieldY="LATITUDE" />
-          <Mode>Double</Mode>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxCreatePoints" />
-    </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="654" y="66" />
+        <Position x="654" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_17220_827d593e1def45418d105e5b4da1574e_\Engine_2728_806a5f2983ae47deab51f5b6f23ac396_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18732_859522e0f7d5469ba151c00cef759793_\Engine_6884_6db3e51b9b5b4287920461e765ef35a2_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -137,11 +145,11 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="654" y="138" />
+        <Position x="654" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_17220_827d593e1def45418d105e5b4da1574e_\Engine_2728_0bfe27fdaf464691b7bf9e6075c45053_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18732_859522e0f7d5469ba151c00cef759793_\Engine_6884_545fa03cf17240048e7070c5e7045a4f_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -168,11 +176,11 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="726" y="102" />
+        <Position x="750" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File MaxRecords="" FileFormat="0">data/latlon-to-neighborhoods.csv</File>
+          <File MaxRecords="" FileFormat="0">data/objectid-to-neighborhoods.csv</File>
           <Passwords />
           <FormatSpecificOptions>
             <LineEndStyle>CRLF</LineEndStyle>
@@ -186,15 +194,18 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>latlon-to-neighborhoods.csv</DefaultAnnotationText>
+          <DefaultAnnotationText>objectid-to-neighborhoods.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="306" y="222" />
+        <Position x="355" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -213,7 +224,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="174" y="222" />
+        <Position x="223" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -231,39 +242,247 @@ Table=`Sheet1$`</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
     </Node>
-    <Node ToolID="7">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="534" y="270" />
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="402" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <File FileFormat="22" MaxRecords="">data/ma-neighborhoods.kml</File>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="OBJECTID" selected="True" />
+            <SelectField field="Centroid" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="56">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
+        <Position x="210" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SpatialObj field="SpatialObj" />
+          <SelectedItems>
+            <Item name="CentroidObj" />
+            <Item name="CentroidXY" />
+          </SelectedItems>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="270" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18732_859522e0f7d5469ba151c00cef759793_\Engine_6884_4f5802cf6c3c477c8b9c33e69187a914_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings>
+        <Position x="186" y="138" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Column">False</Value>
+          <Value name="Row">False</Value>
+          <Value name="2Dim">False</Value>
+          <Value name="GeoJSON">True</Value>
+          <Value name="SpatialObjField">SpatialObj</Value>
+          <Value name="WriteFile">True</Value>
+          <Value name="File Browse">data\building.geojson</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="C:\Users\kevin.mcgovern\Downloads\GeoJSON\JSONCreateV2.yxmc" />
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="558" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="OBJECTID" selected="True" />
+            <SelectField field="Tax_Parcel" selected="True" />
+            <SelectField field="SpatialObj" selected="True" />
+            <SelectField field="Centroid" selected="True" />
+            <SelectField field="CentroidX" selected="True" />
+            <SelectField field="CentroidY" selected="True" />
+            <SelectField field="ConcatID" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="666" y="6" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="22" MaxRecords="">data\buildareas.kml</File>
           <Passwords />
           <FormatSpecificOptions>
-            <DescField>Name</DescField>
+            <DescField>Tax_Parcel</DescField>
             <SpatialObjField>SpatialObj</SpatialObjField>
-            <NameField>RegionID</NameField>
+            <NameField>OBJECTID</NameField>
           </FormatSpecificOptions>
           <MultiFile value="False" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>ma-neighborhoods.kml</DefaultAnnotationText>
+          <DefaultAnnotationText>buildareas.kml</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
+    <Node ToolID="62">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="666" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="22" MaxRecords="">data\buildpts.kml</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <DescField>Tax_Parcel</DescField>
+            <SpatialObjField>Centroid</SpatialObjField>
+            <NameField>OBJECTID</NameField>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>buildpts.kml</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="63">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="486" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToString([OBJECTID], 0)+'|'+ToString([Tax_Parcel])" field="ConcatID" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[ConcatID = ToString([OBJECTID], 0)+'|'+ToString([Tax_Parcel])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="786" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Centroid" selected="True" type="V_String" size="2147483647" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="69">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="858" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="OBJECTID" action="GroupBy" rename="OBJECTID" />
+            <SummarizeField field="CentroidX" action="GroupBy" rename="CentroidX" />
+            <SummarizeField field="CentroidY" action="GroupBy" rename="CentroidY" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
     <Node ToolID="52">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="53" y="466" width="589" height="190" />
+        <Position x="54" y="486" width="171.0402" height="19" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Caption>GeoJson create for points</Caption>
           <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
-          <Disabled value="False" />
-          <Folded value="False" />
+          <Disabled value="True" />
+          <Folded value="True" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -274,7 +493,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
       <ChildNodes>
         <Node ToolID="48">
           <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-            <Position x="78" y="510" />
+            <Position x="79" y="530" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -291,9 +510,6 @@ Table=`Sheet1$`</DefaultAnnotationText>
 Table=`Sheet1$`</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
             <MetaInfo connection="Output">
               <RecordInfo>
                 <Field name="PID" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\pid-lat-lon.xlsx|||`Sheet1$`" type="V_String" />
@@ -306,7 +522,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="49">
           <GuiSettings Plugin="AlteryxSpatialPluginsGui.CreatePoints.CreatePoints">
-            <Position x="366" y="510" />
+            <Position x="367" y="530" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -323,7 +539,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="50">
           <GuiSettings>
-            <Position x="462" y="510" />
+            <Position x="463" y="530" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -340,19 +556,16 @@ Table=`Sheet1$`</DefaultAnnotationText>
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings Macro="C:\Users\kevin.mcgovern\Downloads\GeoJSON\JSONCreateV2.yxmc" />
         </Node>
         <Node ToolID="51">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="558" y="510" />
+            <Position x="559" y="530" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_17220_827d593e1def45418d105e5b4da1574e_\Engine_2728_884970b9fcf24c3baca7aba4c6da6fea_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_13364_4dc16f1419bd47bb8868b4eadfa040e8_\Engine_6884_1684724dbf854f1cb87e2a202de72431_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -376,7 +589,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="53">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="270" y="510" />
+            <Position x="271" y="530" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -393,7 +606,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="54">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="174" y="510" />
+            <Position x="175" y="530" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -416,7 +629,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="762" y="310" width="396" height="172" />
+        <Position x="858" y="210" width="396" height="172" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -434,14 +647,14 @@ Table=`Sheet1$`</DefaultAnnotationText>
       <ChildNodes>
         <Node ToolID="41">
           <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-            <Position x="787" y="398" />
+            <Position x="883" y="298" />
           </GuiSettings>
           <Properties>
             <Configuration>
               <SummarizeFields>
                 <SummarizeField field="Name" action="GroupBy" rename="Name" />
                 <SummarizeField field="RegionID" action="GroupBy" rename="RegionID" />
-                <SummarizeField field="SpatialObj" action="SpatialObjCombine" rename="SpatialObj" />
+                <SummarizeField field="Universe_SpatialObj" action="SpatialObjCombine" rename="SpatialObj" />
               </SummarizeFields>
             </Configuration>
             <Annotation DisplayMode="0">
@@ -454,11 +667,11 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="42">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="883" y="398" />
+            <Position x="979" y="298" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_17220_827d593e1def45418d105e5b4da1574e_\Engine_2728_23b95e5997bb442fbee1f35038e8aa56_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18732_859522e0f7d5469ba151c00cef759793_\Engine_6884_7e288503e0d94d35a3277aa3ced10563_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -485,11 +698,11 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="44">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="1074" y="354" />
+            <Position x="1170" y="254" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_17220_827d593e1def45418d105e5b4da1574e_\Engine_2728_8ffaf208d63d4092a5ac3cef160254d6_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18732_859522e0f7d5469ba151c00cef759793_\Engine_6884_f34ac6f7dffb4de4ae56d4f78c013204_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -513,7 +726,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="47">
           <GuiSettings>
-            <Position x="978" y="354" />
+            <Position x="1074" y="254" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -523,7 +736,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
               <Value name="GeoJSON">True</Value>
               <Value name="SpatialObjField">SpatialObj</Value>
               <Value name="WriteFile">True</Value>
-              <Value name="File Browse">data/bos-neighborhoods.geojson</Value>
+              <Value name="File Browse">data\bos-neighborhoods.geojson</Value>
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
@@ -540,7 +753,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="294" y="346" width="186.9118" height="19" />
+        <Position x="343" y="346" width="186.9118" height="19" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -558,7 +771,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
       <ChildNodes>
         <Node ToolID="13">
           <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
-            <Position x="319" y="530.0001" />
+            <Position x="368" y="530.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -591,7 +804,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="14">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="1135" y="506" />
+            <Position x="1184" y="506" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -622,7 +835,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="18">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="415" y="517.9999" />
+            <Position x="464.0001" y="518" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -639,7 +852,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="20">
           <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialProcess.SpatialProcess">
-            <Position x="762.9999" y="722" />
+            <Position x="811.9999" y="722" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -656,7 +869,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="21">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="715" y="662" />
+            <Position x="764" y="662" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -687,7 +900,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="22">
           <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialProcess.SpatialProcess">
-            <Position x="511" y="518" />
+            <Position x="560" y="518" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -704,7 +917,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="23">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="607" y="698" />
+            <Position x="656" y="698" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -735,7 +948,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="24">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-            <Position x="511" y="602" />
+            <Position x="560" y="602" />
           </GuiSettings>
           <Properties>
             <Configuration joinByRecordPos="False">
@@ -776,7 +989,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="25">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="607" y="614" />
+            <Position x="656" y="614" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -806,7 +1019,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="26">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-            <Position x="703" y="518" />
+            <Position x="752" y="518" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -825,7 +1038,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="27">
           <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-            <Position x="799" y="518" />
+            <Position x="848" y="518" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -845,7 +1058,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="28">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="607" y="518" />
+            <Position x="656" y="518" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -871,7 +1084,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="29">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-            <Position x="895" y="518" />
+            <Position x="944" y="518" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -890,7 +1103,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="33">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="991" y="518" />
+            <Position x="1040" y="518" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -913,7 +1126,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="30">
           <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
-            <Position x="1002" y="426" />
+            <Position x="1051" y="426" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -940,7 +1153,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="31">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="1098" y="390" />
+            <Position x="1147" y="390" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -971,7 +1184,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Node>
         <Node ToolID="32">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="1098" y="462" />
+            <Position x="1147" y="462" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1000,13 +1213,40 @@ Table=`Sheet1$`</DefaultAnnotationText>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
         </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="462" y="438" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="22" MaxRecords="">data/ma-neighborhoods.kml</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <DescField>Name</DescField>
+                <SpatialObjField>SpatialObj</SpatialObjField>
+                <NameField>RegionID</NameField>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>ma-neighborhoods.kml</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
       </ChildNodes>
     </Node>
   </Nodes>
   <Connections>
     <Connection>
       <Origin ToolID="1" Connection="Output" />
-      <Destination ToolID="4" Connection="Input" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="59" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="2" Connection="Output" />
@@ -1029,20 +1269,12 @@ Table=`Sheet1$`</DefaultAnnotationText>
       <Destination ToolID="41" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="4" Connection="Output" />
-      <Destination ToolID="3" Connection="Targets" />
-    </Connection>
-    <Connection>
       <Origin ToolID="9" Connection="Output" />
       <Destination ToolID="3" Connection="Universe" />
     </Connection>
     <Connection>
-      <Origin ToolID="4" Connection="Output" />
-      <Destination ToolID="30" Connection="Targets" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="29" Connection="Output" />
-      <Destination ToolID="30" Connection="Universe" />
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="3" Connection="Targets" />
     </Connection>
     <Connection>
       <Origin ToolID="9" Connection="Output" />
@@ -1051,6 +1283,46 @@ Table=`Sheet1$`</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="36" Connection="Output" />
       <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="30" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="30" Connection="Universe" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="Output" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="Output" />
+      <Destination ToolID="63" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="61" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="63" Connection="Output" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="68" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="48" Connection="Output" />

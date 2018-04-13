@@ -6,7 +6,7 @@ import qProps from '../qProps';
 import Mapbox from './Mapbox';
 
 const mapComponents = {
-  qTop: 0, qLeft: 0, qWidth: 3, qHeight: 3300,
+  qTop: 0, qLeft: 0, qWidth: 7, qHeight: 1400,
 };
 
 const styles = {
@@ -36,7 +36,7 @@ const PageOne = () => (
   <div>
     <div style={styles.div}>
       <Paper style={styles.paperLeft}>
-        <QlikObject qProp={qProps.buildingPts} type="qHyperCube" Component={Mapbox} qPage={mapComponents} />
+        <QlikObject qProp={qProps.properties} type="qHyperCube" Component={Mapbox} qPage={mapComponents} />
       </Paper>
       <Paper style={styles.paperRight}>
         <h4>Second Vertical component</h4>

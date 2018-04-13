@@ -92,14 +92,14 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="114" y="30" />
+        <Position x="306" y="18" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OrderChanged value="False" />
           <SelectFields>
             <SelectField field="OBJECTID" selected="True" />
-            <SelectField field="SpatialObj" selected="True" />
+            <SelectField field="Centroid" selected="True" />
             <SelectField field="*Unknown" selected="False" />
           </SelectFields>
         </Configuration>
@@ -110,106 +110,6 @@
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="15">
-      <GuiSettings>
-        <Position x="234" y="78" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="Text Box (12)">nine-inch-sea-level-rise</Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
-    </Node>
-    <Node ToolID="16">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="330" y="78" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_a02c98da1a4c4498b3c0b16889dc769c_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Map</DefaultTab>
-              <Hints>
-                <Map>
-                  <BaseMap>[No Base Map]</BaseMap>
-                </Map>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="17">
-      <GuiSettings>
-        <Position x="234" y="174" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="Text Box (12)">twentyone-inch-sea-level-rise</Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
-    </Node>
-    <Node ToolID="18">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="330" y="174" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_d878d33a443c4ed1b6062b0446499bf5_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Map</DefaultTab>
-              <Hints>
-                <Map>
-                  <BaseMap>[No Base Map]</BaseMap>
-                </Map>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
@@ -431,263 +331,13 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
     </Node>
-    <Node ToolID="26">
-      <GuiSettings>
-        <Position x="234" y="306" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="Text Box (12)">thirtysix-inch-sea-level-rise</Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
-    </Node>
-    <Node ToolID="27">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="330" y="306" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_49fbce83a65c451796251cf42ee649fc_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Map</DefaultTab>
-              <Hints>
-                <Map>
-                  <BaseMap>[No Base Map]</BaseMap>
-                </Map>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="28">
-      <GuiSettings>
-        <Position x="234" y="402" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="Text Box (12)">climate-ready-social-vulnerability</Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
-    </Node>
-    <Node ToolID="29">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="330" y="402" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_4c32855620884ccf856d648c648317ec_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Map</DefaultTab>
-              <Hints>
-                <Map>
-                  <BaseMap>[No Base Map]</BaseMap>
-                </Map>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="30">
-      <GuiSettings>
-        <Position x="234" y="486" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="Text Box (12)">groundwater-conversvation</Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
-    </Node>
-    <Node ToolID="31">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="330" y="486" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_df3f7d5a75af47fd835c2a9028e1bf2d_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Map</DefaultTab>
-              <Hints>
-                <Map>
-                  <BaseMap>[No Base Map]</BaseMap>
-                </Map>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="32">
-      <GuiSettings>
-        <Position x="234" y="594" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="Text Box (12)">fiveft-plus-sea-level-rise</Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
-    </Node>
-    <Node ToolID="33">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="330" y="594" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_a07552ca6d0247fab8f9fab02b698d88_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Map</DefaultTab>
-              <Hints>
-                <Map>
-                  <BaseMap>[No Base Map]</BaseMap>
-                </Map>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="34">
-      <GuiSettings>
-        <Position x="234" y="678" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="Text Box (12)">sevenptfiveft-plus-sea-level-rise</Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-      </Properties>
-      <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
-    </Node>
-    <Node ToolID="35">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="330" y="678" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_6f1105952d434893b0769d05ac1a82bf_.yxdb</TempFile>
-          <TempFileDataProfiling />
-          <Layout>
-            <ViewMode>Single</ViewMode>
-            <ViewSize value="100" />
-            <View1>
-              <DefaultTab>Map</DefaultTab>
-              <Hints>
-                <Map>
-                  <BaseMap>[No Base Map]</BaseMap>
-                </Map>
-                <Table />
-              </Hints>
-            </View1>
-            <View2 />
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
         <Position x="114" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_42c06d968e4c4d57baef8945777b1942_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_3abc895f4b96484da2f2db6c07df9cc5_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -703,7 +353,22 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_a760906c34c74057ab6c63c6ccf6aec9_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_a7b89a15b16940a7bbbda82af2bd44ee_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Map</DefaultTab>
+              <Hints>
+                <Map>
+                  <BaseMap>[No Base Map]</BaseMap>
+                </Map>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -719,7 +384,21 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_fbad868d78374095b05a39c2a986db77_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_001b61478a55426eac1ed5f5c691a52a_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Map</DefaultTab>
+              <Hints>
+                <Map>
+                  <BaseMap>[No Base Map]</BaseMap>
+                </Map>
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -735,7 +414,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_e171a7771b7b4ae58ca039ceb4171d51_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_3bbe27df16514094bb210f1416698a4c_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -751,7 +430,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_2470f1e5117e43678b126fee01c8a399_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_0b94c785df6b4ebba3ba7596fbcfa5ea_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -767,7 +446,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_10461f3bf8fd4ae8a624725727145d1f_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_a86cae73a40248cfa0a06343a2fa176e_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -783,7 +462,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_14684_9a29ca1657394dbd80dae1655b9ea1a0_\Engine_6884_0f4bb8d4186b441890df8a226f80f068_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_df13588648484d84a47a4e20ee693692_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -795,7 +474,7 @@
     </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
-        <Position x="510" y="498" />
+        <Position x="918" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -825,6 +504,9 @@
             <JoinInfo connection="#8">
               <Field field="OBJECTID" />
             </JoinInfo>
+            <JoinInfo connection="#9">
+              <Field field="OBJECTID" />
+            </JoinInfo>
           </JoinFields>
           <CartesianMode>Error</CartesianMode>
           <OutputJoinOnly value="False" />
@@ -833,55 +515,70 @@
               <OrderChanged value="False" />
               <SelectFields>
                 <SelectField field="Input_#2_OBJECTID" selected="True" rename="Input_#2_OBJECTID" />
-                <SelectField field="Input_#2_SpatialObj" selected="True" rename="Input_#2_SpatialObj" />
+                <SelectField field="Input_#2_Centroid" selected="True" rename="Input_#2_Centroid" />
                 <SelectField field="Input_#2_FID" selected="True" rename="Input_#2_FID" />
                 <SelectField field="Input_#2_Shape_Leng" selected="True" rename="Input_#2_Shape_Leng" />
                 <SelectField field="Input_#2_Shape_Area" selected="True" rename="Input_#2_Shape_Area" />
                 <SelectField field="Input_#2_Shape__Are" selected="True" rename="Input_#2_Shape__Are" />
                 <SelectField field="Input_#2_Shape__Len" selected="True" rename="Input_#2_Shape__Len" />
                 <SelectField field="Input_#2_Universe_SpatialObj" selected="True" rename="Input_#2_Universe_SpatialObj" />
-                <SelectField field="Input_#2_nine-inch-sea-level-rise" selected="True" rename="Input_#2_nine-inch-sea-level-rise" />
                 <SelectField field="Input_#3_OBJECTID" selected="True" rename="Input_#3_OBJECTID" />
-                <SelectField field="Input_#3_SpatialObj" selected="True" rename="Input_#3_SpatialObj" />
+                <SelectField field="Input_#3_Centroid" selected="True" rename="Input_#3_Centroid" />
                 <SelectField field="Input_#3_FID" selected="True" rename="Input_#3_FID" />
                 <SelectField field="Input_#3_Shape_Leng" selected="True" rename="Input_#3_Shape_Leng" />
                 <SelectField field="Input_#3_Shape_Area" selected="True" rename="Input_#3_Shape_Area" />
                 <SelectField field="Input_#3_Shape__Are" selected="True" rename="Input_#3_Shape__Are" />
                 <SelectField field="Input_#3_Shape__Len" selected="True" rename="Input_#3_Shape__Len" />
                 <SelectField field="Input_#3_Universe_SpatialObj" selected="True" rename="Input_#3_Universe_SpatialObj" />
-                <SelectField field="Input_#3_nine-inch-sea-level-rise" selected="True" rename="Input_#3_nine-inch-sea-level-rise" />
                 <SelectField field="Input_#4_OBJECTID" selected="True" rename="Input_#4_OBJECTID" />
-                <SelectField field="Input_#4_SpatialObj" selected="True" rename="Input_#4_SpatialObj" />
+                <SelectField field="Input_#4_Centroid" selected="True" rename="Input_#4_Centroid" />
                 <SelectField field="Input_#4_FID" selected="True" rename="Input_#4_FID" />
                 <SelectField field="Input_#4_Shape__Are" selected="True" rename="Input_#4_Shape__Are" />
                 <SelectField field="Input_#4_Shape__Len" selected="True" rename="Input_#4_Shape__Len" />
                 <SelectField field="Input_#4_Universe_SpatialObj" selected="True" rename="Input_#4_Universe_SpatialObj" />
-                <SelectField field="Input_#4_nine-inch-sea-level-rise" selected="True" rename="Input_#4_nine-inch-sea-level-rise" />
                 <SelectField field="Input_#5_OBJECTID" selected="True" rename="Input_#5_OBJECTID" />
-                <SelectField field="Input_#5_SpatialObj" selected="True" rename="Input_#5_SpatialObj" />
+                <SelectField field="Input_#5_Centroid" selected="True" rename="Input_#5_Centroid" />
                 <SelectField field="Input_#5_Universe_OBJECTID" selected="True" rename="Input_#5_Universe_OBJECTID" />
                 <SelectField field="Input_#5_Universe_SpatialObj" selected="True" rename="Input_#5_Universe_SpatialObj" />
-                <SelectField field="Input_#5_nine-inch-sea-level-rise" selected="True" rename="Input_#5_nine-inch-sea-level-rise" />
                 <SelectField field="Input_#6_OBJECTID" selected="True" rename="Input_#6_OBJECTID" />
-                <SelectField field="Input_#6_SpatialObj" selected="True" rename="Input_#6_SpatialObj" />
+                <SelectField field="Input_#6_Centroid" selected="True" rename="Input_#6_Centroid" />
                 <SelectField field="Input_#6_FID" selected="True" rename="Input_#6_FID" />
                 <SelectField field="Input_#6_Universe_OBJECTID" selected="True" rename="Input_#6_Universe_OBJECTID" />
                 <SelectField field="Input_#6_Id" selected="True" rename="Input_#6_Id" />
                 <SelectField field="Input_#6_Shape_area" selected="True" rename="Input_#6_Shape_area" />
                 <SelectField field="Input_#6_Universe_SpatialObj" selected="True" rename="Input_#6_Universe_SpatialObj" />
-                <SelectField field="Input_#6_nine-inch-sea-level-rise" selected="True" rename="Input_#6_nine-inch-sea-level-rise" />
                 <SelectField field="Input_#7_OBJECTID" selected="True" rename="Input_#7_OBJECTID" />
-                <SelectField field="Input_#7_SpatialObj" selected="True" rename="Input_#7_SpatialObj" />
+                <SelectField field="Input_#7_Centroid" selected="True" rename="Input_#7_Centroid" />
                 <SelectField field="Input_#7_FID" selected="True" rename="Input_#7_FID" />
                 <SelectField field="Input_#7_Universe_OBJECTID" selected="True" rename="Input_#7_Universe_OBJECTID" />
                 <SelectField field="Input_#7_Shape_area" selected="True" rename="Input_#7_Shape_area" />
                 <SelectField field="Input_#7_Shape_len" selected="True" rename="Input_#7_Shape_len" />
                 <SelectField field="Input_#7_Universe_SpatialObj" selected="True" rename="Input_#7_Universe_SpatialObj" />
-                <SelectField field="Input_#7_nine-inch-sea-level-rise" selected="True" rename="Input_#7_nine-inch-sea-level-rise" />
                 <SelectField field="Input_#8_OBJECTID" selected="True" rename="Input_#8_OBJECTID" />
                 <SelectField field="Input_#8_ShapeSTAre" selected="True" rename="Input_#8_ShapeSTAre" />
                 <SelectField field="Input_#8_ShapeSTLen" selected="True" rename="Input_#8_ShapeSTLen" />
-                <SelectField field="Input_#8_SpatialObj" selected="True" rename="Input_#8_SpatialObj" />
+                <SelectField field="Input_#8_Tax_Parcel" selected="True" rename="Input_#8_Tax_Parcel" />
+                <SelectField field="Input_#8_SpatialObj" selected="False" rename="Input_#8_SpatialObj" />
+                <SelectField field="Input_#9_OBJECTID" selected="False" rename="Input_#9_OBJECTID" />
+                <SelectField field="Input_#9_Name" selected="True" rename="Neighborhood" />
+                <SelectField field="Input_#2_Tax_Parcel" selected="True" rename="Input_#2_Tax_Parcel" />
+                <SelectField field="Input_#3_Tax_Parcel" selected="True" rename="Input_#3_Tax_Parcel" />
+                <SelectField field="Input_#4_Tax_Parcel" selected="True" rename="Input_#4_Tax_Parcel" />
+                <SelectField field="Input_#5_Tax_Parcel" selected="True" rename="Input_#5_Tax_Parcel" />
+                <SelectField field="Input_#6_Tax_Parcel" selected="True" rename="Input_#6_Tax_Parcel" />
+                <SelectField field="Input_#7_Tax_Parcel" selected="True" rename="Input_#7_Tax_Parcel" />
+                <SelectField field="Input_#2_SpatialObj" selected="True" rename="Input_#2_SpatialObj" />
+                <SelectField field="Input_#3_SpatialObj" selected="True" rename="Input_#3_SpatialObj" />
+                <SelectField field="Input_#4_SpatialObj" selected="True" rename="Input_#4_SpatialObj" />
+                <SelectField field="Input_#5_SpatialObj" selected="True" rename="Input_#5_SpatialObj" />
+                <SelectField field="Input_#6_SpatialObj" selected="True" rename="Input_#6_SpatialObj" />
+                <SelectField field="Input_#7_SpatialObj" selected="True" rename="Input_#7_SpatialObj" />
+                <SelectField field="Input_#2_nine-inch-sea-level-rise" selected="True" rename="Input_#2_nine-inch-sea-level-rise" />
+                <SelectField field="Input_#3_nine-inch-sea-level-rise" selected="True" rename="Input_#3_nine-inch-sea-level-rise" />
+                <SelectField field="Input_#4_nine-inch-sea-level-rise" selected="True" rename="Input_#4_nine-inch-sea-level-rise" />
+                <SelectField field="Input_#5_nine-inch-sea-level-rise" selected="True" rename="Input_#5_nine-inch-sea-level-rise" />
+                <SelectField field="Input_#6_nine-inch-sea-level-rise" selected="True" rename="Input_#6_nine-inch-sea-level-rise" />
+                <SelectField field="Input_#7_nine-inch-sea-level-rise" selected="True" rename="Input_#7_nine-inch-sea-level-rise" />
                 <SelectField field="*Unknown" selected="True" />
               </SelectFields>
             </Configuration>
@@ -897,7 +594,7 @@
     </Node>
     <Node ToolID="44">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="702" y="498" />
+        <Position x="1110" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -926,13 +623,13 @@
     </Node>
     <Node ToolID="45">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="606" y="498" />
+        <Position x="1014" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OrderChanged value="False" />
           <SelectFields>
-            <SelectField field="SpatialObj" selected="False" />
+            <SelectField field="Centroid" selected="False" />
             <SelectField field="FID" selected="False" />
             <SelectField field="Shape_Leng" selected="False" />
             <SelectField field="Shape_Area" selected="False" />
@@ -940,7 +637,7 @@
             <SelectField field="Shape__Len" selected="False" />
             <SelectField field="Universe_SpatialObj" selected="False" />
             <SelectField field="Input_#2_OBJECTID" selected="False" />
-            <SelectField field="Input_#2_SpatialObj" selected="False" />
+            <SelectField field="Input_#2_Centroid" selected="False" />
             <SelectField field="Input_#2_FID" selected="False" />
             <SelectField field="Input_#2_Shape_Leng" selected="False" />
             <SelectField field="Input_#2_Shape_Area" selected="False" />
@@ -948,7 +645,7 @@
             <SelectField field="Input_#2_Shape__Len" selected="False" />
             <SelectField field="Input_#2_Universe_SpatialObj" selected="False" />
             <SelectField field="Input_#3_OBJECTID" selected="False" />
-            <SelectField field="Input_#3_SpatialObj" selected="False" />
+            <SelectField field="Input_#3_Centroid" selected="False" />
             <SelectField field="Input_#3_FID" selected="False" />
             <SelectField field="ORIG_FID" selected="False" />
             <SelectField field="Universe_OBJECTID" selected="False" />
@@ -962,7 +659,7 @@
             <SelectField field="Input_#3_Shape__Len" selected="False" />
             <SelectField field="Input_#3_Universe_SpatialObj" selected="False" />
             <SelectField field="Input_#4_OBJECTID" selected="False" />
-            <SelectField field="Input_#4_SpatialObj" selected="False" />
+            <SelectField field="Input_#4_Centroid" selected="False" />
             <SelectField field="Input_#4_FID" selected="False" />
             <SelectField field="GEOID10" selected="False" />
             <SelectField field="AREA_SQFT" selected="False" />
@@ -981,14 +678,14 @@
             <SelectField field="Input_#4_Shape__Len" selected="False" />
             <SelectField field="Input_#4_Universe_SpatialObj" selected="False" />
             <SelectField field="Input_#5_OBJECTID" selected="False" />
-            <SelectField field="Input_#5_SpatialObj" selected="False" />
+            <SelectField field="Input_#5_Centroid" selected="False" />
             <SelectField field="Input_#5_Universe_OBJECTID" selected="False" />
             <SelectField field="ID" selected="False" />
             <SelectField field="ShapeSTAre" selected="False" />
             <SelectField field="ShapeSTLen" selected="False" />
             <SelectField field="Input_#5_Universe_SpatialObj" selected="False" />
             <SelectField field="Input_#6_OBJECTID" selected="False" />
-            <SelectField field="Input_#6_SpatialObj" selected="False" />
+            <SelectField field="Input_#6_Centroid" selected="False" />
             <SelectField field="Input_#6_FID" selected="False" />
             <SelectField field="Input_#6_Universe_OBJECTID" selected="False" />
             <SelectField field="Input_#6_Id" selected="False" />
@@ -996,7 +693,7 @@
             <SelectField field="Shape_len" selected="False" />
             <SelectField field="Input_#6_Universe_SpatialObj" selected="False" />
             <SelectField field="Input_#7_OBJECTID" selected="False" />
-            <SelectField field="Input_#7_SpatialObj" selected="False" />
+            <SelectField field="Input_#7_Centroid" selected="False" />
             <SelectField field="Input_#7_FID" selected="False" />
             <SelectField field="Input_#7_Universe_OBJECTID" selected="False" />
             <SelectField field="GRIDCODE" selected="False" />
@@ -1011,6 +708,24 @@
             <SelectField field="GHG_Intens" selected="False" />
             <SelectField field="Input_#8_ShapeSTAre" selected="False" />
             <SelectField field="Input_#8_ShapeSTLen" selected="False" />
+            <SelectField field="Input_#8_Tax_Parcel" selected="True" rename="Tax_Parcel" />
+            <SelectField field="Input_#8_SpatialObj" selected="False" />
+            <SelectField field="Input_#9_OBJECTID" selected="False" />
+            <SelectField field="Input_#9_Name" selected="False" />
+            <SelectField field="Tax_Parcel" selected="False" />
+            <SelectField field="Input_#2_Tax_Parcel" selected="False" />
+            <SelectField field="Input_#3_Tax_Parcel" selected="False" />
+            <SelectField field="Input_#4_Tax_Parcel" selected="False" />
+            <SelectField field="Input_#5_Tax_Parcel" selected="False" />
+            <SelectField field="Input_#6_Tax_Parcel" selected="False" />
+            <SelectField field="Input_#7_Tax_Parcel" selected="False" />
+            <SelectField field="SpatialObj" selected="False" />
+            <SelectField field="Input_#2_SpatialObj" selected="False" />
+            <SelectField field="Input_#3_SpatialObj" selected="False" />
+            <SelectField field="Input_#4_SpatialObj" selected="False" />
+            <SelectField field="Input_#5_SpatialObj" selected="False" />
+            <SelectField field="Input_#6_SpatialObj" selected="False" />
+            <SelectField field="Input_#7_SpatialObj" selected="False" />
             <SelectField field="Input_#2_nine-inch-sea-level-rise" selected="False" />
             <SelectField field="Input_#3_nine-inch-sea-level-rise" selected="False" />
             <SelectField field="Input_#4_nine-inch-sea-level-rise" selected="False" />
@@ -1028,14 +743,513 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
+        <Position x="210" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SpatialObj field="SpatialObj" />
+          <SelectedItems>
+            <Item name="CentroidObj" />
+          </SelectedItems>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
+    </Node>
+    <Node ToolID="48">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="438" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">testoutput.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>testoutput.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="630" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>objectid-to-neighborhoods.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="OBJECTID" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="V_String" />
+            <Field name="Name" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="V_String" />
+            <Field name="RegionID" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="822" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="OBJECTID" selected="True" type="Int64" size="8" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="726" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="OBJECTID" selected="True" />
+            <Field field="Name" selected="True" />
+            <Field field="RegionID" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="OBJECTID" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="Int16" />
+            <Field name="Name" size="17" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="V_String" />
+            <Field name="RegionID" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="Int32" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="377.9999" y="89.99998" width="205.0001" height="728" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Spatial Lookup</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="15">
+          <GuiSettings>
+            <Position x="403" y="134" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">nine-inch-sea-level-rise</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="499" y="134" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_d36f18180d0643449cb6aebee1c730de_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>[No Base Map]</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings>
+            <Position x="403" y="230" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">twentyone-inch-sea-level-rise</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="18">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="499" y="230" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_c805315c041f4ba8912ef60d47fc5b8b_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>[No Base Map]</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="26">
+          <GuiSettings>
+            <Position x="403" y="362" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">thirtysix-inch-sea-level-rise</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="499" y="362" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_3b3429f2a5134accadde10d8eb972c3b_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>[No Base Map]</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings>
+            <Position x="402.9999" y="458" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">climate-ready-social-vulnerability</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="29">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="499" y="458" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_dab0961e2c5c41f7bb29858e87f9be54_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>[No Base Map]</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="30">
+          <GuiSettings>
+            <Position x="402.9999" y="542" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">groundwater-conversvation</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="31">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="499" y="542" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_bbb7a177ef16484e981a74366c84ab9f_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>[No Base Map]</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="32">
+          <GuiSettings>
+            <Position x="403" y="650" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">fiveft-plus-sea-level-rise</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="33">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="499" y="650" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_028ee9e11ce040e6a4671732158fd210_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>[No Base Map]</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="34">
+          <GuiSettings>
+            <Position x="402.9999" y="734" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">sevenptfiveft-plus-sea-level-rise</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="35">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="499" y="734" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_b680f6faaf4e461c985b0b9b5806ecde_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Map</DefaultTab>
+                  <Hints>
+                    <Map>
+                      <BaseMap>[No Base Map]</BaseMap>
+                    </Map>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+      </ChildNodes>
+    </Node>
   </Nodes>
   <Connections>
-    <Connection>
-      <Origin ToolID="5" Connection="Output" />
-      <Destination ToolID="14" Connection="Input" />
-    </Connection>
     <Connection name="#8">
       <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection name="#9">
+      <Origin ToolID="52" Connection="Output" />
       <Destination ToolID="43" Connection="Input" />
     </Connection>
     <Connection name="#1">
@@ -1065,6 +1279,10 @@
     <Connection name="#7">
       <Origin ToolID="34" Connection="Output11" />
       <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="Output" />
@@ -1127,12 +1345,8 @@
       <Destination ToolID="30" Connection="ShapeFile" />
     </Connection>
     <Connection>
-      <Origin ToolID="15" Connection="Output11" />
-      <Destination ToolID="16" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="17" Connection="Output11" />
-      <Destination ToolID="18" Connection="Input" />
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="19" Connection="Output" />
@@ -1159,6 +1373,34 @@
       <Destination ToolID="42" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output11" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output11" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
       <Origin ToolID="26" Connection="Output11" />
       <Destination ToolID="27" Connection="Input" />
     </Connection>
@@ -1177,14 +1419,6 @@
     <Connection>
       <Origin ToolID="34" Connection="Output11" />
       <Destination ToolID="35" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="43" Connection="Output" />
-      <Destination ToolID="45" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="45" Connection="Output" />
-      <Destination ToolID="44" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

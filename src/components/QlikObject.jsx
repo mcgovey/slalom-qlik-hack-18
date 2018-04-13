@@ -2,6 +2,7 @@ import React from 'react';
 import autobind from 'autobind-decorator';
 import PropTypes from 'prop-types';
 import qDocPromise from '../qDoc';
+import LoadingIndicator from './LoadingIndicator';
 
 const settings = {
   qHyperCube: {
@@ -104,7 +105,7 @@ export default class QlikObject extends React.Component {
 
   async update(qTop = this.state.qData.qArea.qTop) {
     this.setState({ updating: true });
-    const [qLayout, qData] = await Promise.all([this.getLayout(), (this.props.type === 'expression' ? '' : this.getData(qTop))]);
+    const [qLayout, qData] = await Promise.all([this.getLayout(), this.getData(qTop)]);
     this.setState({ updating: false, qLayout, qData });
   }
 
@@ -149,7 +150,7 @@ export default class QlikObject extends React.Component {
     if (this.state.error) {
       return <div>{this.state.error.message}</div>;
     } else if (this.state.loading) {
-      return <div>Loading...</div>;
+      return <LoadingIndicator size={50} marginLeft="0%" />;// <div>Loading...</div>;
     }
     const { Component } = this.props;
     return (<Component

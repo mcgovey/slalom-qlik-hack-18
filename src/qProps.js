@@ -57,7 +57,6 @@ qProps.buildingPts = {
       qDef: {
         qDef: 'MAX(LATITUDE)',
         qLabel: 'Latitude',
-        qSuppressMissing: true,
         // qNumFormat: {
         //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
         // },
@@ -67,13 +66,84 @@ qProps.buildingPts = {
       qDef: {
         qDef: 'MAX(LONGITUDE)',
         qLabel: 'Longitude',
-        qSuppressMissing: true,
         // qNumFormat: {
         //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
         // },
       },
       qSortBy: { qSortByNumeric: -1 },
     }],
+    qSuppressMissing: true,
+    // qSuppressZero: true,
+  },
+};
+
+qProps.properties = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qHyperCubeDef: {
+    qDimensions:
+      [{
+        qDef: {
+          qFieldDefs: ['OBJECTID'],
+          qFieldLabels: ['Property'],
+          qSortCriterias: [{ qSortByAscii: 1 }],
+          // qSuppressMissing: true,
+        },
+      },
+      {
+        qDef: {
+          qFieldDefs: ['buildpts.Point'],
+          qFieldLabels: ['Points'],
+          qSortCriterias: [{ qSortByAscii: 1 }],
+          qSuppressMissing: true,
+        },
+      },
+      {
+        qDef: {
+          qFieldDefs: ['buildareas.Area'],
+          qFieldLabels: ['Area'],
+        },
+      }],
+    qMeasures: [{
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Site EUI (kBTU/sf)])',
+        qLabel: 'EUI',
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      // qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Intensity (kgCO2/sf)])',
+        qLabel: 'GHG Intensity',
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      // qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Energy Star Score])',
+        qLabel: 'Energy Star Score',
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      // qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Onsite Renewable (kWh)])',
+        qLabel: 'Onsite Renewable Generation',
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      // qSortBy: { qSortByNumeric: -1 },
+    }],
+    // qSuppressMissing: true,
+    // qSuppressZero: true,
   },
 };
 
@@ -91,11 +161,5 @@ qProps.neighborhoodList = {
 };
 
 qProps.sessionLists = { qInfo: { qType: 'SelectionObject' }, qSelectionObjectDef: {} };
-// {
-//   qInfo: {
-//     qType: 'SessionLists',
-//   },
-//   qSelectionObjectDef: {},
-// };
 
 export default qProps;

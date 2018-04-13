@@ -6,8 +6,10 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import AppTabsHandler from './AppTabs';
-// import CurrentSelectionsBox from './CurrentSelectionsBox';
+// import AppTabsHandler from './AppTabs';
+// <AppTabsHandler />
+import CurrentSelectionsBox from './CurrentSelectionsBox';
+// <CurrentSelectionsBox />
 
 
 const styles = theme => ({
@@ -37,9 +39,9 @@ class SimpleTabs extends React.Component {
             <Typography variant="title" color="inherit">
               C40 Boston Building Energy
             </Typography>
-            <AppTabsHandler />
           </Toolbar>
         </AppBar>
+        <CurrentSelectionsBox />
       </div>
     );
   }

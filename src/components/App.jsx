@@ -42,7 +42,7 @@ export default class Root extends React.Component {
   render() {
     if (this.state.loading) {
       return (
-        <LoadingIndicator />
+        <LoadingIndicator size={100} marginLeft="45%" />
       );
     } else if (this.state.error) {
       return <ErrorCard error={this.state.error} />;
