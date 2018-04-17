@@ -34,8 +34,6 @@ class QlikCurrentSelections extends React.Component {
   // };
 
   handleDelete = data => () => {
-    console.log('data deleted', data);
-
     this.props.clearSelections(data.qField);
     // const chipData = [...this.state.chipData];
     // const chipToDelete = chipData.indexOf(data);

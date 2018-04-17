@@ -6,11 +6,10 @@ import {
 } from 'react-router-dom';
 import qDocPromise from '../qDoc';
 import PageOne from './PageOne';
-import PageTwo from './PageTwo';
+// import PageTwo from './PageTwo';
 import ErrorCard from './ErrorCard';
-import SimpleTabs from './Header';
+import Header from './Header';
 import LoadingIndicator from './LoadingIndicator';
-import LeftDrawer from './LeftDrawer';
 
 export default class Root extends React.Component {
   constructor(props) {
@@ -48,15 +47,21 @@ export default class Root extends React.Component {
       return <ErrorCard error={this.state.error} />;
     }
 
+    // <Route path="/compliance" component={PageTwo} />
     return (
       <HashRouter>
         <div>
-          <SimpleTabs toggleDrawer={this.toggleDrawer} />
-          <LeftDrawer toggleDrawer={this.toggleDrawer} openState={this.state.leftDrawer} />
+          <Header toggleDrawer={this.toggleDrawer} />
           <div className="content">
             <Switch>
-              <Route exact path="/" component={PageOne} />
-              <Route path="/compliance" component={PageTwo} />
+              <Route
+                exact
+                path="/"
+                render={() => (<PageOne
+                  drawerOpenState={this.state.leftDrawer}
+                  toggleDrawer={this.toggleDrawer}
+                />)}
+              />
             </Switch>
           </div>
         </div>

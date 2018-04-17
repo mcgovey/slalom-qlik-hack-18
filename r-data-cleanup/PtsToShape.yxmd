@@ -118,7 +118,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18732_859522e0f7d5469ba151c00cef759793_\Engine_6884_6db3e51b9b5b4287920461e765ef35a2_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_1192_2b180f20a0f54e4d897287612d8f17f0_\Engine_6884_7ed3af1009d44cb28376e4a661651766_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -149,7 +149,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18732_859522e0f7d5469ba151c00cef759793_\Engine_6884_545fa03cf17240048e7070c5e7045a4f_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_1192_2b180f20a0f54e4d897287612d8f17f0_\Engine_6884_39ae3ba002be4e63bc849bbd37c9d665_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -289,7 +289,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18732_859522e0f7d5469ba151c00cef759793_\Engine_6884_4f5802cf6c3c477c8b9c33e69187a914_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_1192_2b180f20a0f54e4d897287612d8f17f0_\Engine_6884_b991a6fdff8944bfa33c4d1544e93ff3_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -472,6 +472,24 @@
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="70">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="954" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="CentroidX" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>CentroidX - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
     </Node>
     <Node ToolID="52">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
@@ -671,7 +689,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18732_859522e0f7d5469ba151c00cef759793_\Engine_6884_7e288503e0d94d35a3277aa3ced10563_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_1192_2b180f20a0f54e4d897287612d8f17f0_\Engine_6884_37c58d8e7262460a86d2fda6d9182cfc_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -702,7 +720,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18732_859522e0f7d5469ba151c00cef759793_\Engine_6884_f34ac6f7dffb4de4ae56d4f78c013204_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_1192_2b180f20a0f54e4d897287612d8f17f0_\Engine_6884_8dbd0530acd44cf1a765638500be6c53_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1323,6 +1341,10 @@ Table=`Sheet1$`</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="68" Connection="Output" />
       <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="69" Connection="Output" />
+      <Destination ToolID="70" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="48" Connection="Output" />

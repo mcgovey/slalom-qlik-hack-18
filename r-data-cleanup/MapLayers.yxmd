@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="18" y="30" />
+        <Position x="54" y="66" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -19,9 +19,6 @@
           <DefaultAnnotationText>Municipal_Building_Energy_Reporting_BERDO.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="OBJECTID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Int32" />
@@ -58,7 +55,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="18" y="126" />
+        <Position x="54" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -74,9 +71,6 @@
           <DefaultAnnotationText>9inch_Sea_Level_Rise_High_Tide.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="FID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\9inch_Sea_Level_Rise_High_Tide.shp" type="Int32" />
@@ -92,7 +86,7 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="306" y="18" />
+        <Position x="342" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -113,7 +107,7 @@
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="18" y="210" />
+        <Position x="54" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -129,9 +123,6 @@
           <DefaultAnnotationText>21inch_Sea_Level_Rise_High_Tide.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="FID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\21inch_Sea_Level_Rise_High_Tide.shp" type="Int32" />
@@ -147,7 +138,7 @@
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="18" y="306" />
+        <Position x="54" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -163,9 +154,6 @@
           <DefaultAnnotationText>36inch_Sea_Level_Rise_High_Tide.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="FID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\36inch_Sea_Level_Rise_High_Tide.shp" type="Int32" />
@@ -187,7 +175,7 @@
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="18" y="414" />
+        <Position x="54" y="450" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -203,9 +191,6 @@
           <DefaultAnnotationText>Climate_Ready_Boston_Social_Vulnerability.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="FID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Int32" />
@@ -232,7 +217,7 @@
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="18" y="498" />
+        <Position x="54" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -248,9 +233,6 @@
           <DefaultAnnotationText>Groundwater_Conservation_Overlay_District.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="OBJECTID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Groundwater_Conservation_Overlay_District.shp" type="Int32" />
@@ -265,7 +247,7 @@
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="18" y="606" />
+        <Position x="54" y="642" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -281,9 +263,6 @@
           <DefaultAnnotationText>Sea_Level_rise_plus_5_feet.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="FID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Sea_Level_rise_plus_5_feet.shp" type="Int32" />
@@ -299,7 +278,7 @@
     </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="18" y="690" />
+        <Position x="54" y="726" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -315,9 +294,6 @@
           <DefaultAnnotationText>Sea_Level_Rise_Plus_7.5_Feet.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="FID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Sea_Level_Rise_Plus_7.5_Feet.shp" type="Int32" />
@@ -333,7 +309,7 @@
     </Node>
     <Node ToolID="36">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="114" y="126" />
+        <Position x="150" y="162" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -349,7 +325,7 @@
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="114" y="210" />
+        <Position x="150" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -380,7 +356,7 @@
     </Node>
     <Node ToolID="38">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="114" y="306" />
+        <Position x="150" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -410,7 +386,7 @@
     </Node>
     <Node ToolID="39">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="114" y="414" />
+        <Position x="150" y="450" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -426,11 +402,18 @@
     </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="114" y="498" />
+        <Position x="150" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_0b94c785df6b4ebba3ba7596fbcfa5ea_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -442,7 +425,7 @@
     </Node>
     <Node ToolID="41">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="114" y="606" />
+        <Position x="150" y="642" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -458,7 +441,7 @@
     </Node>
     <Node ToolID="42">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="114" y="690" />
+        <Position x="150" y="726" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -474,7 +457,7 @@
     </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
-        <Position x="918" y="306" />
+        <Position x="954" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -594,7 +577,7 @@
     </Node>
     <Node ToolID="44">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1110" y="306" />
+        <Position x="1146" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -615,15 +598,12 @@
           <DefaultAnnotationText>final-buildings-to-shp-map.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="45">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1014" y="306" />
+        <Position x="1050" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -745,7 +725,7 @@
     </Node>
     <Node ToolID="47">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
-        <Position x="210" y="18" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -764,7 +744,7 @@
     </Node>
     <Node ToolID="48">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="438" y="18" />
+        <Position x="474" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -781,15 +761,12 @@
           <DefaultAnnotationText>testoutput.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="50">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="630" y="390" />
+        <Position x="666" y="426" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -811,9 +788,6 @@
           <DefaultAnnotationText>objectid-to-neighborhoods.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="OBJECTID" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="V_String" />
@@ -826,7 +800,7 @@
     </Node>
     <Node ToolID="52">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="822" y="390" />
+        <Position x="858" y="426" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -846,7 +820,7 @@
     </Node>
     <Node ToolID="53">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
-        <Position x="726" y="390" />
+        <Position x="762" y="426" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -874,7 +848,7 @@
     </Node>
     <Node ToolID="49">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="377.9999" y="89.99998" width="205.0001" height="728" />
+        <Position x="413" y="126" width="301" height="728" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -892,7 +866,7 @@
       <ChildNodes>
         <Node ToolID="15">
           <GuiSettings>
-            <Position x="403" y="134" />
+            <Position x="439" y="170" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -903,15 +877,12 @@
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="16">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="499" y="134" />
+            <Position x="535" y="170" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -942,7 +913,7 @@
         </Node>
         <Node ToolID="17">
           <GuiSettings>
-            <Position x="403" y="230" />
+            <Position x="439" y="266" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -953,15 +924,12 @@
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="18">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="499" y="230" />
+            <Position x="535" y="266" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -992,7 +960,7 @@
         </Node>
         <Node ToolID="26">
           <GuiSettings>
-            <Position x="403" y="362" />
+            <Position x="439" y="398.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1003,15 +971,12 @@
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="27">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="499" y="362" />
+            <Position x="535" y="398" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1042,7 +1007,7 @@
         </Node>
         <Node ToolID="28">
           <GuiSettings>
-            <Position x="402.9999" y="458" />
+            <Position x="438.9999" y="494" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1053,15 +1018,12 @@
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="29">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="499" y="458" />
+            <Position x="535" y="494" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1092,7 +1054,7 @@
         </Node>
         <Node ToolID="30">
           <GuiSettings>
-            <Position x="402.9999" y="542" />
+            <Position x="438" y="582" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1103,15 +1065,12 @@
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="31">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="499" y="542" />
+            <Position x="630" y="582" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1142,7 +1101,7 @@
         </Node>
         <Node ToolID="32">
           <GuiSettings>
-            <Position x="403" y="650" />
+            <Position x="439" y="686" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1153,15 +1112,12 @@
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="33">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="499" y="650" />
+            <Position x="535" y="686" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1192,7 +1148,7 @@
         </Node>
         <Node ToolID="34">
           <GuiSettings>
-            <Position x="402.9999" y="734" />
+            <Position x="438.9999" y="770" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1203,15 +1159,12 @@
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="35">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="499" y="734" />
+            <Position x="535" y="770" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1239,6 +1192,25 @@
             </Annotation>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="54">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="534" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
         </Node>
       </ChildNodes>
     </Node>
@@ -1410,7 +1382,7 @@
     </Connection>
     <Connection>
       <Origin ToolID="30" Connection="Output11" />
-      <Destination ToolID="31" Connection="Input" />
+      <Destination ToolID="54" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="32" Connection="Output11" />
@@ -1419,6 +1391,10 @@
     <Connection>
       <Origin ToolID="34" Connection="Output11" />
       <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

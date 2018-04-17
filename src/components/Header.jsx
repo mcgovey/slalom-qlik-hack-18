@@ -21,7 +21,7 @@ const styles = theme => ({
 });
 
 
-class SimpleTabs extends React.Component {
+class Header extends React.Component {
   // <NavLink to="/" style={{ textDecoration: 'none' }}><Tab label="Emissions Tracking" /></NavLink>
   // <NavLink to="/compliance"><Tab label="Compliance Overview" /></NavLink>
 
@@ -47,9 +47,9 @@ class SimpleTabs extends React.Component {
   }
 }
 
-SimpleTabs.propTypes = {
+Header.propTypes = {
   classes: PropTypes.object.isRequired,
   toggleDrawer: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(SimpleTabs);
+export default withStyles(styles)(Header);
