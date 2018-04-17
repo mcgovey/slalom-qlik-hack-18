@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
-import bbox from '@turf/bbox';
-import { lineString } from '@turf/helpers';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import MapNewLayers from './MapNewLayers';
+import QlikObject from './QlikObject';
+import qProps from '../qProps';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWNnb3ZleSIsImEiOiJjamZzYnltdDUwZGI4MzNxbDczeG5tZzJ5In0.8k2lw8EcAl9UCyNBHmvlVQ';
 
 
 export default class Mapbox extends React.Component {
   static propTypes = {
-    qData: PropTypes.object.isRequired,
-    qLayout: PropTypes.object.isRequired,
+    // qData: PropTypes.object.isRequired,
+    // qLayout: PropTypes.object.isRequired,
     // select: PropTypes.func.isRequired,
     mapSelections: PropTypes.object.isRequired,
   };
@@ -25,10 +26,23 @@ export default class Mapbox extends React.Component {
   // }
 
 
+  // static setLayerVisibility(mapSelections, layer, map) {
+  //   // Object.keys(mapSelections).map((layer) => {
+  //   console.log('called props', mapSelections, layer, map);
+  //   // const visibility = this.state.map.getLayoutProperty(layer, 'visibility');
+  //   // console.log('visibility', visibility);
+  //   if (mapSelections[layer]) {
+  //     map.setLayoutProperty(layer, 'visibility', 'visible');
+  //   } else {
+  //     map.setLayoutProperty(layer, 'visibility', 'none');
+  //   }
+  //   // return layer;
+  //   // });
+  // }
+
   constructor(props) {
     super(props);
     this.state = {
-      // map: {},
     };
   }
 
@@ -41,134 +55,44 @@ export default class Mapbox extends React.Component {
       center: [-71.0589, 42.3601], // starting position
       zoom: 10,
     });
-    // console.log('map', map);
 
-    // const featureData = this.props.qData.qMatrix.filter(d => d[1].qText !== '-');
+    // const geoJSON = this.createJSONObjs();
 
-    // // Build the geojson based on your data
-    // const sourceGeojson = {
-    //   type: 'FeatureCollection',
-    //   features: featureData.map(d => ({
-    //     type: 'Feature',
-    //     geometry: {
-    //       type: 'Point',
-    //       coordinates: [JSON.parse(d[1].qText)[0], JSON.parse(d[1].qText)[1]],
-    //     },
-    //     properties: {
-    //       objectid: d[0].qText,
-    //       // metric: d[3].qNum,
-    //     },
-    //   })),
-    // };
-
-    // // Build the geojson based on your data
-    // const sourceBuildingGeojson = {
-    //   type: 'FeatureCollection',
-    //   features: featureData.map(d => ({
-    //     type: 'Feature',
-    //     geometry: {
-    //       type: 'MultiPolygon',
-    //       coordinates: JSON.parse(d[2].qText),
-    //     },
-    //     properties: {
-    //       objectid: d[0].qText,
-    //       // metric: d[3].qNum,
-    //     },
-    //   })),
-    // };
-    // console.log('map', sourceBuildingGeojson, sourceGeojson, this.props.select);
-
-    const geoJSON = this.createJSONObjs();
-
-    const valMin = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMin;
-    const valMax = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMax;
-    const dotMin = 10;
-    const dotMax = 40;
+    // const valMin = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMin;
+    // const valMax = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMax;
+    // const dotMin = 10;
+    // const dotMax = 40;
 
     map.on('style.load', () => {
-      // console.log('style param', e);
-      // Add a data source
-      map.addSource('pts', {
-        type: 'geojson',
-        data: geoJSON.sourceGeojson,
+      this.setState({
+        map,
       });
-      map.addSource('building-shapes', {
-        type: 'geojson',
-        data: geoJSON.sourceBuildingGeojson,
-      });
-
-
-      // Add a layer
-      map.addLayer({
-        id: 'pts',
-        source: 'pts',
-        type: 'circle',
-        minzoom: 7,
-        maxzoom: 12,
-        layout: {},
-        paint: {
-          'circle-color': '#ffffff',
-          'circle-opacity': 1,
-          'circle-radius': {
-            property: 'metric',
-            stops: [
-              [valMin, dotMin],
-              [valMax, dotMax],
-            ],
-          },
-        },
-      });
-
-      // Add a layer
-      map.addLayer({
-        id: 'building-shapes',
-        source: 'building-shapes',
-        type: 'fill',
-        minzoom: 12,
-        layout: {},
-        paint: {
-          'fill-color': '#fff',
-          'fill-opacity': 0.8,
-        },
-      });
-      // this.setLayerState(this.state.layerState);
-      this.setState({ map });
-      this.setLayerVisibility(this.props.mapSelections);
-      this.moveBoundingBox(geoJSON.sourceGeojson);
     });
 
-    // Object.keys(this.props.mapSelections).map((layer) => {
-    //   this.makeSelections(layer, 'OBJECTID');
-    //   return true;
-    // });
+    Object.keys(this.props.mapSelections).map((layer) => {
+      if (layer !== 'pts') {
+        console.log('layer', layer);
+      }
+      return true;
+    });
   }
 
   componentDidUpdate() {
-    const geoJSON = this.createJSONObjs();
+    // const geoJSON = this.createJSONObjs();
 
-    this.state.map.getSource('pts').setData(geoJSON.sourceGeojson);
-    this.state.map.getSource('building-shapes').setData(geoJSON.sourceBuildingGeojson);
-    this.setLayerVisibility(this.props.mapSelections);
+    // this.state.map.getSource('pts').setData(geoJSON.sourceGeojson);
+    // this.state.map.getSource('building-shapes').setData(geoJSON.sourceBuildingGeojson);
+    // this.setLayerVisibility(this.props.mapSelections);
 
-    this.moveBoundingBox(geoJSON.sourceGeojson);
+    // this.moveBoundingBox(geoJSON.sourceGeojson);
   }
   componentWillUnmount() {
     this.map.remove();
   }
 
-  setLayerVisibility(mapSelections) {
-    Object.keys(mapSelections).map((layer) => {
-      console.log('called props', layer, this.state.map);
-      // const visibility = this.state.map.getLayoutProperty(layer, 'visibility');
-      // console.log('visibility', visibility);
-      if (mapSelections[layer]) {
-        this.state.map.setLayoutProperty(layer, 'visibility', 'visible');
-      } else {
-        this.state.map.setLayoutProperty(layer, 'visibility', 'none');
-      }
-      return layer;
-    });
-  }
+  // renderExistingLayers() {
+  //   console.log('layer rendering');
+  // }
 
   makeSelections(layer, field) {
     // console.log('map', map);
@@ -190,66 +114,6 @@ export default class Mapbox extends React.Component {
     });
   }
 
-  createJSONObjs() {
-    const featureData = this.props.qData.qMatrix.filter(d => d[1].qText !== '-');
-
-    // Build the geojson based on your data
-    const sourceGeojson = {
-      type: 'FeatureCollection',
-      features: featureData.map(d => ({
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [JSON.parse(d[1].qText)[0], JSON.parse(d[1].qText)[1]],
-        },
-        properties: {
-          objectid: d[0].qText,
-          // metric: d[3].qNum,
-        },
-      })),
-    };
-
-    // Build the geojson based on your data
-    const sourceBuildingGeojson = {
-      type: 'FeatureCollection',
-      features: featureData.map(d => ({
-        type: 'Feature',
-        geometry: {
-          type: 'MultiPolygon',
-          coordinates: JSON.parse(d[2].qText),
-        },
-        properties: {
-          objectid: d[0].qText,
-          // metric: d[3].qNum,
-        },
-      })),
-    };
-    return {
-      sourceGeojson,
-      sourceBuildingGeojson,
-    };
-  }
-
-
-  moveBoundingBox(sourceGeojson) {
-    if (sourceGeojson.features.length > 1) {
-      const pts = sourceGeojson.features.map(d => d.geometry.coordinates);
-      const line = lineString(pts);
-      const bound = bbox(line);
-      // console.log('bounding box', this.state.map, bound);
-
-      this.state.map.fitBounds([
-        [bound[0], bound[1]],
-        [bound[2], bound[3]],
-      ], { padding: 50 });
-    } else if (sourceGeojson.features.length === 1) {
-      this.state.map.flyTo({
-        center: sourceGeojson.features[0].geometry.coordinates,
-        zoom: 15,
-      });
-    }
-  }
-
   render() {
     const style = {
       // position: 'absolute',
@@ -259,7 +123,24 @@ export default class Mapbox extends React.Component {
       width: '100%',
       textAlign: 'left',
     };
+    const mapComponents = {
+      qTop: 0, qLeft: 0, qWidth: 7, qHeight: 1000,
+    };
 
-    return <div style={style} ref={(el) => { this.mapContainer = el; }} />;
+    return (
+      <div style={style} ref={(el) => { this.mapContainer = el; }}>
+        <QlikObject
+          qProp={qProps.properties}
+          type="qHyperCube"
+          Component={MapNewLayers}
+          qPage={mapComponents}
+          componentProps={{
+            makeSelections: this.makeSelections,
+            map: this.state.map,
+            mapSelections: this.props.mapSelections,
+          }}
+        />
+      </div>
+    );
   }
 }

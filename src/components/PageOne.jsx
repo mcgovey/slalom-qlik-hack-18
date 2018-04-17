@@ -7,10 +7,6 @@ import qProps from '../qProps';
 import Mapbox from './Mapbox';
 import LeftDrawer from './LeftDrawer';
 
-const mapComponents = {
-  qTop: 0, qLeft: 0, qWidth: 7, qHeight: 1000,
-};
-// mapSelections
 
 const styles = {
   div: {
@@ -46,9 +42,11 @@ class PageOne extends React.Component {
     this.state = {
       mapSelections: {
         pts: true,
+        neighborhoods: true,
         'sea-level-rise': false,
         'groundwater-conversvation': false,
         'climate-ready-social-vulnerability': false,
+        'city-council-districts': false,
       },
     };
   }
@@ -72,13 +70,7 @@ class PageOne extends React.Component {
         />
         <div style={styles.div}>
           <Paper style={styles.paperLeft}>
-            <QlikObject
-              qProp={qProps.properties}
-              type="qHyperCube"
-              Component={Mapbox}
-              qPage={mapComponents}
-              componentProps={this.state}
-            />
+            <Mapbox mapSelections={this.state.mapSelections} />
           </Paper>
           <Paper style={styles.paperRight}>
             <h4>Second Vertical component</h4>

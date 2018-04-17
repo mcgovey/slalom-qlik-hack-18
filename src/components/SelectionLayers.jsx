@@ -48,6 +48,16 @@ class SelectionLayers extends React.Component {
           <FormControlLabel
             control={
               <Switch
+                checked={this.props.mapSelections.neighborhoods}
+                onChange={this.handleChange('neighborhoods')}
+                value="neighborhoods"
+              />
+            }
+            label="Neighborhoods"
+          />
+          <FormControlLabel
+            control={
+              <Switch
                 checked={this.props.mapSelections['sea-level-rise']}
                 onChange={this.handleChange('sea-level-rise')}
                 value="sea-level-rise"
@@ -74,6 +84,16 @@ class SelectionLayers extends React.Component {
               />
             }
             label="Climate Ready Social Vulnerability"
+          />
+          <FormControlLabel
+            control={
+              <Switch
+                checked={this.props.mapSelections['city-council-districts']}
+                onChange={this.handleChange('city-council-districts')}
+                value="city-council-districts"
+              />
+            }
+            label="City Council Districts"
           />
         </FormGroup>
         <FormHelperText>Select to enable on map</FormHelperText>
