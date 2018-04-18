@@ -86,7 +86,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
-        <Position x="559" y="210" />
+        <Position x="558" y="210" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -118,7 +118,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_10512_87106ebc6a5f45dbb21ee83013a2ad43_\Engine_8236_37839bb5bd3249348d84ebe68c06af11_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_12364_1b796b2d912e452286dbffabb885fdb1_\Engine_15284_553d2683de8e416ca88c0ee71f598aa8_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -149,7 +149,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_10512_87106ebc6a5f45dbb21ee83013a2ad43_\Engine_8236_b23614e75c804420af25079922adee58_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_12364_1b796b2d912e452286dbffabb885fdb1_\Engine_15284_ab1a9fda917d43f29f7d6095eb5fdad1_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -176,7 +176,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="750" y="282" />
+        <Position x="774" y="222" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -286,7 +286,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_10512_87106ebc6a5f45dbb21ee83013a2ad43_\Engine_8236_99881991f7c14e7ebc3db4800c5494d8_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_12364_1b796b2d912e452286dbffabb885fdb1_\Engine_15284_f230fbb46e7f483dbf4bfe56d90b814b_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -635,7 +635,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="858" y="258" width="396" height="204" />
+        <Position x="858" y="258" width="396" height="251" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -677,7 +677,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_10512_87106ebc6a5f45dbb21ee83013a2ad43_\Engine_8236_65a48c5366234894b901503d87bf5beb_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_12364_1b796b2d912e452286dbffabb885fdb1_\Engine_15284_28f0b9b5acef43608cdff554f9f541e9_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -708,7 +708,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_10512_87106ebc6a5f45dbb21ee83013a2ad43_\Engine_8236_3835a5f887f744a79152913f44339119_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_12364_1b796b2d912e452286dbffabb885fdb1_\Engine_15284_82d83df88ee3467e90f442f54a2851dd_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -752,24 +752,31 @@ Table=`Sheet1$`</DefaultAnnotationText>
           </Properties>
           <EngineSettings Macro="C:\Users\kevin.mcgovern\Downloads\GeoJSON\JSONCreateV2.yxmc" />
         </Node>
-        <Node ToolID="71">
-          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-            <Position x="990" y="378" />
+        <Node ToolID="72">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1026" y="378" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <SummarizeFields>
-                <SummarizeField field="RegionID" action="Min" rename="Min_RegionID" />
-                <SummarizeField field="RegionID" action="Max" rename="Max_RegionID" />
-              </SummarizeFields>
+              <File FileFormat="22" MaxRecords="">data/bos-neighborhoods.kml</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <DescField>RegionID</DescField>
+                <SpatialObjField>SpatialObj</SpatialObjField>
+                <NameField>Name</NameField>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
-              <DefaultAnnotationText />
+              <DefaultAnnotationText>bos-neighborhoods.kml</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
           </Properties>
-          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
         </Node>
       </ChildNodes>
     </Node>
@@ -1380,7 +1387,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="41" Connection="Output" />
-      <Destination ToolID="71" Connection="Input" />
+      <Destination ToolID="72" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="47" Connection="Output" />

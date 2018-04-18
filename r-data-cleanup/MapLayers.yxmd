@@ -313,7 +313,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_3abc895f4b96484da2f2db6c07df9cc5_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_ee401bdcea4c4a80add9398a0c9f86d4_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -329,7 +329,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_a7b89a15b16940a7bbbda82af2bd44ee_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_230bed63786e4dbc8158abccc1447134_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -360,7 +360,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_001b61478a55426eac1ed5f5c691a52a_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_a5565dd3522f4920af7311302efaf675_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -371,6 +371,7 @@
                 <Map>
                   <BaseMap>[No Base Map]</BaseMap>
                 </Map>
+                <Table />
               </Hints>
             </View1>
             <View2 />
@@ -390,7 +391,22 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_3bbe27df16514094bb210f1416698a4c_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_786b2198d550431ba0216322c863c3c4_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Map</DefaultTab>
+              <Hints>
+                <Map>
+                  <BaseMap>[No Base Map]</BaseMap>
+                </Map>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -406,13 +422,21 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_0b94c785df6b4ebba3ba7596fbcfa5ea_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_ee6775127ce74b0595703c033cbe931a_.yxdb</TempFile>
+          <TempFileDataProfiling />
           <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
             <View1>
+              <DefaultTab>Map</DefaultTab>
               <Hints>
+                <Map>
+                  <BaseMap>[No Base Map]</BaseMap>
+                </Map>
                 <Table />
               </Hints>
             </View1>
+            <View2 />
           </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -429,7 +453,22 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_a86cae73a40248cfa0a06343a2fa176e_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_86d7395a98a8402cbe53e8ee34e874d1_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Map</DefaultTab>
+              <Hints>
+                <Map>
+                  <BaseMap>[No Base Map]</BaseMap>
+                </Map>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -445,7 +484,14 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_df13588648484d84a47a4e20ee693692_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_cb1ab8cd6536492694e021f99c3066f7_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -640,8 +686,8 @@
             <SelectField field="Input_#3_Universe_SpatialObj" selected="False" />
             <SelectField field="Input_#4_OBJECTID" selected="False" />
             <SelectField field="Input_#4_Centroid" selected="False" />
-            <SelectField field="Input_#4_FID" selected="False" />
-            <SelectField field="GEOID10" selected="False" />
+            <SelectField field="Input_#4_FID" selected="True" rename="climate-ready-social-vulnerability" />
+            <SelectField field="GEOID10" selected="True" rename="climate-ready-social-vulnerability-geoid" />
             <SelectField field="AREA_SQFT" selected="False" />
             <SelectField field="AREA_ACRES" selected="False" />
             <SelectField field="POP100_RE" selected="False" />
@@ -657,6 +703,7 @@
             <SelectField field="Input_#4_Shape__Are" selected="False" />
             <SelectField field="Input_#4_Shape__Len" selected="False" />
             <SelectField field="Input_#4_Universe_SpatialObj" selected="False" />
+            <SelectField field="climate-ready-social-vulnerability" selected="True" rename="climate-ready-social-vulnerability-flag" />
             <SelectField field="Input_#5_OBJECTID" selected="False" />
             <SelectField field="Input_#5_Centroid" selected="False" />
             <SelectField field="Input_#5_Universe_OBJECTID" selected="False" />
@@ -886,7 +933,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_d36f18180d0643449cb6aebee1c730de_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_a8b95517092f43f298ff0b54b8224457_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -933,7 +980,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_c805315c041f4ba8912ef60d47fc5b8b_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_4200a7db4c144319aa1c7b3db2b123de_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -980,7 +1027,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_3b3429f2a5134accadde10d8eb972c3b_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_7622bac4f73042d0b74c22c67ce7d120_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1027,7 +1074,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_dab0961e2c5c41f7bb29858e87f9be54_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_4ef6f20c39524607bf30c920de907016_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1074,7 +1121,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_bbb7a177ef16484e981a74366c84ab9f_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_f3fa73205c76499098404e382d1b368d_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1121,7 +1168,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_028ee9e11ce040e6a4671732158fd210_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_3adda7d0c1314131b6826146dfef4e75_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1168,7 +1215,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18580_51173d38265d485ba312b5d55ff0862f_\Engine_6884_b680f6faaf4e461c985b0b9b5806ecde_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_2aa512133fd64fa0bb1ccb2e16f0feed_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>

@@ -3,124 +3,174 @@ import PropTypes from 'prop-types';
 import bbox from '@turf/bbox';
 import { lineString } from '@turf/helpers';
 
+// const layerOptions = {
+//   pts: {
+//     layerName: 'pts',
+//     type: 'circle',
+//     enableSelection: false,
+//   },
+//   'building-shapes': {
+//     layerName: 'building-shapes',
+//     color: {
+//       measureNum: 0,
+//       minHex: '#000',
+//       maxHex: '#fff',
+//     },
+//     type: 'fill',
+//     enableSelection: true,
+//   },
+//   neighborhoods: {
+//     layerName: 'neighborhoods',
+//     color: {
+//       measureNum: 0,
+//       minHex: '#000',
+//       maxHex: '#fff',
+//     },
+//     type: 'fill',
+//     moveBbox: {
+//       type: 'multipolygon',
+//     },
+//     enableSelection: true,
+//   },
+// };
+
 export default class MapNewLayers extends React.Component {
   static propTypes = {
     qData: PropTypes.object.isRequired,
     qLayout: PropTypes.object.isRequired,
+    select: PropTypes.func.isRequired,
     mapSelections: PropTypes.object.isRequired,
     map: PropTypes.object.isRequired,
-    select: PropTypes.func.isRequired,
+    options: PropTypes.object.isRequired,
   };
+
+  static getDerivedStateFromProps(nextProps) {
+    console.log('exist layer props', nextProps);
+
+    if (nextProps.map) {
+      console.log('map drawn', nextProps);
+      // const { map, layerName, visibilityState } = nextProps;
+      // // console.log('map drawn', map, layerName, visibilityState);
+      // map.setLayoutProperty(layerName, 'visibility', visibilityState ? 'visible' : 'none');
+      // map.setPaintProperty(layerName, 'circle-radius', {
+      //   property: 'metric',
+      //   stops: [
+      //     [valMin, '#fff'],
+      //     [valMax, '#000']
+      //   ]
+      // });
+    }
+    return nextProps;
+  }
 
   constructor(props) {
     super(props);
     this.state = {
       map: this.props.map,
+      colorVals: {
+        valMin: 0,
+        valMax: 10,
+        dotMin: 10,
+        dotMax: 40,
+      },
     };
   }
 
   componentDidMount() {
-    console.log('map data', this.props, 'layout', this.props.qLayout, 'sel', this.props.mapSelections);
+    const geoJSON = this.createJSONObj();
 
-    const geoJSON = this.createJSONObjs();
+    const { map, colorVals } = this.state;
+    const { options, qLayout } = this.props;
 
-    const { map } = this.state;
+    console.log('geoJSON', options, geoJSON);
 
-    const valMin = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMin;
-    const valMax = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMax;
-    const dotMin = 10;
-    const dotMax = 40;
+    if (options.color) {
+      colorVals.valMin = qLayout.qHyperCube.qMeasureInfo[options.color.measureNum].qMin;
+      colorVals.valMax = qLayout.qHyperCube.qMeasureInfo[options.color.measureNum].qMax;
+      colorVals.dotMin = options.color.dotMin || colorVals.dotMin;
+      colorVals.dotMax = options.color.dotMax || colorVals.dotMax;
+    }
+    // const valMin = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMin;
+    // const valMax = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMax
+    // const dotMin = 10;
+    // const dotMax = 40;
 
-    // map.on('style.load', () => {
-    // console.log('style param', e);
     // Add a data source
-    map.addSource('pts', {
+    map.addSource(options.layerName, {
       type: 'geojson',
-      data: geoJSON.sourceGeojson,
-    });
-    map.addSource('building-shapes', {
-      type: 'geojson',
-      data: geoJSON.sourceBuildingGeojson,
+      data: geoJSON,
     });
 
-
-    // Add a layer
-    map.addLayer({
-      id: 'pts',
-      source: 'pts',
-      type: 'circle',
-      minzoom: 10,
-      maxzoom: 12,
-      layout: {},
-      paint: {
+    let paintVal;
+    if (options.type === 'circle') {
+      paintVal = {
         'circle-color': '#ffffff',
         'circle-opacity': 1,
         'circle-radius': {
-          property: 'metric',
+          property: 'colorByMeasure',
           stops: [
-            [valMin, dotMin],
-            [valMax, dotMax],
+            [colorVals.valMin, colorVals.dotMin],
+            [colorVals.valMax, colorVals.dotMax],
           ],
         },
-      },
-    });
+      };
+    } else if (options.type === 'fill') {
+      paintVal = {
+        'fill-color': '#fff',
+        'fill-opacity': 0.8,
+      };
+    }
 
     // Add a layer
     map.addLayer({
-      id: 'building-shapes',
-      source: 'building-shapes',
-      type: 'fill',
-      minzoom: 12,
+      id: options.layerName,
+      source: options.layerName,
+      type: options.type,
+      minzoom: options.minZoom || 0,
+      maxzoom: options.maxZoom || 22,
       layout: {},
-      paint: {
-        'fill-color': '#fff',
-        'fill-opacity': 0.8,
-      },
+      paint: paintVal,
     });
-    // this.setLayerState(this.state.layerState);
-    // this.setState({ map });
 
-    // this.props.setLayerVisibility(this.props.mapSelections);
-    this.moveBoundingBox(geoJSON.sourceGeojson);
-    // });
-    this.setLayerVisibility('pts');
-    this.makeSelections('building-shapes', 'OBJECTID', 0);
+    // will need to add logic for polygons
+    if (options.moveBbox) {
+      this.moveBoundingBox(geoJSON);
+    }
 
-    // Object.keys(this.props.mapSelections).map((layer) => {
-    //   this.makeSelections(layer, 'OBJECTID');
-    //   return true;
-    // });
+    this.setLayerVisibility(options.layerName);
+
+    if (options.enableSelection) {
+      this.makeSelections('building-shapes', 0);
+    }
   }
 
   componentDidUpdate() {
-    const geoJSON = this.createJSONObjs();
+    const geoJSON = this.createJSONObj();
 
+    const { map } = this.state;
+    const { options } = this.props;
 
-    // console.log('geoJSON', geoJSON, this.state.map);
+    console.log('geoJSON', options.layerName, geoJSON);
 
-    this.state.map.getSource('pts').setData(geoJSON.sourceGeojson);
-    this.state.map.getSource('building-shapes').setData(geoJSON.sourceBuildingGeojson);
+    map.getSource(options.layerName).setData(geoJSON);
 
-    this.setLayerVisibility('pts');
+    // will need to add logic for polygons
+    if (options.moveBbox) {
+      this.moveBoundingBox(geoJSON);
+    }
 
-    this.moveBoundingBox(geoJSON.sourceGeojson);
+    this.setLayerVisibility(options.layerName);
   }
   componentWillUnmount() {
     // this.map.remove();
   }
 
   setLayerVisibility(layer) {
-    // Object.keys(mapSelections).map((layer) => {
-    console.log('called props', this.props.mapSelections, layer);
-    // const visibility = this.state.map.getLayoutProperty(layer, 'visibility');
-    // console.log('visibility', visibility);
     if (this.props.mapSelections[layer]) {
       this.state.map.setLayoutProperty(layer, 'visibility', 'visible');
     } else {
       this.state.map.setLayoutProperty(layer, 'visibility', 'none');
     }
-    // return layer;
-    // });
   }
 
   moveBoundingBox(sourceGeojson) {
@@ -141,15 +191,9 @@ export default class MapNewLayers extends React.Component {
       });
     }
   }
-  makeSelections(layer, field, fieldNo) {
-    // console.log('map', map);
+  makeSelections(layer, fieldNo) {
     this.state.map.on('click', layer, (e) => {
-      // var features = map.queryRenderedFeatures(e.point);
-      console.log('features clicked', e.features[0], Number(fieldNo), [Number(e.features[0].properties.qElemNumber)], this.props.select);
-      // this.props.select(+fieldNo, e.features[0].properties.qElemNumber);
       this.props.select(Number(e.features[0].properties.qElemNumber), Number(fieldNo));
-      // app.field( fieldName ).selectValues([e.features[0].properties.area], false, false);
-      // document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
     });
 
     // Change the cursor to a pointer when the mouse is over the places layer.
@@ -163,8 +207,10 @@ export default class MapNewLayers extends React.Component {
     });
   }
 
-  createJSONObjs() {
-    const featureData = this.props.qData.qMatrix.filter(d => d[1].qText !== '-');
+  createJSONObj() {
+    const { qData, options } = this.props;
+
+    const featureData = qData.qMatrix.filter(d => d[1].qText !== '-');
 
     // Build the geojson based on your data
     const sourceGeojson = {
@@ -172,37 +218,19 @@ export default class MapNewLayers extends React.Component {
       features: featureData.map(d => ({
         type: 'Feature',
         geometry: {
-          type: 'Point',
-          coordinates: [JSON.parse(d[1].qText)[0], JSON.parse(d[1].qText)[1]],
+          type: options.type === 'circle' ? 'Point' : 'MultiPolygon',
+          coordinates: options.type === 'circle' ? [JSON.parse(d[1].qText)[0], JSON.parse(d[1].qText)[1]] : JSON.parse(d[1].qText),
         },
         properties: {
-          objectid: d[0].qText,
+          dim: d[0].qText,
           qElemNumber: d[0].qElemNumber,
+          colorByMeasure: d[2].qNum,
           // metric: d[3].qNum,
         },
       })),
     };
 
-    // Build the geojson based on your data
-    const sourceBuildingGeojson = {
-      type: 'FeatureCollection',
-      features: featureData.map(d => ({
-        type: 'Feature',
-        geometry: {
-          type: 'MultiPolygon',
-          coordinates: JSON.parse(d[2].qText),
-        },
-        properties: {
-          objectid: d[0].qText,
-          qElemNumber: d[0].qElemNumber,
-          // metric: d[3].qNum,
-        },
-      })),
-    };
-    return {
-      sourceGeojson,
-      sourceBuildingGeojson,
-    };
+    return sourceGeojson;
   }
 
   render() {

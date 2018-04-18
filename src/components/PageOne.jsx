@@ -39,14 +39,53 @@ class PageOne extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       mapSelections: {
         pts: true,
+        'building-shapes': true,
         neighborhoods: true,
         'sea-level-rise': false,
         'groundwater-conversvation': false,
         'climate-ready-social-vulnerability': false,
         'city-council-districts': false,
+      },
+      mapLayerProps: {
+        pts: {
+          type: 'qHyperCube',
+          selectionField: 'OBJECTID',
+          builtBy: 'qlik',
+        },
+        'building-shapes': {
+          type: 'qHyperCube',
+          selectionField: 'OBJECTID',
+          builtBy: 'qlik',
+        },
+        neighborhoods: {
+          type: 'qHyperCube',
+          selectionField: 'Neighborhood',
+          builtBy: 'qlik',
+        },
+        'sea-level-rise': {
+          type: 'qListObject',
+          selectionField: 'Sea Level Rise Limit',
+          builtBy: 'mapbox',
+        },
+        'groundwater-conversvation': {
+          type: 'qListObject',
+          selectionField: 'Groundwater Conservation',
+          builtBy: 'mapbox',
+        },
+        'climate-ready-social-vulnerability': {
+          type: 'qListObject',
+          selectionField: 'Climate-Ready Social Vulnerability',
+          builtBy: 'mapbox',
+        },
+        'city-council-districts': {
+          type: 'qListObject',
+          selectionField: 'city-council-districts-id',
+          builtBy: 'mapbox',
+        },
       },
     };
   }
@@ -70,7 +109,10 @@ class PageOne extends React.Component {
         />
         <div style={styles.div}>
           <Paper style={styles.paperLeft}>
-            <Mapbox mapSelections={this.state.mapSelections} />
+            <Mapbox
+              mapSelections={this.state.mapSelections}
+              mapLayerProps={this.state.mapLayerProps}
+            />
           </Paper>
           <Paper style={styles.paperRight}>
             <h4>Second Vertical component</h4>

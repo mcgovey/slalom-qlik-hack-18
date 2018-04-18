@@ -9,13 +9,45 @@ import qProps from '../qProps';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWNnb3ZleSIsImEiOiJjamZzYnltdDUwZGI4MzNxbDczeG5tZzJ5In0.8k2lw8EcAl9UCyNBHmvlVQ';
 
-const layerFieldNameMap = {
-  neighborhoods: 'Neighborhood',
-  'sea-level-rise': 'sea-levl-rise',
-  'groundwater-conversvation': 'Groundwater Conservation',
-  'climate-ready-social-vulnerability': 'Climate-Ready Social Vulnerability',
-  'city-council-districts': 'city-council-districts-id',
+const layerOptions = {
+  pts: {
+    layerName: 'pts',
+    type: 'circle',
+    color: {
+      measureNum: 0,
+      minHex: '#fff',
+      maxHex: '#fff',
+    },
+    moveBbox: {
+      type: 'line',
+    },
+    enableSelection: false,
+    minZoom: 10,
+    maxZoom: 12,
+  },
+  'building-shapes': {
+    layerName: 'building-shapes',
+    type: 'fill',
+    color: {
+      measureNum: 0,
+      minHex: '#000',
+      maxHex: '#fff',
+    },
+    enableSelection: true,
+    minZoom: 12,
+  },
+  neighborhoods: {
+    layerName: 'neighborhoods',
+    type: 'fill',
+    color: {
+      measureNum: 0,
+      minHex: '#000',
+      maxHex: '#fff',
+    },
+    enableSelection: true,
+  },
 };
+
 
 export default class Mapbox extends React.Component {
   static propTypes = {
@@ -23,6 +55,7 @@ export default class Mapbox extends React.Component {
     // qLayout: PropTypes.object.isRequired,
     // select: PropTypes.func.isRequired,
     mapSelections: PropTypes.object.isRequired,
+    mapLayerProps: PropTypes.object.isRequired,
   };
   // static getDerivedStateFromProps(nextProps, prevState) {
   //   console.log('called props', nextProps, prevState);
@@ -33,20 +66,6 @@ export default class Mapbox extends React.Component {
   //   return nextProps;
   // }
 
-
-  // static setLayerVisibility(mapSelections, layer, map) {
-  //   // Object.keys(mapSelections).map((layer) => {
-  //   console.log('called props', mapSelections, layer, map);
-  //   // const visibility = this.state.map.getLayoutProperty(layer, 'visibility');
-  //   // console.log('visibility', visibility);
-  //   if (mapSelections[layer]) {
-  //     map.setLayoutProperty(layer, 'visibility', 'visible');
-  //   } else {
-  //     map.setLayoutProperty(layer, 'visibility', 'none');
-  //   }
-  //   // return layer;
-  //   // });
-  // }
 
   constructor(props) {
     super(props);
@@ -64,81 +83,65 @@ export default class Mapbox extends React.Component {
       zoom: 10,
     });
 
-    // const geoJSON = this.createJSONObjs();
-
-    // const valMin = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMin;
-    // const valMax = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMax;
-    // const dotMin = 10;
-    // const dotMax = 40;
-
     map.on('style.load', () => {
       this.setState({
         map,
-        // renderedLayers,
       });
     });
   }
 
-  componentDidUpdate() {
-    // const geoJSON = this.createJSONObjs();
-
-    // this.state.map.getSource('pts').setData(geoJSON.sourceGeojson);
-    // this.state.map.getSource('building-shapes').setData(geoJSON.sourceBuildingGeojson);
-    // this.setLayerVisibility(this.props.mapSelections);
-
-    // this.moveBoundingBox(geoJSON.sourceGeojson);
-  }
-  // componentWillReceiveProps()
   componentWillUnmount() {
     this.map.remove();
   }
 
-  makeSelections(layer, field) {
-    // console.log('map', map);
-    this.state.map.on('click', layer, (e) => {
-      // var features = map.queryRenderedFeatures(e.point);
-      console.log('features clicked', e.features[0], field);
-      // app.field( fieldName ).selectValues([e.features[0].properties.area], false, false);
-      // document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
-    });
-
-    // Change the cursor to a pointer when the mouse is over the places layer.
-    this.state.map.on('mouseenter', layer, () => {
-      this.state.map.getCanvas().style.cursor = 'pointer';
-    });
-
-    // Change it back to a pointer when it leaves.
-    this.state.map.on('mouseleave', layer, () => {
-      this.state.map.getCanvas().style.cursor = '';
-    });
-  }
-
-
-  renderExistingLayers() {
-    return (
-      Object.keys(this.props.mapSelections).map((layer) => {
-        if (layer !== 'pts') {
-        // if (layer === 'neighborhoods') {
-          return this.renderIndividualLayer(layer);
-        }
-        return '';
-      })
-    );
-    // console.log('layer rendering');
-  }
-  renderIndividualLayer(layer) {
+  renderNewIndividualLayer(layer) {
+    const mapComponents = {
+      qTop: 0, qLeft: 0, qWidth: 7, qHeight: 500,
+    };
     return (
       <QlikObject
         key={layer}
         qProp={qProps[layer]}
-        type="qListObject"
+        type={this.props.mapLayerProps[layer].type}
+        Component={MapNewLayers}
+        qPage={mapComponents}
+        componentProps={{
+          options: layerOptions[layer],
+          map: this.state.map,
+          mapSelections: this.props.mapSelections,
+        }}
+      />
+    );
+  }
+
+  renderLayers() {
+    return (
+      Object.keys(this.props.mapLayerProps).map((layer) => {
+        if (this.props.mapLayerProps[layer].builtBy === 'mapbox') {
+        // if (layer === 'neighborhoods') {
+          return this.renderExistingIndividualLayer(layer);
+        } else if (this.props.mapLayerProps[layer].builtBy === 'qlik' && layer !== 'neighborhoods') {
+          // console.log('built by qlik');
+          return this.renderNewIndividualLayer(layer);
+        }
+        return '';
+      })
+    );
+  }
+  renderExistingIndividualLayer(layer) {
+    return (
+      <QlikObject
+        key={layer}
+        qProp={qProps[layer]}
+        type={this.props.mapLayerProps[layer].type}
         Component={MapExistingLayers}
         // qPage={mapComponents}
         componentProps={{
           layerName: layer,
           visibilityState: this.props.mapSelections[layer],
           map: this.state.map,
-          fieldName: layerFieldNameMap[layer],
+          fieldName: this.props.mapLayerProps[layer].selectionField,
+          dataType: this.props.mapLayerProps[layer].type,
         }}
       />
     );
@@ -153,24 +156,10 @@ export default class Mapbox extends React.Component {
       width: '100%',
       textAlign: 'left',
     };
-    const mapComponents = {
-      qTop: 0, qLeft: 0, qWidth: 7, qHeight: 1000,
-    };
 
     return (
       <div style={style} ref={(el) => { this.mapContainer = el; }}>
-        <QlikObject
-          qProp={qProps.properties}
-          type="qHyperCube"
-          Component={MapNewLayers}
-          qPage={mapComponents}
-          componentProps={{
-            makeSelections: this.makeSelections,
-            map: this.state.map,
-            mapSelections: this.props.mapSelections,
-          }}
-        />
-        {this.renderExistingLayers()}
+        {this.renderLayers()}
       </div>
     );
   }
