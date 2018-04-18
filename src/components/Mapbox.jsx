@@ -120,7 +120,7 @@ export default class Mapbox extends React.Component {
         if (this.props.mapLayerProps[layer].builtBy === 'mapbox') {
         // if (layer === 'neighborhoods') {
           return this.renderExistingIndividualLayer(layer);
-        } else if (this.props.mapLayerProps[layer].builtBy === 'qlik' && layer !== 'neighborhoods') {
+        } else if (this.props.mapLayerProps[layer].builtBy === 'qlik') {
           // console.log('built by qlik');
           return this.renderNewIndividualLayer(layer);
         }

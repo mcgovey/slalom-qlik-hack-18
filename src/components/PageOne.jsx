@@ -42,7 +42,7 @@ class PageOne extends React.Component {
 
     this.state = {
       mapSelections: {
-        pts: true,
+        pts: false,
         'building-shapes': true,
         neighborhoods: true,
         'sea-level-rise': false,

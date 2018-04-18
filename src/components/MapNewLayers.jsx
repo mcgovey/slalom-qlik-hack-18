@@ -79,8 +79,8 @@ export default class MapNewLayers extends React.Component {
   componentDidMount() {
     const geoJSON = this.createJSONObj();
 
-    const { map, colorVals } = this.state;
-    const { options, qLayout } = this.props;
+    const { colorVals } = this.state;
+    const { map, options, qLayout } = this.props;
 
     console.log('geoJSON', options, geoJSON);
 
@@ -147,8 +147,8 @@ export default class MapNewLayers extends React.Component {
   componentDidUpdate() {
     const geoJSON = this.createJSONObj();
 
-    const { map } = this.state;
-    const { options } = this.props;
+    // const { map } = this.state;
+    const { options, map } = this.props;
 
     console.log('geoJSON', options.layerName, geoJSON);
 
