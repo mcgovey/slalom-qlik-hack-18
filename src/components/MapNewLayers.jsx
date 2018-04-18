@@ -9,6 +9,7 @@ export default class MapNewLayers extends React.Component {
     qLayout: PropTypes.object.isRequired,
     mapSelections: PropTypes.object.isRequired,
     map: PropTypes.object.isRequired,
+    select: PropTypes.func.isRequired,
   };
 
   constructor(props) {
@@ -48,7 +49,7 @@ export default class MapNewLayers extends React.Component {
       id: 'pts',
       source: 'pts',
       type: 'circle',
-      minzoom: 7,
+      minzoom: 10,
       maxzoom: 12,
       layout: {},
       paint: {
@@ -83,7 +84,7 @@ export default class MapNewLayers extends React.Component {
     this.moveBoundingBox(geoJSON.sourceGeojson);
     // });
     this.setLayerVisibility('pts');
-    this.makeSelections('pts', 'OBJECTID');
+    this.makeSelections('building-shapes', 'OBJECTID', 0);
 
     // Object.keys(this.props.mapSelections).map((layer) => {
     //   this.makeSelections(layer, 'OBJECTID');
@@ -140,11 +141,13 @@ export default class MapNewLayers extends React.Component {
       });
     }
   }
-  makeSelections(layer, field) {
+  makeSelections(layer, field, fieldNo) {
     // console.log('map', map);
     this.state.map.on('click', layer, (e) => {
       // var features = map.queryRenderedFeatures(e.point);
-      console.log('features clicked', e.features[0], field);
+      console.log('features clicked', e.features[0], Number(fieldNo), [Number(e.features[0].properties.qElemNumber)], this.props.select);
+      // this.props.select(+fieldNo, e.features[0].properties.qElemNumber);
+      this.props.select(Number(e.features[0].properties.qElemNumber), Number(fieldNo));
       // app.field( fieldName ).selectValues([e.features[0].properties.area], false, false);
       // document.getElementById('features').innerHTML = JSON.stringify(features, null, 2);
     });
@@ -174,6 +177,7 @@ export default class MapNewLayers extends React.Component {
         },
         properties: {
           objectid: d[0].qText,
+          qElemNumber: d[0].qElemNumber,
           // metric: d[3].qNum,
         },
       })),
@@ -190,6 +194,7 @@ export default class MapNewLayers extends React.Component {
         },
         properties: {
           objectid: d[0].qText,
+          qElemNumber: d[0].qElemNumber,
           // metric: d[3].qNum,
         },
       })),

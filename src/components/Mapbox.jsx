@@ -24,14 +24,14 @@ export default class Mapbox extends React.Component {
     // select: PropTypes.func.isRequired,
     mapSelections: PropTypes.object.isRequired,
   };
-  static getDerivedStateFromProps(nextProps, prevState) {
-    console.log('called props', nextProps, prevState);
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   console.log('called props', nextProps, prevState);
 
-    if (prevState.map) {
-      console.log('map drawn');
-    }
-    return nextProps;
-  }
+  //   if (prevState.map) {
+  //     console.log('map drawn');
+  //   }
+  //   return nextProps;
+  // }
 
 
   // static setLayerVisibility(mapSelections, layer, map) {
@@ -72,16 +72,9 @@ export default class Mapbox extends React.Component {
     // const dotMax = 40;
 
     map.on('style.load', () => {
-      const renderedLayers = Object.keys(this.props.mapSelections).map((layer) => {
-        if (layer !== 'pts') {
-          console.log('layer', layer);
-          return this.renderExistingLayers(layer);
-        }
-        return '';
-      });
       this.setState({
         map,
-        renderedLayers,
+        // renderedLayers,
       });
     });
   }
@@ -121,8 +114,19 @@ export default class Mapbox extends React.Component {
   }
 
 
-  renderExistingLayers(layer) {
+  renderExistingLayers() {
+    return (
+      Object.keys(this.props.mapSelections).map((layer) => {
+        if (layer !== 'pts') {
+        // if (layer === 'neighborhoods') {
+          return this.renderIndividualLayer(layer);
+        }
+        return '';
+      })
+    );
     // console.log('layer rendering');
+  }
+  renderIndividualLayer(layer) {
     return (
       <QlikObject
         key={layer}
@@ -166,7 +170,7 @@ export default class Mapbox extends React.Component {
             mapSelections: this.props.mapSelections,
           }}
         />
-        {this.state.renderedLayers}
+        {this.renderExistingLayers()}
       </div>
     );
   }

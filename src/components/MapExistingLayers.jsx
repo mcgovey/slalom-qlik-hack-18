@@ -11,11 +11,14 @@ export default class MapNewLayers extends React.Component {
     layerName: PropTypes.string.isRequired,
   };
 
-  static getDerivedStateFromProps(nextProps, prevState) {
-    console.log('called props', nextProps, prevState);
+  static getDerivedStateFromProps(nextProps) {
+    console.log('exist layer props', nextProps);
 
-    if (prevState.map) {
-      console.log('map drawn');
+    if (nextProps.map) {
+      // console.log('map drawn', nextProps);
+      const { map, layerName, visibilityState } = nextProps;
+      console.log('map drawn', map, layerName, visibilityState);
+      map.setLayoutProperty(layerName, 'visibility', visibilityState ? 'visible' : 'none');
     }
     return nextProps;
   }
@@ -28,7 +31,7 @@ export default class MapNewLayers extends React.Component {
   }
 
   componentDidMount() {
-    console.log('map data', this.props, this.props.visibilityState, this.props.fieldName);
+    console.log('map data', this.props, this.props.fieldName, this.props.visibilityState, this.props.layerName);
     // const { map, layerName, visibilityState } = this.props;
     // map.setLayoutProperty(layerName, 'visibility', visibilityState ? 'visible' : 'none');
 
@@ -104,7 +107,7 @@ export default class MapNewLayers extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('map data', this.props, this.props.visibilityState, this.props.fieldName);
+    // console.log('map data', this.props, this.props.visibilityState, this.props.fieldName);
     // const { map, layerName, visibilityState } = this.props;
     // map.setLayoutProperty(layerName, 'visibility', visibilityState ? 'visible' : 'none');
     // const geoJSON = this.createJSONObjs();
