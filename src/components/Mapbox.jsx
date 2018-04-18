@@ -3,11 +3,19 @@ import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapNewLayers from './MapNewLayers';
+import MapExistingLayers from './MapExistingLayers';
 import QlikObject from './QlikObject';
 import qProps from '../qProps';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWNnb3ZleSIsImEiOiJjamZzYnltdDUwZGI4MzNxbDczeG5tZzJ5In0.8k2lw8EcAl9UCyNBHmvlVQ';
 
+const layerFieldNameMap = {
+  neighborhoods: 'Neighborhood',
+  'sea-level-rise': 'sea-levl-rise',
+  'groundwater-conversvation': 'Groundwater Conservation',
+  'climate-ready-social-vulnerability': 'Climate-Ready Social Vulnerability',
+  'city-council-districts': 'city-council-districts-id',
+};
 
 export default class Mapbox extends React.Component {
   static propTypes = {
@@ -16,14 +24,14 @@ export default class Mapbox extends React.Component {
     // select: PropTypes.func.isRequired,
     mapSelections: PropTypes.object.isRequired,
   };
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   console.log('called props', nextProps, prevState);
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log('called props', nextProps, prevState);
 
-  //   if (prevState.map) {
-  //     console.log('map drawn');
-  //   }
-  //   return nextProps;
-  // }
+    if (prevState.map) {
+      console.log('map drawn');
+    }
+    return nextProps;
+  }
 
 
   // static setLayerVisibility(mapSelections, layer, map) {
@@ -64,16 +72,17 @@ export default class Mapbox extends React.Component {
     // const dotMax = 40;
 
     map.on('style.load', () => {
+      const renderedLayers = Object.keys(this.props.mapSelections).map((layer) => {
+        if (layer !== 'pts') {
+          console.log('layer', layer);
+          return this.renderExistingLayers(layer);
+        }
+        return '';
+      });
       this.setState({
         map,
+        renderedLayers,
       });
-    });
-
-    Object.keys(this.props.mapSelections).map((layer) => {
-      if (layer !== 'pts') {
-        console.log('layer', layer);
-      }
-      return true;
     });
   }
 
@@ -86,13 +95,10 @@ export default class Mapbox extends React.Component {
 
     // this.moveBoundingBox(geoJSON.sourceGeojson);
   }
+  // componentWillReceiveProps()
   componentWillUnmount() {
     this.map.remove();
   }
-
-  // renderExistingLayers() {
-  //   console.log('layer rendering');
-  // }
 
   makeSelections(layer, field) {
     // console.log('map', map);
@@ -112,6 +118,26 @@ export default class Mapbox extends React.Component {
     this.state.map.on('mouseleave', layer, () => {
       this.state.map.getCanvas().style.cursor = '';
     });
+  }
+
+
+  renderExistingLayers(layer) {
+    // console.log('layer rendering');
+    return (
+      <QlikObject
+        key={layer}
+        qProp={qProps[layer]}
+        type="qListObject"
+        Component={MapExistingLayers}
+        // qPage={mapComponents}
+        componentProps={{
+          layerName: layer,
+          visibilityState: this.props.mapSelections[layer],
+          map: this.state.map,
+          fieldName: layerFieldNameMap[layer],
+        }}
+      />
+    );
   }
 
   render() {
@@ -140,6 +166,7 @@ export default class Mapbox extends React.Component {
             mapSelections: this.props.mapSelections,
           }}
         />
+        {this.state.renderedLayers}
       </div>
     );
   }

@@ -1,82 +1,5 @@
 const qProps = {};
 
-qProps.testList = {
-  qInfo: {
-    qType: 'visualization',
-  },
-  qListObjectDef: {
-    qDef: {
-      qFieldDefs: ['Property Uses'],
-    },
-    qShowAlternatives: true,
-    qAutoSortByState: { qDisplayNumberOfRows: 1 },
-  },
-};
-
-qProps.testCube = {
-  qInfo: {
-    qType: 'visualization',
-  },
-  qHyperCubeDef: {
-    qDimensions: [{
-      qDef: {
-        qFieldDefs: ['Property Uses'],
-        qFieldLabels: ['Property'],
-        qSortCriterias: [{ qSortByAscii: 1 }],
-        qSuppressMissing: true,
-      },
-    }],
-    qMeasures: [{
-      qDef: {
-        qDef: 'Sum(BERDOBuildingListCounter)',
-        qLabel: 'Count of Buildings',
-        qSuppressMissing: true,
-        // qNumFormat: {
-        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
-        // },
-      },
-      qSortBy: { qSortByNumeric: -1 },
-    }],
-  },
-};
-
-qProps.buildingPts = {
-  qInfo: {
-    qType: 'visualization',
-  },
-  qHyperCubeDef: {
-    qDimensions: [{
-      qDef: {
-        qFieldDefs: ['PID'],
-        qFieldLabels: ['Property'],
-        qSortCriterias: [{ qSortByAscii: 1 }],
-        qSuppressMissing: true,
-      },
-    }],
-    qMeasures: [{
-      qDef: {
-        qDef: 'MAX(LATITUDE)',
-        qLabel: 'Latitude',
-        // qNumFormat: {
-        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
-        // },
-      },
-      qSortBy: { qSortByNumeric: -1 },
-    }, {
-      qDef: {
-        qDef: 'MAX(LONGITUDE)',
-        qLabel: 'Longitude',
-        // qNumFormat: {
-        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
-        // },
-      },
-      qSortBy: { qSortByNumeric: -1 },
-    }],
-    qSuppressMissing: true,
-    // qSuppressZero: true,
-  },
-};
-
 qProps.properties = {
   qInfo: {
     qType: 'visualization',
@@ -160,6 +83,69 @@ qProps.neighborhoodList = {
   },
 };
 
+qProps['city-council-districts'] = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['city-council-districts-id'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
+
+
+qProps.neighborhoods = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['Neighborhood'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
+
+qProps['sea-level-rise'] = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['Neighborhood'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
+qProps['groundwater-conversvation'] = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['Groundwater Conservation'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
+qProps['climate-ready-social-vulnerability'] = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['Climate-Ready Social Vulnerability'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
 qProps.sessionLists = { qInfo: { qType: 'SelectionObject' }, qSelectionObjectDef: {} };
 
 export default qProps;
