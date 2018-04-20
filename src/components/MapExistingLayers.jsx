@@ -13,20 +13,13 @@ export default class MapNewLayers extends React.Component {
   };
 
   static getDerivedStateFromProps(nextProps) {
-    console.log('exist layer props', nextProps);
+    // console.log('exist layer props', nextProps);
 
     if (nextProps.map) {
       // console.log('map drawn', nextProps);
       const { map, layerName, visibilityState } = nextProps;
       // console.log('map drawn', map, layerName, visibilityState);
       map.setLayoutProperty(layerName, 'visibility', visibilityState ? 'visible' : 'none');
-      // map.setPaintProperty(layerName, 'circle-radius', {
-      //   property: 'metric',
-      //   stops: [
-      //     [valMin, '#fff'],
-      //     [valMax, '#000']
-      //   ]
-      // });
     }
     return nextProps;
   }
@@ -43,7 +36,7 @@ export default class MapNewLayers extends React.Component {
     // console.log('map data', this.props);
     const { layerName } = this.props;
     this.writeToHashObj();
-    console.log('layer mounted', layerName, this.state.qDataHash);
+    // console.log('layer mounted', layerName, this.state.qDataHash);
     this.makeSelections(layerName);
   }
 

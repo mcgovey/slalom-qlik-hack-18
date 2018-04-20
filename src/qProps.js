@@ -93,7 +93,7 @@ qProps.pts = {
       }],
     qMeasures: [{
       qDef: {
-        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Site EUI (kBTU/sf)])',
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions (MTCO2e)])',
         qLabel: 'EUI',
         // qNumFormat: {
         //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
@@ -154,7 +154,7 @@ qProps['building-shapes'] = {
       }],
     qMeasures: [{
       qDef: {
-        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Site EUI (kBTU/sf)])',
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions (MTCO2e)])',
         qLabel: 'EUI',
         // qNumFormat: {
         //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
@@ -244,7 +244,7 @@ qProps.neighborhoods = {
 
     qMeasures: [{
       qDef: {
-        qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [Site EUI (kBTU/sf)])',
+        qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions (MTCO2e)])',
         qLabel: 'EUI',
       },
     }, {
@@ -303,5 +303,61 @@ qProps['climate-ready-social-vulnerability'] = {
   },
 };
 qProps.sessionLists = { qInfo: { qType: 'SelectionObject' }, qSelectionObjectDef: {} };
+
+qProps.propertyEmissions = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qHyperCubeDef: {
+    qDimensions:
+      [{
+        qDef: {
+          qFieldDefs: ['OBJECTID'],
+          qFieldLabels: ['Property'],
+          // qSortCriterias: [{ qSortByAscii: 1 }],
+          // qSuppressMissing: true,
+        },
+      }],
+    qMeasures: [{
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Site EUI (kBTU/sf)])',
+        qLabel: 'EUI',
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Intensity (kgCO2/sf)])',
+        qLabel: 'GHG Intensity',
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      // qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Energy Star Score])',
+        qLabel: 'Energy Star Score',
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      // qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Onsite Renewable (kWh)])',
+        qLabel: 'Onsite Renewable Generation',
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      // qSortBy: { qSortByNumeric: -1 },
+    }],
+    // qSuppressMissing: true,
+    // qSuppressZero: true,
+  },
+};
 
 export default qProps;

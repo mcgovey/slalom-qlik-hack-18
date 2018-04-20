@@ -1,35 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
-import QlikObject from './QlikObject';
-import QlikFilter from './QlikFilter';
-import qProps from '../qProps';
+// import QlikObject from './QlikObject';
+// import QlikFilter from './QlikFilter';
+// import qProps from '../qProps';
 import Mapbox from './Mapbox';
 import LeftDrawer from './LeftDrawer';
-
-
-const styles = {
-  div: {
-    display: 'flex',
-    flexDirection: 'row wrap',
-    padding: 20,
-    width: '100%',
-  },
-  paperLeft: {
-    flex: 4,
-    height: 600,
-    margin: 0,
-    textAlign: 'center',
-    padding: 0,
-  },
-  paperRight: {
-    height: 600,
-    flex: 1,
-    marginLeft: 10,
-    textAlign: 'center',
-  },
-};
-// <Mapbox />
+import RightPanel from './RightPanel';
 
 class PageOne extends React.Component {
   static propTypes = {
@@ -99,7 +76,12 @@ class PageOne extends React.Component {
   };
 
   render() {
-    // console.log('props', this.props, this.props.drawerOpenState, this.props.toggleDrawer);
+    const styles = {
+      rightPanel: {
+        float: 'right',
+        maxWidth: '250px',
+      },
+    };
     return (
       <div>
         <LeftDrawer
@@ -107,17 +89,19 @@ class PageOne extends React.Component {
           changeMapLayer={this.changeMapLayer}
           {...this.props}
         />
-        <div style={styles.div}>
-          <Paper style={styles.paperLeft}>
+        <div className="col12 fill-navy">
+          <div className="col12" style={{ width: '100%', height: '100%' }}>
             <Mapbox
               mapSelections={this.state.mapSelections}
               mapLayerProps={this.state.mapLayerProps}
             />
-          </Paper>
-          <Paper style={styles.paperRight}>
-            <h4>Second Vertical component</h4>
-            <QlikObject qProp={qProps.neighborhoodList} type="qListObject" Component={QlikFilter} />
-          </Paper>
+          </div>
+          <div className="col4 fill-darken3 pin-right contain" style={styles.rightPanel}>
+            <Paper>
+              <h4>Second Vertical component</h4>
+              <RightPanel />
+            </Paper>
+          </div>
         </div>
       </div>
     );

@@ -15,11 +15,8 @@ const layerOptions = {
     type: 'circle',
     color: {
       measureNum: 0,
-      minHex: '#fff',
-      maxHex: '#fff',
-    },
-    moveBbox: {
-      type: 'line',
+      minHex: '#b9b9b9',
+      maxHex: '#9a0000',
     },
     enableSelection: false,
     minZoom: 10,
@@ -30,8 +27,8 @@ const layerOptions = {
     type: 'fill',
     color: {
       measureNum: 0,
-      minHex: '#000',
-      maxHex: '#fff',
+      minHex: '#b9b9b9',
+      maxHex: '#9a0000',
     },
     enableSelection: true,
     minZoom: 12,
@@ -41,10 +38,12 @@ const layerOptions = {
     type: 'fill',
     color: {
       measureNum: 0,
-      minHex: '#000',
-      maxHex: '#fff',
+      minHex: '#b9b9b9',
+      maxHex: '#9a0000',
     },
+    moveBbox: true,
     enableSelection: true,
+    aboveLayer: 'water',
   },
 };
 
@@ -76,16 +75,16 @@ export default class Mapbox extends React.Component {
   componentDidMount() {
     // console.log('map data', this.props.qData, 'layout', this.props.qLayout);
 
-    const map = new mapboxgl.Map({
+    this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mcgovey/cjfzjx2uv40up2snwjhzj9rzz',
       center: [-71.0589, 42.3601], // starting position
       zoom: 10,
     });
 
-    map.on('style.load', () => {
+    this.map.on('style.load', () => {
       this.setState({
-        map,
+        map: this.map,
       });
     });
   }
@@ -149,17 +148,20 @@ export default class Mapbox extends React.Component {
 
   render() {
     const style = {
-      // position: 'absolute',
+      position: 'absolute',
       top: 0,
       bottom: 0,
-      height: 600,
+      zIndex: -1,
+      // height: 600,
       width: '100%',
-      textAlign: 'left',
+      // textAlign: 'left',
     };
 
+
     return (
-      <div style={style} ref={(el) => { this.mapContainer = el; }}>
-        {this.renderLayers()}
+      <div>
+        <div ref={(el) => { this.mapContainer = el; }} style={style} />
+        {this.map ? this.renderLayers() : ''}
       </div>
     );
   }

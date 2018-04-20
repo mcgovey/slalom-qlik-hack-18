@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="78" y="198" />
+        <Position x="54" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -45,7 +45,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="174" y="198" />
+        <Position x="150" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -66,7 +66,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="270" y="198" />
+        <Position x="246" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -85,11 +85,11 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="366" y="198" />
+        <Position x="342" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_22056_f34f0bc14f3e4189b96baaac209d77fe_\Engine_7816_b6350c8e171048259b57dd8ac358edce_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_018f7420b93844ae9cf7fd144b42eead_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -116,7 +116,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
-        <Position x="474" y="126" />
+        <Position x="450" y="114" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -144,7 +144,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="798" y="126" />
+        <Position x="774" y="114" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -165,15 +165,12 @@
           <DefaultAnnotationText>social-responsibility-to-buildings.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="702" y="126" />
+        <Position x="678" y="114" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -192,7 +189,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="78" y="66" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -244,7 +241,7 @@
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="270" y="66" />
+        <Position x="246" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -291,11 +288,11 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="570" y="90" />
+        <Position x="546" y="78" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_22056_f34f0bc14f3e4189b96baaac209d77fe_\Engine_7816_5967df29340042618d98061a190e795f_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_0d1603daeaaa485ba68ac15f77493dde_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -322,11 +319,11 @@
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="702" y="198" />
+        <Position x="678" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_22056_f34f0bc14f3e4189b96baaac209d77fe_\Engine_7816_4a0e0af657fb4f81a5b4a6ab60a89965_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_ef990e9b1c5a414eb720821962c63a93_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -353,7 +350,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
-        <Position x="174" y="66" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -372,7 +369,7 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
-        <Position x="570" y="162" />
+        <Position x="546" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -400,11 +397,11 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="642" y="222" />
+        <Position x="618" y="210" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_22056_f34f0bc14f3e4189b96baaac209d77fe_\Engine_7816_382bce82b58e42e7803870fa8f0b2817_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_ace14b96ed364e829abd9be323bdc716_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -416,7 +413,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="390" y="306" />
+        <Position x="366" y="294" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -435,7 +432,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="498" y="306" />
+        <Position x="474" y="294" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -453,20 +450,19 @@
           <DefaultAnnotationText>social-responsibility-areas.kml</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="498" y="354" />
+        <Position x="474" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <SummarizeFields>
             <SummarizeField field="Low_to_No" action="Max" rename="Max_Low_to_No" />
+            <SummarizeField field="FID" action="Max" rename="Max_FID" />
+            <SummarizeField field="FID" action="Min" rename="Min_FID" />
           </SummarizeFields>
         </Configuration>
         <Annotation DisplayMode="0">

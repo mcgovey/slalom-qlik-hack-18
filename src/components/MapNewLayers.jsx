@@ -3,36 +3,6 @@ import PropTypes from 'prop-types';
 import bbox from '@turf/bbox';
 import { lineString } from '@turf/helpers';
 
-// const layerOptions = {
-//   pts: {
-//     layerName: 'pts',
-//     type: 'circle',
-//     enableSelection: false,
-//   },
-//   'building-shapes': {
-//     layerName: 'building-shapes',
-//     color: {
-//       measureNum: 0,
-//       minHex: '#000',
-//       maxHex: '#fff',
-//     },
-//     type: 'fill',
-//     enableSelection: true,
-//   },
-//   neighborhoods: {
-//     layerName: 'neighborhoods',
-//     color: {
-//       measureNum: 0,
-//       minHex: '#000',
-//       maxHex: '#fff',
-//     },
-//     type: 'fill',
-//     moveBbox: {
-//       type: 'multipolygon',
-//     },
-//     enableSelection: true,
-//   },
-// };
 
 export default class MapNewLayers extends React.Component {
   static propTypes = {
@@ -44,25 +14,6 @@ export default class MapNewLayers extends React.Component {
     options: PropTypes.object.isRequired,
   };
 
-  static getDerivedStateFromProps(nextProps) {
-    console.log('exist layer props', nextProps);
-
-    if (nextProps.map) {
-      console.log('map drawn', nextProps);
-      // const { map, layerName, visibilityState } = nextProps;
-      // // console.log('map drawn', map, layerName, visibilityState);
-      // map.setLayoutProperty(layerName, 'visibility', visibilityState ? 'visible' : 'none');
-      // map.setPaintProperty(layerName, 'circle-radius', {
-      //   property: 'metric',
-      //   stops: [
-      //     [valMin, '#fff'],
-      //     [valMax, '#000']
-      //   ]
-      // });
-    }
-    return nextProps;
-  }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -72,6 +23,8 @@ export default class MapNewLayers extends React.Component {
         valMax: 10,
         dotMin: 10,
         dotMax: 40,
+        minHex: '#aaa',
+        maxHex: '#aaa',
       },
     };
   }
@@ -82,13 +35,13 @@ export default class MapNewLayers extends React.Component {
     const { colorVals } = this.state;
     const { map, options, qLayout } = this.props;
 
-    console.log('geoJSON', options, geoJSON);
-
     if (options.color) {
       colorVals.valMin = qLayout.qHyperCube.qMeasureInfo[options.color.measureNum].qMin;
       colorVals.valMax = qLayout.qHyperCube.qMeasureInfo[options.color.measureNum].qMax;
       colorVals.dotMin = options.color.dotMin || colorVals.dotMin;
       colorVals.dotMax = options.color.dotMax || colorVals.dotMax;
+      colorVals.minHex = options.color.minHex || colorVals.minHex;
+      colorVals.maxHex = options.color.maxHex || colorVals.maxHex;
     }
     // const valMin = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMin;
     // const valMax = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMax
@@ -104,33 +57,53 @@ export default class MapNewLayers extends React.Component {
     let paintVal;
     if (options.type === 'circle') {
       paintVal = {
-        'circle-color': '#ffffff',
-        'circle-opacity': 1,
-        'circle-radius': {
+        'circle-color': {
           property: 'colorByMeasure',
           stops: [
-            [colorVals.valMin, colorVals.dotMin],
-            [colorVals.valMax, colorVals.dotMax],
+            [colorVals.valMin, colorVals.minHex],
+            [colorVals.valMax, colorVals.maxHex],
           ],
         },
+        'circle-opacity': 0.8,
+        'circle-radius': 2,
       };
     } else if (options.type === 'fill') {
       paintVal = {
-        'fill-color': '#fff',
+        'fill-color': {
+          property: 'colorByMeasure',
+          stops: [
+            [colorVals.valMin, colorVals.minHex],
+            [colorVals.valMax, colorVals.maxHex],
+          ],
+        },
         'fill-opacity': 0.8,
+
       };
     }
+    if (options.aboveLayer) {
+      // Add a layer
+      map.addLayer({
+        id: options.layerName,
+        source: options.layerName,
+        type: options.type,
+        minzoom: options.minZoom || 0,
+        maxzoom: options.maxZoom || 22,
+        layout: {},
+        paint: paintVal,
+      }, options.aboveLayer);
+    } else {
+      // Add a layer
+      map.addLayer({
+        id: options.layerName,
+        source: options.layerName,
+        type: options.type,
+        minzoom: options.minZoom || 0,
+        maxzoom: options.maxZoom || 22,
+        layout: {},
+        paint: paintVal,
+      });
+    }
 
-    // Add a layer
-    map.addLayer({
-      id: options.layerName,
-      source: options.layerName,
-      type: options.type,
-      minzoom: options.minZoom || 0,
-      maxzoom: options.maxZoom || 22,
-      layout: {},
-      paint: paintVal,
-    });
 
     // will need to add logic for polygons
     if (options.moveBbox) {
@@ -140,7 +113,7 @@ export default class MapNewLayers extends React.Component {
     this.setLayerVisibility(options.layerName);
 
     if (options.enableSelection) {
-      this.makeSelections('building-shapes', 0);
+      this.makeSelections(options.layerName, 0);
     }
   }
 
@@ -149,8 +122,6 @@ export default class MapNewLayers extends React.Component {
 
     // const { map } = this.state;
     const { options, map } = this.props;
-
-    console.log('geoJSON', options.layerName, geoJSON);
 
     map.getSource(options.layerName).setData(geoJSON);
 
@@ -174,16 +145,20 @@ export default class MapNewLayers extends React.Component {
   }
 
   moveBoundingBox(sourceGeojson) {
-    if (sourceGeojson.features.length > 1) {
-      const pts = sourceGeojson.features.map(d => d.geometry.coordinates);
-      const line = lineString(pts);
+    const { options } = this.props;
+    if (sourceGeojson.features.length > 1 || options.type === 'fill') {
+      const segs = sourceGeojson.features.map(d => d.geometry.coordinates);
+      const line = options.type === 'circle' ? lineString(segs) : sourceGeojson;
       const bound = bbox(line);
-      // console.log('bounding box', this.state.map, bound);
 
       this.props.map.fitBounds([
         [bound[0], bound[1]],
         [bound[2], bound[3]],
-      ], { padding: 50 });
+      ], {
+        padding: {
+          top: 130, bottom: 50, left: 50, right: 230,
+        },
+      });
     } else if (sourceGeojson.features.length === 1) {
       this.props.map.flyTo({
         center: sourceGeojson.features[0].geometry.coordinates,

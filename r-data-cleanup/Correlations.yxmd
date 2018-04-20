@@ -1,0 +1,331 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="11.0">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings>
+        <Position x="498" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="continuous.target">True</Value>
+          <Value name="the.continuous.target">Sum([GHG Emissions (MTCO2e)])</Value>
+          <Value name="continuous.continuous">False</Value>
+          <Value name="continuous.select.continuous">OBJECTID=False,Site EUI=False,Sum([Onsite Renewable (kWh)])=False,Sum([GHG Emissions (MTCO2e)])=False</Value>
+          <Value name="pearson">False</Value>
+          <Value name="spearman">False</Value>
+          <Value name="c.c.relief">False</Value>
+          <Value name="c.c.neighbors">5</Value>
+          <Value name="c.c.sample.size">10</Value>
+          <Value name="continuous.discrete">True</Value>
+          <Value name="continuous.select.discrete">Property Name=False,Cohort=True,Property Type=True,Gross Area (sq ft)=True,Building Age=True,BERDOYear=False,Property Uses=True,% Electricity=False,% Gas=False,% Steam=False,Neighborhood=True,city-council-districts-id=True,Water Use (Gallons)=True,Seal-Level Rise Threshold=True,GHG Intensity=False,Energy Usage Intensity=False,Water Usage Intensity=False,Max([Energy Star Score])=False,Avg([Total Site Energy (kBTU)])=False</Value>
+          <Value name="conditional.mean.correlation">False</Value>
+          <Value name="c.d.relief">False</Value>
+          <Value name="c.d.neighbors">5</Value>
+          <Value name="c.d.sample.size">10</Value>
+          <Value name="categorical.target">False</Value>
+          <Value name="the.discrete.target">Property Name</Value>
+          <Value name="discrete.continuous">False</Value>
+          <Value name="discrete.select.continuous">OBJECTID=False,Site EUI=False,Sum([Onsite Renewable (kWh)])=False,Sum([GHG Emissions (MTCO2e)])=False</Value>
+          <Value name="information.gain">False</Value>
+          <Value name="gain.ratio">False</Value>
+          <Value name="symmetrical.uncertainty">False</Value>
+          <Value name="d.c.relief">False</Value>
+          <Value name="d.c.neighbors">5</Value>
+          <Value name="d.c.sample.size">10</Value>
+          <Value name="discrete.discrete">True</Value>
+          <Value name="discrete.select.discrete">Property Name=False,Cohort=False,Property Type=False,Gross Area (sq ft)=False,Building Age=False,BERDOYear=False,Property Uses=False,% Electricity=False,% Gas=False,% Steam=False,Neighborhood=False,city-council-districts-id=False,Water Use (Gallons)=False,Seal-Level Rise Threshold=False,GHG Intensity=False,Energy Usage Intensity=False,Water Usage Intensity=False,Max([Energy Star Score])=False,Avg([Total Site Energy (kBTU)])=False</Value>
+          <Value name="chi.square">False</Value>
+          <Value name="d.d.relief">False</Value>
+          <Value name="d.d.neighbors">5</Value>
+          <Value name="d.d.sample.size">10</Value>
+          <Value name="increase.java.heap">False</Value>
+          <Value name="java.heap">1</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="C:\Users\kevin.mcgovern\Downloads\Importance+Weights\Importance Weights.yxmc" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="150" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>data-for-assoc.xlsx
+Table=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="OBJECTID" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Property Name" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_WString" />
+            <Field name="Cohort" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Property Type" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Gross Area (sq ft)" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Building Age" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="BERDOYear" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Property Uses" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="% Electricity" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="% Gas" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="% Steam" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Neighborhood" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="city-council-districts-id" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Water Use (Gallons)" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Seal-Level Rise Threshold" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="GHG Intensity" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Energy Usage Intensity" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Water Usage Intensity" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Site EUI" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Max([Energy Star Score])" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Avg([Total Site Energy (kBTU)])" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Sum([Onsite Renewable (kWh)])" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Sum([GHG Emissions (MTCO2e)])" size="255" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="246" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="OBJECTID" selected="True" />
+            <Field field="Property Name" selected="True" />
+            <Field field="Cohort" selected="True" />
+            <Field field="Property Type" selected="True" />
+            <Field field="Gross Area (sq ft)" selected="True" />
+            <Field field="Building Age" selected="True" />
+            <Field field="BERDOYear" selected="True" />
+            <Field field="Property Uses" selected="True" />
+            <Field field="% Electricity" selected="True" />
+            <Field field="% Gas" selected="True" />
+            <Field field="% Steam" selected="True" />
+            <Field field="Neighborhood" selected="True" />
+            <Field field="city-council-districts-id" selected="True" />
+            <Field field="Water Use (Gallons)" selected="True" />
+            <Field field="Seal-Level Rise Threshold" selected="True" />
+            <Field field="GHG Intensity" selected="True" />
+            <Field field="Energy Usage Intensity" selected="True" />
+            <Field field="Water Usage Intensity" selected="True" />
+            <Field field="Site EUI" selected="True" />
+            <Field field="Max([Energy Star Score])" selected="True" />
+            <Field field="Avg([Total Site Energy (kBTU)])" selected="True" />
+            <Field field="Sum([Onsite Renewable (kWh)])" selected="True" />
+            <Field field="Sum([GHG Emissions (MTCO2e)])" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="OBJECTID" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="Int16" />
+            <Field name="Property Name" size="70" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_WString" />
+            <Field name="Cohort" size="9" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="String" />
+            <Field name="Property Type" size="42" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Gross Area (sq ft)" size="13" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Building Age" size="4" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="String" />
+            <Field name="BERDOYear" size="4" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="String" />
+            <Field name="Property Uses" size="173" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="% Electricity" size="6" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="String" />
+            <Field name="% Gas" size="6" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="String" />
+            <Field name="% Steam" size="6" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="String" />
+            <Field name="Neighborhood" size="17" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="city-council-districts-id" size="1" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="String" />
+            <Field name="Water Use (Gallons)" size="18" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Seal-Level Rise Threshold" size="7" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="String" />
+            <Field name="GHG Intensity" size="19" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Energy Usage Intensity" size="18" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Water Usage Intensity" size="20" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Site EUI" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="Max([Energy Star Score])" size="3" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="String" />
+            <Field name="Avg([Total Site Energy (kBTU)])" size="18" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="Sum([Onsite Renewable (kWh)])" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="Sum([GHG Emissions (MTCO2e)])" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\data-for-assoc.xlsx|||`Sheet1$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="342" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="438" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7592_3efc5db15c0f454c8a08e1bc14454125_\Engine_5728_6c26f605037e4a80867c8ce3cfd64aaf_.yxdb</TempFile>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings>
+        <Position x="486" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="do target">True</Value>
+          <Value name="target">Sum([GHG Emissions (MTCO2e)])</Value>
+          <Value name="target level" />
+          <Value name="use fields">""</Value>
+          <Value name="Pearson">True</Value>
+          <Value name="Spearman">False</Value>
+          <Value name="Hoeffding">False</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Predictive Tools\Association_Analysis.yxmc" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="594" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="594" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Data" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Report" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="1" Connection="Input29" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="6" Connection="Data Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Correlations</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
