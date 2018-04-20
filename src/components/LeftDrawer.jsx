@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Drawer from 'material-ui/Drawer';
+import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider';
 import QlikObject from './QlikObject';
 import QlikFilter from './QlikFilter';
 import qProps from '../qProps';
@@ -34,8 +36,19 @@ class LeftDrawer extends React.Component {
           // onClick={this.props.toggleDrawer('leftDrawer', false)}
           // onKeyDown={this.props.toggleDrawer('leftDrawer', false)}
         >
-          <h3>Filters</h3>
+          <Typography variant="display1" gutterBottom align="center">
+            Selections
+          </Typography>
+          <Typography variant="headline" gutterBottom align="center">
+            Layer Selection
+          </Typography>
           <SelectionLayers {...this.props} />
+          <Divider style={{ marginTop: '10px', marginBottom: '10px' }} />
+          <Typography variant="headline" gutterBottom align="center">
+            Filters
+          </Typography>
+          <QlikObject qProp={qProps.neighborhoodList} type="qListObject" Component={QlikFilter} />
+          <QlikObject qProp={qProps.neighborhoodList} type="qListObject" Component={QlikFilter} />
           <QlikObject qProp={qProps.neighborhoodList} type="qListObject" Component={QlikFilter} />
         </div>
       </Drawer>

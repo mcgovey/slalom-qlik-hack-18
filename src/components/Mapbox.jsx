@@ -29,6 +29,7 @@ const layerOptions = {
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
+      border: '#444',
     },
     enableSelection: true,
     minZoom: 12,
@@ -40,8 +41,33 @@ const layerOptions = {
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
+      border: '#444',
     },
     moveBbox: true,
+    enableSelection: true,
+    aboveLayer: 'water',
+  },
+  'city-council-districts': {
+    layerName: 'city-council-districts',
+    type: 'fill',
+    color: {
+      measureNum: 0,
+      minHex: '#b9b9b9',
+      maxHex: '#9a0000',
+      border: '#444',
+    },
+    enableSelection: true,
+    aboveLayer: 'water',
+  },
+  'climate-ready-social-vulnerability': {
+    layerName: 'climate-ready-social-vulnerability',
+    type: 'fill',
+    color: {
+      measureNum: 0,
+      minHex: '#b9b9b9',
+      maxHex: '#9a0000',
+      border: '#444',
+    },
     enableSelection: true,
     aboveLayer: 'water',
   },
@@ -56,14 +82,14 @@ export default class Mapbox extends React.Component {
     mapSelections: PropTypes.object.isRequired,
     mapLayerProps: PropTypes.object.isRequired,
   };
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   console.log('called props', nextProps, prevState);
-
-  //   if (prevState.map) {
-  //     console.log('map drawn');
-  //   }
-  //   return nextProps;
-  // }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (prevState.map) {
+      if (JSON.stringify(prevState.mapSelections) !== JSON.stringify(nextProps.mapSelections)) {
+        return nextProps.mapSelections;
+      }
+    }
+    return null;
+  }
 
 
   constructor(props) {
@@ -74,6 +100,7 @@ export default class Mapbox extends React.Component {
 
   componentDidMount() {
     // console.log('map data', this.props.qData, 'layout', this.props.qLayout);
+    console.log('map mounted');
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -90,6 +117,7 @@ export default class Mapbox extends React.Component {
   }
 
   componentWillUnmount() {
+    console.log('map removed');
     this.map.remove();
   }
 

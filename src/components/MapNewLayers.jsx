@@ -13,6 +13,25 @@ export default class MapNewLayers extends React.Component {
     map: PropTypes.object.isRequired,
     options: PropTypes.object.isRequired,
   };
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   console.log('called props', nextProps, prevState);
+
+  //   if (nextProps.map) {
+  //     if (JSON.stringify(prevState.mapSelections) !== JSON.stringify(nextProps.mapSelections)) {
+  //       console.log('need a layer update', 'selections',
+  // prevState.mapSelections, nextProps.mapSelections);
+  //       return { mapSelections: nextProps.mapSelections };
+  //     } else if (JSON.stringify(prevState.qData) !== JSON.stringify(nextProps.qData)) {
+  //       console.log('need a data update');
+  //       return { qData: nextProps.qData };
+  //     } else if (JSON.stringify(prevState.map) !== JSON.stringify(nextProps.map)) {
+  //       console.log('need a map update');
+  //       return { map: nextProps.map };
+  //     }
+  //     console.log('map layer but no state updates');
+  //   }
+  //   return null;
+  // }
 
   constructor(props) {
     super(props);
@@ -42,11 +61,8 @@ export default class MapNewLayers extends React.Component {
       colorVals.dotMax = options.color.dotMax || colorVals.dotMax;
       colorVals.minHex = options.color.minHex || colorVals.minHex;
       colorVals.maxHex = options.color.maxHex || colorVals.maxHex;
+      colorVals.border = options.color.border || colorVals.maxHex;
     }
-    // const valMin = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMin;
-    // const valMax = this.props.qLayout.qHyperCube.qMeasureInfo[0].qMax
-    // const dotMin = 10;
-    // const dotMax = 40;
 
     // Add a data source
     map.addSource(options.layerName, {
@@ -76,7 +92,8 @@ export default class MapNewLayers extends React.Component {
             [colorVals.valMax, colorVals.maxHex],
           ],
         },
-        'fill-opacity': 0.8,
+        'fill-opacity': 0.4,
+        'fill-outline-color': colorVals.border,
 
       };
     }
@@ -118,6 +135,19 @@ export default class MapNewLayers extends React.Component {
   }
 
   componentDidUpdate() {
+    // prevProps, prevState
+    // console.log('update called', this.props, this.state, prevProps, prevState);
+
+    // if (JSON.stringify(prevProps.mapSelections) !== JSON.stringify(this.props.mapSelections)) {
+    //   console.log('need a layer update', 'selections',
+    // prevState.mapSelections, this.props.mapSelections);
+    // } else if (JSON.stringify(prevProps.qData) !== JSON.stringify(this.props.qData)) {
+    //   console.log('need a data update');
+    // }
+    // // else if (JSON.stringify(prevProps.map) !== JSON.stringify(this.props.map)) {
+    // //   console.log('need a map update');
+    // // }
+
     const geoJSON = this.createJSONObj();
 
     // const { map } = this.state;

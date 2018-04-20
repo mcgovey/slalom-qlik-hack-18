@@ -19,9 +19,6 @@
           <DefaultAnnotationText>City_Council_Districts.shp</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="OBJECTID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\City_Council_Districts.shp" type="Int32" />
@@ -81,7 +78,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_15868_68980d769cfb49bebcd8822f93682b80_\Engine_3596_41979a20ccde42fb906c76b1494c3eb8_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_8508_00920fa00ee248fcb917ab158310a460_\Engine_14896_955d6c1901004e6ab11d289b16acc566_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -157,9 +154,6 @@
           <DefaultAnnotationText>city-council-districts.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
@@ -293,7 +287,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_15868_68980d769cfb49bebcd8822f93682b80_\Engine_3596_dfd5ae2ccd4a49a9a008f03d23c57b7d_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_8508_00920fa00ee248fcb917ab158310a460_\Engine_14896_25ece51547cc49e1b9f93d2b4cb75745_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -324,7 +318,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_15868_68980d769cfb49bebcd8822f93682b80_\Engine_3596_cac76ebadde342ceb618be8724c82920_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_8508_00920fa00ee248fcb917ab158310a460_\Engine_14896_15da6eb6d007417ab828872581e36fe9_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -402,7 +396,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_15868_68980d769cfb49bebcd8822f93682b80_\Engine_3596_62a52df58ea2423f8c9e9757caec7beb_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_8508_00920fa00ee248fcb917ab158310a460_\Engine_14896_c547e6d018cd4c7ea98d752a383b3b96_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -440,9 +434,9 @@
           <File FileFormat="22" MaxRecords="">C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\city-council-districts.kml</File>
           <Passwords />
           <FormatSpecificOptions>
-            <DescField>source</DescField>
+            <DescField>DISTRICT</DescField>
             <SpatialObjField>SpatialObj</SpatialObjField>
-            <NameField>[None]</NameField>
+            <NameField>OBJECTID</NameField>
           </FormatSpecificOptions>
           <MultiFile value="False" />
         </Configuration>

@@ -473,6 +473,51 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
     </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="786" y="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="FID" action="GroupBy" rename="FID" />
+            <SummarizeField field="Universe_SpatialObj" action="SpatialObjCombine" rename="SpatialObj" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="930" y="258" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="22" MaxRecords="">data/bos-neighborhoods.kml</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <DescField>[None]</DescField>
+            <SpatialObjField>SpatialObj</SpatialObjField>
+            <NameField>[None]</NameField>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>bos-neighborhoods.kml</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -536,12 +581,20 @@
       <Destination ToolID="15" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="14" Connection="Matched" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
       <Origin ToolID="16" Connection="Output" />
       <Destination ToolID="17" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="16" Connection="Output" />
       <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
