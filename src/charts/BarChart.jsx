@@ -27,7 +27,7 @@ export default class BarChart extends React.Component {
         return {
           id: row[0].qElemNumber,
           indicator: row[0].qText,
-          total: row[1].qNum.toFixed(options.numFormat.decimals),
+          total: row[options.measureNum].qNum.toFixed(options.numFormat.decimals),
         };
       });
       jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
@@ -63,7 +63,7 @@ export default class BarChart extends React.Component {
       return {
         id: row[0].qElemNumber,
         indicator: row[0].qText,
-        total: row[1].qNum.toFixed(options.numFormat.decimals),
+        total: row[options.measureNum].qNum.toFixed(options.numFormat.decimals),
       };
     });
     // console.log('json', jsonData, 'matrix', qData);
@@ -108,7 +108,7 @@ export default class BarChart extends React.Component {
         show: false,
       },
       transition: {
-        duration: 1000,
+        duration: 1500,
       },
     };
 
@@ -119,14 +119,17 @@ export default class BarChart extends React.Component {
         format: d3.format('.2%'),
       };
     }
+    if (options.height) chartProps.size.height = options.height;
+    if (options.axis) chartProps.axis.x = options.axis.x || chartProps.axis.x;
+
+
+    const chart = c3.generate(chartProps);
 
     d3.selectAll('.tick')
       .on('click', (value, index) => {
         console.log(this);
         console.log([value, index]);
       });
-
-    const chart = c3.generate(chartProps);
     /* eslint-disable react/no-did-mount-set-state */
     /* eslint-disable react/no-unused-state */
     this.setState({

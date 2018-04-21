@@ -14,6 +14,8 @@ const hcProps = {
 
 const chartObjs = {
   emitters: {
+    height: 200,
+    measureNum: 1,
     sort: -1,
     color: {
       pattern: ['#94b9af'],
@@ -23,6 +25,8 @@ const chartObjs = {
     },
   },
   reductions: {
+    height: 200,
+    measureNum: 1,
     sort: 1,
     refline: {
       y: {
@@ -40,6 +44,8 @@ const chartObjs = {
     },
   },
   reductionAmount: {
+    height: 200,
+    measureNum: 1,
     sort: -1,
     color: {
       pattern: ['#b8eddf'],
@@ -83,7 +89,7 @@ export default class RightPanel extends React.Component {
   }
   levelOfChartOp() {
     const { qDimensionInfo } = this.props.qLayout.qHyperCube;
-    console.log('listobj', qDimensionInfo);
+    console.log('listobjs', this.props.qData);
     return qDimensionInfo[0].qStateCounts.qSelected === 1 ?
       this.singleBuildingInfo() :
       this.highLevelCharts();

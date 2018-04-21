@@ -83,6 +83,9 @@ class PageOne extends React.Component {
         opacity: '0.9',
       },
     };
+    const buildingCubeProps = {
+      qTop: 0, qLeft: 0, qWidth: 10, qHeight: 10,
+    };
     return (
       <div>
         <LeftDrawer
@@ -102,6 +105,7 @@ class PageOne extends React.Component {
               <QlikObject
                 qProp={qProps.objectHCList}
                 type="qHyperCube"
+                qPage={buildingCubeProps}
                 Component={RightPanel}
               />
             </Paper>

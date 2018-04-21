@@ -10,6 +10,7 @@ const styles = theme => ({
     justifyContent: 'center',
     flexWrap: 'wrap',
     padding: theme.spacing.unit / 2,
+    backgroundColor: '#fff',
   },
   chip: {
     margin: theme.spacing.unit / 2,
@@ -23,52 +24,21 @@ class QlikCurrentSelections extends React.Component {
     clearSelections: PropTypes.func.isRequired,
   }
 
-  // state = {
-  //   chipData: [
-  //     { key: 0, label: 'Angular' },
-  //     { key: 1, label: 'jQuery' },
-  //     { key: 2, label: 'Polymer' },
-  //     { key: 3, label: 'React' },
-  //     { key: 4, label: 'Vue.js' },
-  //   ],
-  // };
-
   handleDelete = data => () => {
     this.props.clearSelections(data.qField);
-    // const chipData = [...this.state.chipData];
-    // const chipToDelete = chipData.indexOf(data);
-    // chipData.splice(chipToDelete, 1);
-    // this.setState({ chipData });
   };
-
-
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     value: 0,
-  //   };
-  // }
 
   render() {
     // console.log('qlayout', this.props.qLayout);
+    console.log('qSelections', this.props.qLayout.qSelectionObject.qSelections);
     return (
-      <Paper>
+      <Paper style={{ backgroundColor: '#4b636e' }}>
         {this.props.qLayout.qSelectionObject.qSelections.map(data =>
-          // let avatar = null;
-
-          // if (data.label === 'React') {
-          //   avatar = (
-          //     <Avatar>
-          //       <TagFacesIcon className={classes.svgIcon} />
-          //     </Avatar>
-          //   );
-          // }
-
            (
              <Chip
                key={data.qField}
               //  avatar={avatar}
-               label={data.qField}
+               label={data.qField + (data.qSelectedCount > 1 ? '' : (`: ${data.qSelected}`))}
                style={{ margin: 10 }}
                onDelete={this.handleDelete(data)}
              />
