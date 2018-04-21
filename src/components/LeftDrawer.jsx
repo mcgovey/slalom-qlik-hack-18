@@ -48,8 +48,8 @@ class LeftDrawer extends React.Component {
             Filters
           </Typography>
           <QlikObject qProp={qProps.neighborhoodList} type="qListObject" Component={QlikFilter} />
-          <QlikObject qProp={qProps.neighborhoodList} type="qListObject" Component={QlikFilter} />
-          <QlikObject qProp={qProps.neighborhoodList} type="qListObject" Component={QlikFilter} />
+          <QlikObject qProp={qProps.propertyTypeList} type="qListObject" Component={QlikFilter} />
+          <QlikObject qProp={qProps.propertyUseList} type="qListObject" Component={QlikFilter} />
         </div>
       </Drawer>
     );

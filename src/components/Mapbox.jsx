@@ -17,6 +17,7 @@ const layerOptions = {
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
+      opacity: 0.5,
     },
     enableSelection: false,
     minZoom: 10,
@@ -29,7 +30,11 @@ const layerOptions = {
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
-      border: '#444',
+      border: '#222',
+      opacity: 0.8,
+    },
+    moveBbox: {
+      zoomLvl: 2,
     },
     enableSelection: true,
     minZoom: 12,
@@ -41,9 +46,12 @@ const layerOptions = {
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
-      border: '#444',
+      border: '#222',
+      opacity: 0.3,
     },
-    moveBbox: true,
+    moveBbox: {
+      zoomLvl: 1,
+    },
     enableSelection: true,
     aboveLayer: 'water',
   },
@@ -54,7 +62,11 @@ const layerOptions = {
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
-      border: '#444',
+      border: '#222',
+      opacity: 0.3,
+    },
+    moveBbox: {
+      zoomLvl: 1,
     },
     enableSelection: true,
     aboveLayer: 'water',
@@ -67,6 +79,10 @@ const layerOptions = {
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
       border: '#444',
+      opacity: 0.3,
+    },
+    moveBbox: {
+      zoomLvl: 1,
     },
     enableSelection: true,
     aboveLayer: 'water',
@@ -95,6 +111,7 @@ export default class Mapbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      zoomLvl: 1,
     };
   }
 
@@ -121,6 +138,10 @@ export default class Mapbox extends React.Component {
     this.map.remove();
   }
 
+  updateZoomLvl(zoomLvl) {
+    this.setState({ zoomLvl });
+  }
+
   renderNewIndividualLayer(layer) {
     const mapComponents = {
       qTop: 0, qLeft: 0, qWidth: 7, qHeight: 500,
@@ -136,6 +157,8 @@ export default class Mapbox extends React.Component {
           options: layerOptions[layer],
           map: this.state.map,
           mapSelections: this.props.mapSelections,
+          zoomLvl: this.state.zoomLvl,
+          updateZoomLvl: this.updateZoomLvl.bind(this),
         }}
       />
     );

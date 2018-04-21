@@ -80,6 +80,7 @@ class PageOne extends React.Component {
       rightPanel: {
         float: 'right',
         maxWidth: '300px',
+        opacity: '0.9',
       },
     };
     return (
@@ -99,8 +100,8 @@ class PageOne extends React.Component {
           <div className="col4 fill-darken3 pin-right contain" style={styles.rightPanel}>
             <Paper>
               <QlikObject
-                qProp={qProps.objectList}
-                type="qListObject"
+                qProp={qProps.objectHCList}
+                type="qHyperCube"
                 Component={RightPanel}
               />
             </Paper>

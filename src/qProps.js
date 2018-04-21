@@ -206,6 +206,30 @@ qProps.neighborhoodList = {
     qAutoSortByState: { qDisplayNumberOfRows: 1 },
   },
 };
+qProps.propertyUseList = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['Property Uses'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
+qProps.propertyTypeList = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['Property Type'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
 qProps.objectList = {
   qInfo: {
     qType: 'visualization',
@@ -504,21 +528,25 @@ qProps.objectHCList = {
           qFieldDefs: ['OBJECTID'],
           qFieldLabels: ['Property'],
           qSortCriterias: [{ qSortByAscii: 1 }],
-          // qSuppressMissing: true,
-        },
-      },
-      {
-        qDef: {
-          qFieldDefs: ['buildpts.Point'],
-          qFieldLabels: ['Points'],
-          qSortCriterias: [{ qSortByAscii: 1 }],
           qSuppressMissing: true,
         },
       },
       {
         qDef: {
-          qFieldDefs: ['buildareas.Area'],
-          qFieldLabels: ['Area'],
+          qFieldDefs: ['AGGR(CONCAT({<BERDOYear= {$(=max(BERDOYear))}>} [Property Name],', '),OBJECTID)'],
+          qFieldLabels: ['Property Name'],
+        },
+      },
+      {
+        qDef: {
+          qFieldDefs: ['AGGR(CONCAT({<BERDOYear= {$(=max(BERDOYear))}>} [Property Type],', '),OBJECTID)'],
+          qFieldLabels: ['Property Type'],
+        },
+      },
+      {
+        qDef: {
+          qFieldDefs: ['AGGR(CONCAT({<BERDOYear= {$(=max(BERDOYear))}>} [Property Uses],', '),OBJECTID)'],
+          qFieldLabels: ['Property Use'],
         },
       }],
     qMeasures: [{

@@ -20,8 +20,9 @@ export default class MapNewLayers extends React.Component {
       const { map, layerName, visibilityState } = nextProps;
       // console.log('map drawn', map, layerName, visibilityState);
       map.setLayoutProperty(layerName, 'visibility', visibilityState ? 'visible' : 'none');
+      return { map: nextProps.map };
     }
-    return nextProps;
+    return null;
   }
 
   constructor(props) {

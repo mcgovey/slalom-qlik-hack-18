@@ -5,22 +5,48 @@ import Card, { CardContent } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import BarChart from '../charts/BarChart';
 import QlikObject from './QlikObject';
+import RightPanelPropertyInfo from './RightPanelPropertyInfo';
 import qProps from '../qProps';
 
 const hcProps = {
   qTop: 0, qLeft: 0, qWidth: 3, qHeight: 2000,
 };
 
-const chartOptions = {
+const chartObjs = {
   emitters: {
     sort: -1,
+    color: {
+      pattern: ['#94b9af'],
+    },
+    numFormat: {
+      decimals: 0,
+    },
   },
   reductions: {
     sort: 1,
-    refline: 0.15,
+    refline: {
+      y: {
+        lines: [
+          { value: -0.15, text: '15%' },
+        ],
+      },
+    },
+    color: {
+      pattern: ['#a6d3c7'],
+    },
+    numFormat: {
+      decimals: 2,
+      format: 'pct',
+    },
   },
   reductionAmount: {
     sort: -1,
+    color: {
+      pattern: ['#b8eddf'],
+    },
+    numFormat: {
+      decimals: 0,
+    },
   },
 };
 
@@ -31,7 +57,7 @@ const dividerStyle = {
 
 export default class RightPanel extends React.Component {
   static propTypes = {
-    // qData: PropTypes.object.isRequired,
+    qData: PropTypes.object.isRequired,
     qLayout: PropTypes.object.isRequired,
     // select: PropTypes.func.isRequired,
   };
@@ -49,24 +75,32 @@ export default class RightPanel extends React.Component {
   //   return nextProps;
   // }
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     map: this.props.map,
-  //     qDataHash: {},
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      chartOptions: chartObjs,
+    };
+  }
   levelOfChartOp() {
-    const { qDimensionsInfo } = this.props.qLayout.qListObject;
-    console.log('listobj', qDimensionsInfo);
-    return this.highLevelCharts();
+    const { qDimensionInfo } = this.props.qLayout.qHyperCube;
+    console.log('listobj', qDimensionInfo);
+    return qDimensionInfo[0].qStateCounts.qSelected === 1 ?
+      this.singleBuildingInfo() :
+      this.highLevelCharts();
     // return qDimensionsInfo.qStateCounts.qOption > 1 ? this.highLevelCharts() : '';
   }
-
+  singleBuildingInfo() {
+    return (
+      <RightPanelPropertyInfo
+        {...this.props}
+      />
+    );
+  }
 
   highLevelCharts() {
-    console.log('now hear this', this.props.qLayout);
-    // const { qStateCounts } = this.props.qLayout.qListObject.qDimensionsInfo;
+    const { chartOptions } = this.state;
+    // const { qDimensionInfo } = this.props.qLayout.qHyperCube;
+    // console.log('now hear this', this.props.qLayout, qDimensionInfo);
     return (
       <Card>
         <CardContent>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import * as c3 from 'c3';
 import * as d3 from 'd3';
 import '../../node_modules/c3/c3.css';
+import '../styles/chartStyles.css';
 
 export default class BarChart extends React.Component {
   static propTypes = {
@@ -26,12 +27,13 @@ export default class BarChart extends React.Component {
         return {
           id: row[0].qElemNumber,
           indicator: row[0].qText,
-          total: row[1].qNum,
+          total: row[1].qNum.toFixed(options.numFormat.decimals),
         };
       });
-      jsonData.sort((a, b) => (options.sort === 1 ? b.total - a.total : a.total - b.total));
+      jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
+      // jsonData.sort((a, b) => (b.total - a.total));
       const topJsonData = jsonData.slice(0, 5);
-      // console.log('data to load', topJsonData);
+      // console.log('data to load', topJsonData, jsonData);
       // chart.load({
       //   json: jsonData,
       //   unload: missingChartIds,
@@ -39,27 +41,6 @@ export default class BarChart extends React.Component {
       chartProps.data.json = topJsonData;
 
       chart = c3.generate(chartProps);
-      // {
-      //   bindto: chartProps.ref,
-      //   data: {
-      //     type: 'bar',
-      //     json: topJsonData,
-      //     keys: {
-      //       x: 'indicator',
-      //       value: ['total'],
-      //     },
-      //   },
-      //   axis: {
-      //     x: {
-      //       type: 'category',
-      //     },
-      //   },
-      //   bar: {
-      //     width: {
-      //       ratio: 0.5,
-      //     },
-      //   },
-      // });
       return { chart, chartProps };
     }
     return null;
@@ -78,21 +59,23 @@ export default class BarChart extends React.Component {
     const qElemNumMap = {};
     const jsonData = qData.qMatrix.map((row) => {
       qElemNumMap[row[0].qText] = row[0].qElemNumber;
+      // console.log('row', row);
       return {
         id: row[0].qElemNumber,
         indicator: row[0].qText,
-        total: row[1].qNum,
+        total: row[1].qNum.toFixed(options.numFormat.decimals),
       };
     });
-    jsonData.sort((a, b) => (options.sort === 1 ? b.total - a.total : a.total - b.total));
+    // console.log('json', jsonData, 'matrix', qData);
+    jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
     const topJsonData = jsonData.slice(0, 5);
 
-    // console.log('json', jsonData, 'matrix', qMatrix);
+    // console.log('topJsonData', topJsonData, 'jsonDatasort', jsonData);
 
     const chartProps = {
       bindto: this.chartRef,
       size: {
-        height: 220,
+        height: 200,
       },
       data: {
         type: 'bar',
@@ -124,16 +107,18 @@ export default class BarChart extends React.Component {
       legend: {
         show: false,
       },
-      grid: {
-        y: {
-          lines: [
-            { value: 100, text: 'Label on 100' },
-            { value: 200, text: 'Label on 200', class: 'label-200' },
-            { value: 300, text: 'Label on 300', position: 'middle' },
-          ],
-        },
+      transition: {
+        duration: 1000,
       },
     };
+
+    if (options.refline) chartProps.grid = options.refline;
+    if (options.color) chartProps.color = options.color;
+    if (options.numFormat.format) {
+      chartProps.data.labels = {
+        format: d3.format('.2%'),
+      };
+    }
 
     d3.selectAll('.tick')
       .on('click', (value, index) => {
