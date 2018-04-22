@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bbox from '@turf/bbox';
-import { lineString } from '@turf/helpers';
+import centroid from '@turf/centroid';
+import { lineString, polygon, multiPolygon } from '@turf/helpers';
 
 
 export default class MapNewLayers extends React.Component {
@@ -12,17 +13,22 @@ export default class MapNewLayers extends React.Component {
     mapSelections: PropTypes.object.isRequired,
     map: PropTypes.object.isRequired,
     options: PropTypes.object.isRequired,
-    zoomLvl: PropTypes.number.isRequired,
-    updateZoomLvl: PropTypes.func.isRequired,
+    // zoomProps: PropTypes.number.isRequired,
+    // updateZoomLvl: PropTypes.func.isRequired,
+    popup: PropTypes.object.isRequired,
   };
   // static getDerivedStateFromProps(nextProps, prevState) {
   //   // console.log('called props', nextProps, prevState);
 
-  //   // const { qStateCounts } = nextProps.qLayout.qHyperCube.qDimensionInfo[0];
+  //   const { qStateCounts } = nextProps.qLayout.qHyperCube.qDimensionInfo[0];
   //   // const { options } = nextProps;
 
-  //   // console.log('called props', nextProps.options.layerName,
-  //  qStateCounts.qSelected, nextProps.zoomLvl);
+  //   console.log('called props', nextProps.options.layerName, qStateCounts.qSelected, prevState);
+  //   // if ( qStateCounts.qSelected > 1 && prevState.zoomed!==true ) {
+  //   //   return { zoomed: true };
+  //   // } else if (nextProps.zoomProps.defaultZoom)
+  //   // selected but not previously selected, zoom it
+  //   // default zoom to all
   //   // if (qStateCounts.qSelected === 1 && nextProps.zoomLvl === 1) {
   //   //   return {
   //   //     zoomLvl: 2,
@@ -63,8 +69,8 @@ export default class MapNewLayers extends React.Component {
       colorVals: {
         valMin: 0,
         valMax: 10,
-        dotMin: 10,
-        dotMax: 40,
+        dotMin: 20,
+        dotMax: 50,
         minHex: '#aaa',
         maxHex: '#aaa',
       },
@@ -76,7 +82,7 @@ export default class MapNewLayers extends React.Component {
 
     const { colorVals } = this.state;
     const {
-      map, options, qLayout, mapSelections,
+      map, options, qLayout,
     } = this.props;
 
     if (options.color) {
@@ -106,7 +112,7 @@ export default class MapNewLayers extends React.Component {
           ],
         },
         'circle-opacity': options.color.opacity || 0.8,
-        'circle-radius': 2,
+        'circle-radius': 5,
       };
     } else if (options.type === 'fill') {
       paintVal = {
@@ -146,35 +152,36 @@ export default class MapNewLayers extends React.Component {
       });
     }
 
-
-    if (options.moveBbox &&
-      this.props.zoomLvl === options.moveBbox.zoomLvl &&
-      mapSelections[options.layerName]) {
+    if (options.moveBbox) {
       this.moveBoundingBox(geoJSON);
     }
+    // neighborhoods
 
     this.setLayerVisibility(options.layerName);
 
     if (options.enableSelection) {
-      this.makeSelections(options.layerName, 0, options.moveBbox.zoomLvl);
+      this.makeSelections(options.layerName, 0);
     }
   }
 
-  shouldComponentUpdate(nextProps) {
-    return (
-      (JSON.stringify(this.props.mapSelections) !== JSON.stringify(nextProps.mapSelections))
-      ||
-      (JSON.stringify(this.props.qData) !== JSON.stringify(nextProps.qData))
-    );
-  }
+  // shouldComponentUpdate(nextProps) {
+  //   console.log('checking for updates', this.props.mapSelections,
+  // nextProps.mapSelections, this.state.mapSelections);
+  //   return true;
+  //   // (
+  //   //   (JSON.stringify(this.props.mapSelections) !== JSON.stringify(nextProps.mapSelections))
+  //   //   ||
+  //   //   (JSON.stringify(this.props.qData) !== JSON.stringify(nextProps.qData))
+  //   // );
+  // }
 
   componentDidUpdate() {
     // prevProps, prevState
-    // console.log('update called', this.props, this.state, prevProps, prevState);
+    // console.log('update called', this.props);
 
     const { colorVals } = this.state;
     const {
-      map, options, qLayout, mapSelections,
+      map, options, qLayout,
     } = this.props;
 
     // console.log('qLayout', qLayout);
@@ -202,9 +209,7 @@ export default class MapNewLayers extends React.Component {
     });
     this.setLayerVisibility(options.layerName);
 
-    if (options.moveBbox &&
-      this.props.zoomLvl === options.moveBbox.zoomLvl &&
-      mapSelections[options.layerName]) {
+    if (options.moveBbox) {
       this.moveBoundingBox(geoJSON);
     }
   }
@@ -218,6 +223,14 @@ export default class MapNewLayers extends React.Component {
     } else {
       this.state.map.setLayoutProperty(layer, 'visibility', 'none');
     }
+  }
+  getCentroid(feature, polygonType) {
+    let turfPolygon = {};
+    if (this) {
+      turfPolygon = polygonType === 'Polygon' ? polygon(feature) : multiPolygon(feature);
+      // console.log('polygon', turfPolygon, centroid(turfPolygon));
+    }
+    return centroid(turfPolygon).geometry.coordinates;
   }
 
   moveBoundingBox(sourceGeojson) {
@@ -242,20 +255,47 @@ export default class MapNewLayers extends React.Component {
       });
     }
   }
-  makeSelections(layer, fieldNo, zoomLvl) {
+  makeSelections(layer, fieldNo) {
     this.state.map.on('click', layer, (e) => {
       this.props.select(Number(e.features[0].properties.qElemNumber), Number(fieldNo));
-      this.props.updateZoomLvl(zoomLvl);
     });
 
     // Change the cursor to a pointer when the mouse is over the places layer.
-    this.state.map.on('mouseenter', layer, () => {
+    this.state.map.on('mouseenter', layer, (e) => {
       this.state.map.getCanvas().style.cursor = 'pointer';
+
+      const { qHyperCube } = this.props.qLayout;
+      const { geometry, properties } = e.features[0];
+
+      const coordinates = geometry.type === 'Polygon' || geometry.type === 'MultiPolygon' ?
+        this.getCentroid(geometry.coordinates, geometry.type) :
+        geometry.coordinates.slice();
+      const description = `${qHyperCube.qDimensionInfo[0].qFallbackTitle}: <b>${properties.dim}</b> <br />
+      ${qHyperCube.qMeasureInfo[0].qFallbackTitle}: <b>${properties.colorByMeasure.toFixed(1) || 0}</b> <br />
+      ${qHyperCube.qMeasureInfo[1].qFallbackTitle}: <b>${properties.metric2.toFixed(1) || 0}</b> <br />
+      ${qHyperCube.qMeasureInfo[2].qFallbackTitle}: <b>${properties.metric3.toFixed(1) || 0}</b> <br />
+      ${qHyperCube.qMeasureInfo[3].qFallbackTitle}: <b>${properties.metric2.toFixed(1) || 0}</b>`;
+
+      // console.log('coords', coordinates, e.features[0], qHyperCube);
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      this.props.popup.setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(this.state.map);
     });
 
     // Change it back to a pointer when it leaves.
     this.state.map.on('mouseleave', layer, () => {
       this.state.map.getCanvas().style.cursor = '';
+      this.props.popup.remove();
     });
   }
 
@@ -277,7 +317,9 @@ export default class MapNewLayers extends React.Component {
           dim: d[0].qText,
           qElemNumber: d[0].qElemNumber,
           colorByMeasure: d[2].qNum,
-          // metric: d[3].qNum,
+          metric2: d[3].qNum,
+          metric3: d[4].qNum,
+          metric4: d[5].qNum,
         },
       })),
     };

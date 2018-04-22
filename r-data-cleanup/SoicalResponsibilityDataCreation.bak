@@ -1,0 +1,585 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="11.0">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="12">C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp</File>
+          <FormatSpecificOptions>
+            <Projection />
+            <AllStrings>False</AllStrings>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Climate_Ready_Boston_Social_Vulnerability.shp</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="FID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Int32" />
+            <Field name="GEOID10" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="V_String" />
+            <Field name="AREA_SQFT" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Double" />
+            <Field name="AREA_ACRES" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Double" />
+            <Field name="POP100_RE" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Int32" />
+            <Field name="HU100_RE" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Int32" />
+            <Field name="TotDis" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Int32" />
+            <Field name="TotChild" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Int32" />
+            <Field name="OlderAdult" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Int32" />
+            <Field name="Low_to_No" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Int32" />
+            <Field name="LEP" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Int32" />
+            <Field name="POC2" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Int32" />
+            <Field name="MedIllnes" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Double" />
+            <Field name="Name" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="V_String" />
+            <Field name="Shape__Are" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Double" />
+            <Field name="Shape__Len" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="Double" />
+            <Field name="SpatialObj" size="2147483647" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Climate_Ready_Boston_Social_Vulnerability.shp" type="SpatialObj" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="150" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="Shape__Are" selected="False" />
+            <SelectField field="Shape__Len" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="246" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="'climate-ready-social-vulnerability'" field="source" size="1073" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[source = 'climate-ready-social-vulnerability'
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="342" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_018f7420b93844ae9cf7fd144b42eead_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Map</DefaultTab>
+              <Hints>
+                <Map>
+                  <BaseMap>Latest:DarkCarto</BaseMap>
+                </Map>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
+        <Position x="450" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Target SpatialObj="Centroid" />
+          <Universe SpatialObj="SpatialObj" />
+          <Method method="Intersects" />
+          <SelectConfiguration>
+            <Configuration outputConnection="Matched">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Universe_SpatialObj" selected="True" rename="Universe_SpatialObj" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+          <IntersectPoly value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Centroid Intersects SpatialObj</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialMatch" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="774" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="0">data/social-responsibility-to-buildings.csv</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <LineEndStyle>CRLF</LineEndStyle>
+            <Delimeter>,</Delimeter>
+            <ForceQuotes>False</ForceQuotes>
+            <HeaderRow>True</HeaderRow>
+            <CodePage>28591</CodePage>
+            <WriteBOM>True</WriteBOM>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>social-responsibility-to-buildings.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="678" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="12">C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp</File>
+          <FormatSpecificOptions>
+            <Projection />
+            <AllStrings>False</AllStrings>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Municipal_Building_Energy_Reporting_BERDO.shp</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="OBJECTID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Int32" />
+            <Field name="Address" size="85" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Property_T" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Property_U" size="173" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Site_EUI" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="GHG_Intens" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="ShapeSTAre" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="ShapeSTLen" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="Reported" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Property_N" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Gross_Sq_F" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="EnergyStar" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Int32" />
+            <Field name="EnergySt_1" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Year_Built" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="GHG_Emissi" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="Site_Energ" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="Water_Inte" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="OnSite_Sol" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Owner_Subm" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="ZIP" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Tax_Parcel" size="230" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Pct_Electr" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="Pct_Gas" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
+            <Field name="Pct_Steam" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Owner_Su_1" size="254" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="Years_Repo" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
+            <Field name="SpatialObj" size="2147483647" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="SpatialObj" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="246" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="Address" selected="False" />
+            <SelectField field="EnergySt_1" selected="False" />
+            <SelectField field="EnergyStar" selected="False" />
+            <SelectField field="GHG_Emissi" selected="False" />
+            <SelectField field="GHG_Intens" selected="False" />
+            <SelectField field="Gross_Sq_F" selected="False" />
+            <SelectField field="OBJECTID" selected="True" />
+            <SelectField field="OnSite_Sol" selected="False" />
+            <SelectField field="Owner_Su_1" selected="False" />
+            <SelectField field="Owner_Subm" selected="False" />
+            <SelectField field="Pct_Electr" selected="False" />
+            <SelectField field="Pct_Gas" selected="False" />
+            <SelectField field="Pct_Steam" selected="False" />
+            <SelectField field="Property_N" selected="False" />
+            <SelectField field="Property_T" selected="False" />
+            <SelectField field="Property_U" selected="False" />
+            <SelectField field="Reported" selected="False" />
+            <SelectField field="ShapeSTAre" selected="False" />
+            <SelectField field="ShapeSTLen" selected="False" />
+            <SelectField field="Site_Energ" selected="False" />
+            <SelectField field="Site_EUI" selected="False" />
+            <SelectField field="SpatialObj" selected="True" />
+            <SelectField field="Tax_Parcel" selected="True" />
+            <SelectField field="Water_Inte" selected="False" />
+            <SelectField field="Year_Built" selected="False" />
+            <SelectField field="Years_Repo" selected="False" />
+            <SelectField field="ZIP" selected="False" />
+            <SelectField field="Centroid" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="546" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_0d1603daeaaa485ba68ac15f77493dde_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Map</DefaultTab>
+              <Hints>
+                <Map>
+                  <BaseMap>Latest:DarkCarto</BaseMap>
+                </Map>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="678" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_ef990e9b1c5a414eb720821962c63a93_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Map</DefaultTab>
+              <Hints>
+                <Map>
+                  <BaseMap>CartoDark</BaseMap>
+                </Map>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
+        <Position x="150" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SpatialObj field="SpatialObj" />
+          <SelectedItems>
+            <Item name="CentroidObj" />
+          </SelectedItems>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
+        <Position x="546" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Target SpatialObj="SpatialObj" />
+          <Universe SpatialObj="SpatialObj" />
+          <Method method="Intersects" />
+          <SelectConfiguration>
+            <Configuration outputConnection="Matched">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Universe_SpatialObj" selected="True" rename="Universe_SpatialObj" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+          <IntersectPoly value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>SpatialObj Intersects SpatialObj</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialMatch" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="618" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_ace14b96ed364e829abd9be323bdc716_.yxdb</TempFile>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="366" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="474" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="22" MaxRecords="">C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\social-responsibility-areas.kml</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <DescField>source</DescField>
+            <SpatialObjField>SpatialObj</SpatialObjField>
+            <NameField>GEOID10</NameField>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>social-responsibility-areas.kml</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="474" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Low_to_No" action="Max" rename="Max_Low_to_No" />
+            <SummarizeField field="FID" action="Max" rename="Max_FID" />
+            <SummarizeField field="FID" action="Min" rename="Min_FID" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="5" Connection="Universe" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="5" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="14" Connection="Universe" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Unmatched" />
+      <Destination ToolID="14" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Matched" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Matched" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Matched" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Unmatched" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>SoicalResponsibilityDataCreation</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

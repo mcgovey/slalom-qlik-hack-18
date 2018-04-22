@@ -89,7 +89,7 @@ export default class RightPanel extends React.Component {
   }
   levelOfChartOp() {
     const { qDimensionInfo } = this.props.qLayout.qHyperCube;
-    console.log('listobjs', this.props.qData);
+    // console.log('listobjs', this.props.qData);
     return qDimensionInfo[0].qStateCounts.qSelected === 1 ?
       this.singleBuildingInfo() :
       this.highLevelCharts();

@@ -91,19 +91,19 @@ export default class MapNewLayers extends React.Component {
 
       <Card>
         <CardContent>
-          <Typography variant="heading" style={styles.header} gutterBottom align="center">
+          <Typography variant="headline" style={styles.header} gutterBottom align="center">
             Property Name(s)
           </Typography>
           <Typography variant="body2" style={styles.data} gutterBottom align="center">
             {qMatrix[0][1].qText}
           </Typography>
-          <Typography variant="heading" style={styles.header} gutterBottom align="center">
+          <Typography variant="headline" style={styles.header} gutterBottom align="center">
             Property Type
           </Typography>
           <Typography variant="body2" style={styles.data} gutterBottom align="center">
             {qMatrix[0][2].qText}
           </Typography>
-          <Typography variant="heading" style={styles.header} gutterBottom align="center">
+          <Typography variant="headline" style={styles.header} gutterBottom align="center">
             Property Uses
           </Typography>
           <Typography variant="body2" style={styles.data} gutterBottom align="center">
@@ -118,13 +118,13 @@ export default class MapNewLayers extends React.Component {
             Consumption
           </Typography>
           <BarChart {...this.props} options={chartOptions.consumption} />
-          <Typography variant="heading" style={styles.header} gutterBottom align="center">
+          <Typography variant="headline" style={styles.header} gutterBottom align="center">
             Energy Star Score
           </Typography>
           <Typography variant="body2" style={styles.data} gutterBottom align="center">
             {qMatrix[0][8].qText}
           </Typography>
-          <Typography variant="heading" style={styles.header} gutterBottom align="center">
+          <Typography variant="headline" style={styles.header} gutterBottom align="center">
             Renewable Energy Generation
           </Typography>
           <Typography variant="body2" style={styles.data} gutterBottom align="center">

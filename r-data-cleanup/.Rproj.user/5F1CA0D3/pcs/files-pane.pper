@@ -1,0 +1,9 @@
+{
+    "path" : "~/Projects/slalom-qlik-hack-18/r-data-cleanup/data",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

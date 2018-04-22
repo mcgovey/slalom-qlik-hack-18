@@ -1,5 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import centroid from '@turf/centroid';
+import { polygon, multiPolygon } from '@turf/helpers';
+
+const seaLevelNames = {
+  'fiveft-plus-sea-level-rise': '5 ft.',
+  'sevenptfiveft-plus-sea-level-rise': '7.5 ft.',
+  'nine-inch-sea-level-rise': '9 in.',
+  'thirtysix-inch-sea-level-rise': '36 in.',
+};
 
 export default class MapNewLayers extends React.Component {
   static propTypes = {
@@ -10,6 +19,7 @@ export default class MapNewLayers extends React.Component {
     layerName: PropTypes.string.isRequired,
     dataType: PropTypes.string.isRequired,
     select: PropTypes.func.isRequired,
+    popup: PropTypes.object.isRequired,
   };
 
   static getDerivedStateFromProps(nextProps) {
@@ -44,6 +54,14 @@ export default class MapNewLayers extends React.Component {
   componentWillUnmount() {
     // this.map.remove();
   }
+  getCentroid(feature, polygonType) {
+    let turfPolygon = {};
+    if (this) {
+      turfPolygon = polygonType === 'Polygon' ? polygon(feature) : multiPolygon(feature);
+      // console.log('polygon', turfPolygon, centroid(turfPolygon));
+    }
+    return centroid(turfPolygon).geometry.coordinates;
+  }
 
   writeToHashObj() {
     const dataMap = {};
@@ -60,27 +78,57 @@ export default class MapNewLayers extends React.Component {
 
   makeSelections(layer, fieldNo = 0) {
     // console.log('map', map);
-    this.state.map.on('click', layer, (e) => {
+    const { map } = this.state;
+    map.on('click', layer, (e) => {
       // var features = map.queryRenderedFeatures(e.point);
       console.log('features clicked', e.features[0], 'num', Number(fieldNo), 'hash', this.state.qDataHash[e.features[0].properties.Name], 'hashtable', this.state.qDataHash, 'lookup', e.features[0].properties.Name);
       if (this.props.dataType === 'qHyperCube') {
         this.props.select(
-          Number(this.state.qDataHash[e.features[0].properties.Name]),
+          layer === 'sea-level-rise' ?
+            Number(this.state.qDataHash[seaLevelNames[e.features[0].properties.source]]) : 1,
           Number(fieldNo),
         );
       } else {
-        this.props.select(Number(this.state.qDataHash[e.features[0].properties.Name]));
+        this.props.select(layer === 'sea-level-rise' ?
+          Number(this.state.qDataHash[seaLevelNames[e.features[0].properties.source]]) : 1);
       }
     });
 
+
     // Change the cursor to a pointer when the mouse is over the places layer.
-    this.state.map.on('mouseenter', layer, () => {
+    map.on('mouseenter', layer, (e) => {
       this.state.map.getCanvas().style.cursor = 'pointer';
+      console.log('hover', e, e.features[0].lngLat, this.state.qDataHash, this.state.qDataHash[seaLevelNames[e.features[0].properties.source]], this.props.popup);
+
+      // const { qHyperCube } = this.props.qLayout;
+      // const { properties, lngLat } = e.features[0];
+
+      const coordinates = [e.lngLat.lng, e.lngLat.lat];
+      // const coordinates = geometry.type === 'Polygon' || geometry.type === 'MultiPolygon' ?
+      //   this.getCentroid(geometry.coordinates, geometry.type) :
+      //   geometry.coordinates.slice();
+      const description = `<b>${e.features[0].properties.source}</b>`;
+
+      // console.log('coords', coordinates, e.features[0], qHyperCube);
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      this.props.popup.setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(this.state.map);
     });
 
     // Change it back to a pointer when it leaves.
-    this.state.map.on('mouseleave', layer, () => {
+    map.on('mouseleave', layer, () => {
       this.state.map.getCanvas().style.cursor = '';
+      this.props.popup.remove();
     });
   }
 

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "install.packages('RJSONIO')\n\nberdo_data <- read.csv('data/property-assessment-fy2016.csv')\n\nsummary(berdo_data)\n\ntemp <- berdo_data[1:5,]\ntemp$fullAddress <- paste(temp$MAIL_ADDRESS,' ',temp$MAIL_ZIPCODE)\n\ngeocodeAdddress <- function(address) {\n  require(RJSONIO)\n  url <- \"http://maps.google.com/maps/api/geocode/json?address=\"\n  url <- URLencode(paste(url, address, \"&sensor=false\", sep = \"\"))\n  x <- fromJSON(url, simplify = FALSE)\n  if (x$status == \"OK\") {\n    out <- c(x$results[[1]]$geometry$location$lng,\n             x$results[[1]]$geometry$location$lat,\n             x$status)\n  } else {\n    out <- c('',\n             '',\n             x$status)\n  }\n  Sys.sleep(2)  # API only allows 5 requests per second\n  print(out)\n  out\n}\n\ntemp[,c('lng', 'lat', 'status')] <- t(apply(temp, 1, function(x) geocodeAdddress(x['fullAddress'])))\n\n#temp remove non null fields\ntemp <- temp[grep(\"[[:digit:]]\", temp$LATITUDE) ,]\ntemp[] <- lapply(temp, function(x) if(is.factor(x)) factor(x) else x)\n",
+    "created" : 1523228301075.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3719474995",
+    "id" : "74D022C7",
+    "lastKnownWriteTime" : 1523378201,
+    "last_content_update" : 1523378201334,
+    "path" : "~/Projects/slalom-qlik-hack-18/r-data-cleanup/geocoder.R",
+    "project_path" : "geocoder.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

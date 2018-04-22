@@ -19,7 +19,7 @@ const layerOptions = {
       maxHex: '#9a0000',
       opacity: 0.5,
     },
-    enableSelection: false,
+    enableSelection: true,
     minZoom: 10,
     maxZoom: 12,
   },
@@ -49,9 +49,6 @@ const layerOptions = {
       border: '#222',
       opacity: 0.3,
     },
-    moveBbox: {
-      zoomLvl: 1,
-    },
     enableSelection: true,
     aboveLayer: 'water',
   },
@@ -65,9 +62,6 @@ const layerOptions = {
       border: '#222',
       opacity: 0.3,
     },
-    moveBbox: {
-      zoomLvl: 1,
-    },
     enableSelection: true,
     aboveLayer: 'water',
   },
@@ -80,9 +74,6 @@ const layerOptions = {
       maxHex: '#9a0000',
       border: '#444',
       opacity: 0.3,
-    },
-    moveBbox: {
-      zoomLvl: 1,
     },
     enableSelection: true,
     aboveLayer: 'water',
@@ -111,7 +102,10 @@ export default class Mapbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      zoomLvl: 1,
+      // zoomProps: {
+      //   zoomLvl: 'neighborhoods',
+      //   zoomed: false,
+      // },
     };
   }
 
@@ -127,8 +121,15 @@ export default class Mapbox extends React.Component {
     });
 
     this.map.on('style.load', () => {
+      // Create a popup, but don't add it to the map yet.
+      const popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+      });
+
       this.setState({
         map: this.map,
+        popup,
       });
     });
   }
@@ -138,9 +139,14 @@ export default class Mapbox extends React.Component {
     this.map.remove();
   }
 
-  updateZoomLvl(zoomLvl) {
-    this.setState({ zoomLvl });
-  }
+  // updateZoomLvl(layer, zoomed) {
+  //   this.setState({
+  //     zoomProps: {
+  //       zoomLvl: layer,
+  //       zoomed,
+  //     },
+  //   });
+  // }
 
   renderNewIndividualLayer(layer) {
     const mapComponents = {
@@ -157,8 +163,9 @@ export default class Mapbox extends React.Component {
           options: layerOptions[layer],
           map: this.state.map,
           mapSelections: this.props.mapSelections,
-          zoomLvl: this.state.zoomLvl,
-          updateZoomLvl: this.updateZoomLvl.bind(this),
+          // zoomProps: this.state.zoomProps,
+          // updateZoomLvl: this.updateZoomLvl.bind(this),
+          popup: this.state.popup,
         }}
       />
     );
@@ -192,6 +199,7 @@ export default class Mapbox extends React.Component {
           map: this.state.map,
           fieldName: this.props.mapLayerProps[layer].selectionField,
           dataType: this.props.mapLayerProps[layer].type,
+          popup: this.state.popup,
         }}
       />
     );

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(rgeos)\nlibrary(sp)\nlibrary(rgdal)\n\ninstall.packages('rgeos')\ninstall.packages('rgdal')\n\nma.map <- readOGR(\"data/ZillowNeighborhoods-MA.shp\", layer=\"ZillowNeighborhoods-MA\")\n\n\nsodo <- ma.map[ma.map$CITY == \"Boston\", ]\n\n\n# Don't use df as name, it is an R function\n# Better to set longitudes as the first column and latitudes as the second\ndat <- data.frame(Longitude = as.numeric(temp$LONGITUDE),\n                  Latitude =as.numeric(temp$LATITUDE),\n                  names = temp$MAIL_ADDRESS)\n# Assignment modified according\ncoordinates(dat) <- ~ Longitude + Latitude\n# Set the projection of the SpatialPointsDataFrame using the projection of the shapefile\nproj4string(dat) <- proj4string(sodo)\n\nover(dat, sodo)\n#  STATE COUNTY    CITY                NAME REGIONID\n#1    WA   King Seattle Industrial District   271892\n#2  <NA>   <NA>    <NA>                <NA>       NA\n#3  <NA>   <NA>    <NA>                <NA>       NA\n\nover(sodo, dat)\n#           names\n#122 Safeco Field\n\n\n# sodo <- wa.map[wa.map$CITY == \"Boston\"  & wa.map$NAME == \"Industrial District\", ]\n# \n# # Don't use df as name, it is an R function\n# # Better to set longitudes as the first column and latitudes as the second\n# dat <- data.frame(Longitude = c(-122.332271,-122.353985,-122.331639),\n#                   Latitude =c(47.591351, 47.62212,47.595152),\n#                   names = c(\"Safeco Field\", \"Key Arena\", \"Century Link\"))\n# # Assignment modified according\n# coordinates(dat) <- ~ Longitude + Latitude\n# # Set the projection of the SpatialPointsDataFrame using the projection of the shapefile\n# proj4string(dat) <- proj4string(sodo)\n# \n# over(dat, sodo)\n# #  STATE COUNTY    CITY                NAME REGIONID\n# #1    WA   King Seattle Industrial District   271892\n# #2  <NA>   <NA>    <NA>                <NA>       NA\n# #3  <NA>   <NA>    <NA>                <NA>       NA\n# \n# over(sodo, dat)\n# #           names\n# #122 Safeco Field",
+    "created" : 1523310827283.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1407828990",
+    "id" : "8CE10A5E",
+    "lastKnownWriteTime" : 1523378199,
+    "last_content_update" : 1523378199329,
+    "path" : "~/Projects/slalom-qlik-hack-18/r-data-cleanup/ptsInShape.R",
+    "project_path" : "ptsInShape.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
