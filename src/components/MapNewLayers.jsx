@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as d3 from 'd3';
+import * as d3 from 'd3-format';
 import bbox from '@turf/bbox';
 import centroid from '@turf/centroid';
 import { lineString, polygon, multiPolygon } from '@turf/helpers';
@@ -238,7 +238,9 @@ export default class MapNewLayers extends React.Component {
 
     map.getSource(options.layerName).setData(geoJSON);
 
-    if (options.type === 'heatmap') {
+    const { qStateCounts } = this.props.qLayout.qHyperCube.qDimensionInfo[0];
+    // console.log('qStateCounts', qStateCounts);
+    if (options.type === 'heatmap' && (qStateCounts.qSelected > 1 || qStateCounts.qOption > 1)) {
       map.setPaintProperty(options.layerName, 'heatmap-weight', [
         'interpolate',
         ['linear'],

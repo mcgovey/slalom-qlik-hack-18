@@ -242,6 +242,18 @@ qProps.propertyTypeList = {
     qAutoSortByState: { qDisplayNumberOfRows: 1 },
   },
 };
+qProps.cohortList = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['Cohort'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
 qProps.objectList = {
   qInfo: {
     qType: 'visualization',

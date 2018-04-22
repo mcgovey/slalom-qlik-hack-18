@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
+import centroid from '@turf/centroid';
+import { polygon, multiPolygon } from '@turf/helpers';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapNewLayers from './MapNewLayers';
 import MapExistingLayers from './MapExistingLayers';
@@ -12,7 +14,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWNnb3ZleSIsImEiOiJjamZzYnltdDUwZGI4MzNxbDcze
 const layerOptions = {
   pts: {
     layerName: 'pts',
-    type: 'heatmap',
+    type: 'circle',
     color: {
       colorByDim: 'metric1',
       measureNum: 0,
@@ -159,44 +161,46 @@ export default class Mapbox extends React.Component {
   //     },
   //   });
   // }
+  getCentroid(feature, polygonType) {
+    let turfPolygon = {};
+    if (this) {
+      turfPolygon = polygonType === 'Polygon' ? polygon(feature) : multiPolygon(feature);
+      // console.log('polygon', turfPolygon, centroid(turfPolygon));
+    }
+    return centroid(turfPolygon).geometry.coordinates;
+  }
   bindHover() {
     // Change the cursor to a pointer when the mouse is over the places layer.
-    this.state.map.on('mouseenter', 'building', (e) => {
-      this.state.map.getCanvas().style.cursor = 'pointer';
+    this.map.on('mouseenter', 'building', (e) => {
+      this.map.getCanvas().style.cursor = 'pointer';
 
-      console.log('building features', e.features[0]);
-      // const { geometry, properties } = e.features[0];
+      // console.log('building features', e.features[0]);
+      const { geometry, properties } = e.features[0];
 
-      // const coordinates = geometry.type === 'Polygon' || geometry.type === 'MultiPolygon' ?
-      //   this.getCentroid(geometry.coordinates, geometry.type) :
-      //   geometry.coordinates.slice();
-      // const description = `${qHyperCube.qDimensionInfo[0].qFallbackTitle}: <b>${properties.dim}</b> <br />
-      // ${qHyperCube.qMeasureInfo[0].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric1) || 0}</b> <br />
-      // ${qHyperCube.qMeasureInfo[1].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric2) || 0}</b> <br />
-      // ${qHyperCube.qMeasureInfo[2].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric3) || 0}</b> <br />
-      // ${qHyperCube.qMeasureInfo[3].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric4) || 0}</b> <br />
-      // ${qHyperCube.qMeasureInfo[4].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric5) || 0}</b> <br />
-      // ${qHyperCube.qMeasureInfo[5].qFallbackTitle}: <b>${(properties.metric6) || 0}</b>`;
+      const coordinates = geometry.type === 'Polygon' || geometry.type === 'MultiPolygon' ?
+        this.getCentroid(geometry.coordinates, geometry.type) :
+        geometry.coordinates.slice();
+      const description = `Building type: ${properties.type}`;
 
       // // console.log('coords', coordinates, e.features[0], qHyperCube);
 
-      // // Ensure that if the map is zoomed out such that multiple
-      // // copies of the feature are visible, the popup appears
-      // // over the copy being pointed to.
-      // while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-      //   coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-      // }
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
 
-      // // Populate the popup and set its coordinates
-      // // based on the feature found.
-      // this.state.popup.setLngLat(coordinates)
-      //   .setHTML(description)
-      //   .addTo(this.state.map);
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      this.state.popup.setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(this.state.map);
     });
 
     // Change it back to a pointer when it leaves.
-    this.state.map.on('mouseleave', layer, () => {
-      this.state.map.getCanvas().style.cursor = '';
+    this.map.on('mouseleave', 'building', () => {
+      this.map.getCanvas().style.cursor = '';
       // this.state.popup.remove();
     });
   }
