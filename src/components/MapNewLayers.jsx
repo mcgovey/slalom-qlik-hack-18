@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as d3 from 'd3';
 import bbox from '@turf/bbox';
 import centroid from '@turf/centroid';
 import { lineString, polygon, multiPolygon } from '@turf/helpers';
@@ -13,8 +14,7 @@ export default class MapNewLayers extends React.Component {
     mapSelections: PropTypes.object.isRequired,
     map: PropTypes.object.isRequired,
     options: PropTypes.object.isRequired,
-    // zoomProps: PropTypes.number.isRequired,
-    // updateZoomLvl: PropTypes.func.isRequired,
+    colorSelection: PropTypes.string.isRequired,
     popup: PropTypes.object.isRequired,
   };
   // static getDerivedStateFromProps(nextProps, prevState) {
@@ -82,7 +82,7 @@ export default class MapNewLayers extends React.Component {
 
     const { colorVals } = this.state;
     const {
-      map, options, qLayout,
+      map, options, qLayout, colorSelection,
     } = this.props;
 
     if (options.color) {
@@ -105,7 +105,7 @@ export default class MapNewLayers extends React.Component {
     if (options.type === 'circle') {
       paintVal = {
         'circle-color': {
-          property: 'colorByMeasure',
+          property: colorSelection,
           stops: [
             [colorVals.valMin, colorVals.minHex],
             [colorVals.valMax, colorVals.maxHex],
@@ -117,7 +117,7 @@ export default class MapNewLayers extends React.Component {
     } else if (options.type === 'fill') {
       paintVal = {
         'fill-color': {
-          property: 'colorByMeasure',
+          property: colorSelection,
           stops: [
             [colorVals.valMin, colorVals.minHex],
             [colorVals.valMax, colorVals.maxHex],
@@ -126,6 +126,44 @@ export default class MapNewLayers extends React.Component {
         'fill-opacity': options.color.opacity || 0.4,
         'fill-outline-color': colorVals.border,
 
+      };
+    } else if (options.type === 'heatmap') {
+      paintVal = {
+        // Increase the heatmap weight based on frequency and property magnitude
+        'heatmap-weight': [
+          'interpolate',
+          ['linear'],
+          ['get', colorSelection],
+          colorVals.valMin, 0,
+          colorVals.valMax, 1,
+        ],
+        // Increase the heatmap color weight weight by zoom level
+        // heatmap-intensity is a multiplier on top of heatmap-weight
+        'heatmap-intensity': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          0, 1,
+          9, 3,
+        ],
+        // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
+        // Begin color ramp at 0-stop with a 0-transparancy color
+        // to create a blur-like effect.
+        'heatmap-color': [
+          'interpolate',
+          ['linear'],
+          ['heatmap-density'],
+          0, colorVals.minHex,
+          1, colorVals.maxHex,
+        ],
+        // Adjust the heatmap radius by zoom level
+        'heatmap-radius': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          0, 2,
+          9, 20,
+        ],
       };
     }
     if (options.aboveLayer) {
@@ -181,7 +219,7 @@ export default class MapNewLayers extends React.Component {
 
     const { colorVals } = this.state;
     const {
-      map, options, qLayout,
+      map, options, qLayout, colorSelection,
     } = this.props;
 
     // console.log('qLayout', qLayout);
@@ -200,13 +238,31 @@ export default class MapNewLayers extends React.Component {
 
     map.getSource(options.layerName).setData(geoJSON);
 
-    map.setPaintProperty(options.layerName, options.type === 'fill' ? 'fill-color' : 'circle-color', {
-      property: 'colorByMeasure',
-      stops: [
-        [colorVals.valMin, colorVals.minHex],
-        [colorVals.valMax, colorVals.maxHex],
-      ],
-    });
+    if (options.type === 'heatmap') {
+      map.setPaintProperty(options.layerName, 'heatmap-weight', [
+        'interpolate',
+        ['linear'],
+        ['get', colorSelection],
+        colorVals.valMin, 0,
+        colorVals.valMax, 1,
+      ]);
+    } else {
+      map.setPaintProperty(options.layerName, options.type === 'fill' ? 'fill-color' : 'circle-color', {
+        property: colorSelection,
+        stops: [
+          [colorVals.valMin, colorVals.minHex],
+          [colorVals.valMax, colorVals.maxHex],
+        ],
+      });
+    }
+    // map.setPaintProperty(options.layerName,
+    // options.type === 'fill' ? 'fill-color' : 'circle-color', {
+    //   property: colorSelection,
+    //   stops: [
+    //     [colorVals.valMin, colorVals.minHex],
+    //     [colorVals.valMax, colorVals.maxHex],
+    //   ],
+    // });
     this.setLayerVisibility(options.layerName);
 
     if (options.moveBbox) {
@@ -271,10 +327,12 @@ export default class MapNewLayers extends React.Component {
         this.getCentroid(geometry.coordinates, geometry.type) :
         geometry.coordinates.slice();
       const description = `${qHyperCube.qDimensionInfo[0].qFallbackTitle}: <b>${properties.dim}</b> <br />
-      ${qHyperCube.qMeasureInfo[0].qFallbackTitle}: <b>${properties.colorByMeasure.toFixed(1) || 0}</b> <br />
-      ${qHyperCube.qMeasureInfo[1].qFallbackTitle}: <b>${properties.metric2.toFixed(1) || 0}</b> <br />
-      ${qHyperCube.qMeasureInfo[2].qFallbackTitle}: <b>${properties.metric3.toFixed(1) || 0}</b> <br />
-      ${qHyperCube.qMeasureInfo[3].qFallbackTitle}: <b>${properties.metric2.toFixed(1) || 0}</b>`;
+      ${qHyperCube.qMeasureInfo[0].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric1) || 0}</b> <br />
+      ${qHyperCube.qMeasureInfo[1].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric2) || 0}</b> <br />
+      ${qHyperCube.qMeasureInfo[2].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric3) || 0}</b> <br />
+      ${qHyperCube.qMeasureInfo[3].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric4) || 0}</b> <br />
+      ${qHyperCube.qMeasureInfo[4].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric5) || 0}</b> <br />
+      ${qHyperCube.qMeasureInfo[5].qFallbackTitle}: <b>${(properties.metric6) || 0}</b>`;
 
       // console.log('coords', coordinates, e.features[0], qHyperCube);
 
@@ -310,16 +368,20 @@ export default class MapNewLayers extends React.Component {
       features: featureData.map(d => ({
         type: 'Feature',
         geometry: {
-          type: options.type === 'circle' ? 'Point' : 'MultiPolygon',
-          coordinates: options.type === 'circle' ? [JSON.parse(d[1].qText)[0], JSON.parse(d[1].qText)[1]] : JSON.parse(d[1].qText),
+          type: options.type === 'circle' || options.type === 'heatmap' ?
+            'Point' : 'MultiPolygon',
+          coordinates: options.type === 'circle' || options.type === 'heatmap' ?
+            [JSON.parse(d[1].qText)[0], JSON.parse(d[1].qText)[1]] : JSON.parse(d[1].qText),
         },
         properties: {
           dim: d[0].qText,
           qElemNumber: d[0].qElemNumber,
-          colorByMeasure: d[2].qNum,
+          metric1: d[2].qNum,
           metric2: d[3].qNum,
           metric3: d[4].qNum,
           metric4: d[5].qNum,
+          metric5: d[6].qNum,
+          metric6: d[7].qNum,
         },
       })),
     };

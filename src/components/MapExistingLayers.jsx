@@ -81,7 +81,9 @@ export default class MapNewLayers extends React.Component {
     const { map } = this.state;
     map.on('click', layer, (e) => {
       // var features = map.queryRenderedFeatures(e.point);
-      console.log('features clicked', e.features[0], 'num', Number(fieldNo), 'hash', this.state.qDataHash[e.features[0].properties.Name], 'hashtable', this.state.qDataHash, 'lookup', e.features[0].properties.Name);
+      // console.log('features clicked', e.features[0], 'num', Number(fieldNo),
+      // 'hash', this.state.qDataHash[e.features[0].properties.Name], 'hashtable',
+      // this.state.qDataHash, 'lookup', e.features[0].properties.Name);
       if (this.props.dataType === 'qHyperCube') {
         this.props.select(
           layer === 'sea-level-rise' ?
@@ -98,18 +100,11 @@ export default class MapNewLayers extends React.Component {
     // Change the cursor to a pointer when the mouse is over the places layer.
     map.on('mouseenter', layer, (e) => {
       this.state.map.getCanvas().style.cursor = 'pointer';
-      console.log('hover', e, e.features[0].lngLat, this.state.qDataHash, this.state.qDataHash[seaLevelNames[e.features[0].properties.source]], this.props.popup);
-
-      // const { qHyperCube } = this.props.qLayout;
-      // const { properties, lngLat } = e.features[0];
+      // console.log('hover', e, e.features[0].lngLat, this.state.qDataHash,
+      // this.state.qDataHash[seaLevelNames[e.features[0].properties.source]], this.props.popup);
 
       const coordinates = [e.lngLat.lng, e.lngLat.lat];
-      // const coordinates = geometry.type === 'Polygon' || geometry.type === 'MultiPolygon' ?
-      //   this.getCentroid(geometry.coordinates, geometry.type) :
-      //   geometry.coordinates.slice();
       const description = `<b>${e.features[0].properties.source}</b>`;
-
-      // console.log('coords', coordinates, e.features[0], qHyperCube);
 
       // Ensure that if the map is zoomed out such that multiple
       // copies of the feature are visible, the popup appears

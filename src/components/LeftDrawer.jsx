@@ -7,6 +7,7 @@ import QlikObject from './QlikObject';
 import QlikFilter from './QlikFilter';
 import qProps from '../qProps';
 import SelectionLayers from './SelectionLayers';
+import SelectionColorDim from './SelectionColorDim';
 
 class LeftDrawer extends React.Component {
   static propTypes = {
@@ -14,6 +15,8 @@ class LeftDrawer extends React.Component {
     toggleDrawer: PropTypes.func.isRequired,
     mapSelections: PropTypes.object.isRequired,
     changeMapLayer: PropTypes.func.isRequired,
+    changeColorDim: PropTypes.func.isRequired,
+    colorSelection: PropTypes.string.isRequired,
   }
 
   // constructor(props) {
@@ -24,7 +27,7 @@ class LeftDrawer extends React.Component {
   // }
 
   render() {
-    // console.log('draw props', this.props, this.props.changeMapLayer, this.props.mapSelections);
+    // console.log('draw props', this.props, this.props.changeColorDim, this.props.colorSelection);
     return (
       <Drawer
         open={this.props.drawerOpenState}
@@ -36,15 +39,17 @@ class LeftDrawer extends React.Component {
           // onClick={this.props.toggleDrawer('leftDrawer', false)}
           // onKeyDown={this.props.toggleDrawer('leftDrawer', false)}
         >
-          <Typography variant="display1" gutterBottom align="center">
+          <Typography variant="title" gutterBottom align="center">
             Selections
           </Typography>
-          <Typography variant="headline" gutterBottom align="center">
+          <Typography variant="subheading" gutterBottom align="center">
             Layer Selection
           </Typography>
           <SelectionLayers {...this.props} />
           <Divider style={{ marginTop: '10px', marginBottom: '10px' }} />
-          <Typography variant="headline" gutterBottom align="center">
+          <SelectionColorDim {...this.props} />
+          <Divider style={{ marginTop: '10px', marginBottom: '10px' }} />
+          <Typography variant="subheading" gutterBottom align="center">
             Filters
           </Typography>
           <QlikObject qProp={qProps.neighborhoodList} type="qListObject" Component={QlikFilter} />

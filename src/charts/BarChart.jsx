@@ -30,7 +30,9 @@ export default class BarChart extends React.Component {
           total: row[options.measureNum].qNum.toFixed(options.numFormat.decimals),
         };
       });
-      jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
+      if (options.sort) {
+        jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
+      }
       // jsonData.sort((a, b) => (b.total - a.total));
       const topJsonData = jsonData.slice(0, 5);
       // console.log('data to load', topJsonData, jsonData);
@@ -67,7 +69,9 @@ export default class BarChart extends React.Component {
       };
     });
     // console.log('json', jsonData, 'matrix', qData);
-    jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
+    if (options.sort) {
+      jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
+    }
     const topJsonData = jsonData.slice(0, 5);
 
     // console.log('topJsonData', topJsonData, 'jsonDatasort', jsonData);
@@ -85,16 +89,16 @@ export default class BarChart extends React.Component {
           value: ['total'],
         },
         labels: true,
-        // onclick: (d, element) => {
-        //   console.log('d', d, 'elem', element, qElemNumMap[d.id]);
-        //   this.props.select(Number(qElemNumMap[d.id]), 0);
-        // },
+        onclick: (d, element) => {
+          console.log('d', d, 'elem', element, qElemNumMap[d.id]);
+          // this.props.select(Number(qElemNumMap[d.id]), 0);
+        },
       },
       axis: {
         x: {
           type: 'category',
         },
-        rotated: true,
+        rotated: false,
         y: {
           show: false,
         },
@@ -114,13 +118,18 @@ export default class BarChart extends React.Component {
 
     if (options.refline) chartProps.grid = options.refline;
     if (options.color) chartProps.color = options.color;
-    if (options.numFormat.format) {
+    if (options.numFormat.format === 'pct') {
       chartProps.data.labels = {
-        format: d3.format('.2%'),
+        format: d3.format(`.${options.numFormat.decimals}%`),
+      };
+    } else if (options.numFormat.format === 'comma') {
+      chartProps.data.labels = {
+        format: d3.format(`,.${options.numFormat.decimals}f`),
       };
     }
     if (options.height) chartProps.size.height = options.height;
     if (options.axis) chartProps.axis.x = options.axis.x || chartProps.axis.x;
+    if (options.rotated) chartProps.axis.rotated = options.rotated;
 
 
     const chart = c3.generate(chartProps);

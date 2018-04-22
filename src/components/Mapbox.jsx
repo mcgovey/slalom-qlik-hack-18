@@ -12,37 +12,41 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWNnb3ZleSIsImEiOiJjamZzYnltdDUwZGI4MzNxbDcze
 const layerOptions = {
   pts: {
     layerName: 'pts',
-    type: 'circle',
+    type: 'heatmap',
     color: {
+      colorByDim: 'metric1',
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
       opacity: 0.5,
     },
     enableSelection: true,
-    minZoom: 10,
+    minZoom: 8,
     maxZoom: 12,
   },
   'building-shapes': {
     layerName: 'building-shapes',
     type: 'fill',
     color: {
+      colorByDim: 'metric1',
       measureNum: 0,
-      minHex: '#b9b9b9',
+      minHex: '#FFFFFF',
       maxHex: '#9a0000',
-      border: '#222',
-      opacity: 0.8,
+      border: '#000000',
+      opacity: 1,
     },
     moveBbox: {
       zoomLvl: 2,
     },
     enableSelection: true,
     minZoom: 12,
+    aboveLayer: 'poi-scalerank1',
   },
   neighborhoods: {
     layerName: 'neighborhoods',
     type: 'fill',
     color: {
+      colorByDim: 'metric1',
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
@@ -56,6 +60,7 @@ const layerOptions = {
     layerName: 'city-council-districts',
     type: 'fill',
     color: {
+      colorByDim: 'metric1',
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
@@ -63,12 +68,13 @@ const layerOptions = {
       opacity: 0.3,
     },
     enableSelection: true,
-    aboveLayer: 'water',
+    aboveLayer: 'water-label',
   },
   'climate-ready-social-vulnerability': {
     layerName: 'climate-ready-social-vulnerability',
     type: 'fill',
     color: {
+      colorByDim: 'metric1',
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
@@ -88,7 +94,12 @@ export default class Mapbox extends React.Component {
     // select: PropTypes.func.isRequired,
     mapSelections: PropTypes.object.isRequired,
     mapLayerProps: PropTypes.object.isRequired,
+    colorSelection: PropTypes.string,
   };
+
+  static defaultProps = {
+    colorSelection: 'metric1',
+  }
   static getDerivedStateFromProps(nextProps, prevState) {
     if (prevState.map) {
       if (JSON.stringify(prevState.mapSelections) !== JSON.stringify(nextProps.mapSelections)) {
@@ -111,7 +122,7 @@ export default class Mapbox extends React.Component {
 
   componentDidMount() {
     // console.log('map data', this.props.qData, 'layout', this.props.qLayout);
-    console.log('map mounted');
+    console.log('map mounted', this.props.colorSelection);
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -127,6 +138,7 @@ export default class Mapbox extends React.Component {
         closeOnClick: false,
       });
 
+      this.bindHover();
       this.setState({
         map: this.map,
         popup,
@@ -135,7 +147,7 @@ export default class Mapbox extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log('map removed');
+    // console.log('map removed');
     this.map.remove();
   }
 
@@ -147,10 +159,51 @@ export default class Mapbox extends React.Component {
   //     },
   //   });
   // }
+  bindHover() {
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    this.state.map.on('mouseenter', 'building', (e) => {
+      this.state.map.getCanvas().style.cursor = 'pointer';
+
+      console.log('building features', e.features[0]);
+      // const { geometry, properties } = e.features[0];
+
+      // const coordinates = geometry.type === 'Polygon' || geometry.type === 'MultiPolygon' ?
+      //   this.getCentroid(geometry.coordinates, geometry.type) :
+      //   geometry.coordinates.slice();
+      // const description = `${qHyperCube.qDimensionInfo[0].qFallbackTitle}: <b>${properties.dim}</b> <br />
+      // ${qHyperCube.qMeasureInfo[0].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric1) || 0}</b> <br />
+      // ${qHyperCube.qMeasureInfo[1].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric2) || 0}</b> <br />
+      // ${qHyperCube.qMeasureInfo[2].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric3) || 0}</b> <br />
+      // ${qHyperCube.qMeasureInfo[3].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric4) || 0}</b> <br />
+      // ${qHyperCube.qMeasureInfo[4].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric5) || 0}</b> <br />
+      // ${qHyperCube.qMeasureInfo[5].qFallbackTitle}: <b>${(properties.metric6) || 0}</b>`;
+
+      // // console.log('coords', coordinates, e.features[0], qHyperCube);
+
+      // // Ensure that if the map is zoomed out such that multiple
+      // // copies of the feature are visible, the popup appears
+      // // over the copy being pointed to.
+      // while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+      //   coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      // }
+
+      // // Populate the popup and set its coordinates
+      // // based on the feature found.
+      // this.state.popup.setLngLat(coordinates)
+      //   .setHTML(description)
+      //   .addTo(this.state.map);
+    });
+
+    // Change it back to a pointer when it leaves.
+    this.state.map.on('mouseleave', layer, () => {
+      this.state.map.getCanvas().style.cursor = '';
+      // this.state.popup.remove();
+    });
+  }
 
   renderNewIndividualLayer(layer) {
     const mapComponents = {
-      qTop: 0, qLeft: 0, qWidth: 7, qHeight: 500,
+      qTop: 0, qLeft: 0, qWidth: 9, qHeight: 500,
     };
     return (
       <QlikObject
@@ -163,8 +216,7 @@ export default class Mapbox extends React.Component {
           options: layerOptions[layer],
           map: this.state.map,
           mapSelections: this.props.mapSelections,
-          // zoomProps: this.state.zoomProps,
-          // updateZoomLvl: this.updateZoomLvl.bind(this),
+          colorSelection: this.props.colorSelection,
           popup: this.state.popup,
         }}
       />
