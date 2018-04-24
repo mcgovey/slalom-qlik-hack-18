@@ -24,11 +24,15 @@ export default class BarChart extends React.Component {
       const qElemNumMap = {};
       const jsonData = qMatrix.map((row) => {
         qElemNumMap[row[0].qText] = row[0].qElemNumber;
-        return {
+        const element = {
           id: row[0].qElemNumber,
           indicator: row[0].qText,
           total: row[options.measureNum].qNum.toFixed(options.numFormat.decimals),
         };
+        if (options.comparison) {
+          element.compare = row[options.comparison.measureNum].qNum;
+        }
+        return element;
       });
       if (options.sort) {
         jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
@@ -62,11 +66,15 @@ export default class BarChart extends React.Component {
     const jsonData = qData.qMatrix.map((row) => {
       qElemNumMap[row[0].qText] = row[0].qElemNumber;
       // console.log('row', row);
-      return {
+      const element = {
         id: row[0].qElemNumber,
         indicator: row[0].qText,
         total: row[options.measureNum].qNum.toFixed(options.numFormat.decimals),
       };
+      if (options.comparison) {
+        element.compare = row[options.comparison.measureNum].qNum;
+      }
+      return element;
     });
     // console.log('json', jsonData, 'matrix', qData);
     if (options.sort) {
@@ -82,17 +90,16 @@ export default class BarChart extends React.Component {
         height: 200,
       },
       data: {
-        type: 'bar',
         json: topJsonData,
         keys: {
           x: 'indicator',
           value: ['total'],
         },
         labels: true,
-        onclick: (d, element) => {
-          console.log('d', d, 'elem', element, qElemNumMap[d.id]);
-          // this.props.select(Number(qElemNumMap[d.id]), 0);
-        },
+        // onclick: (d, element) => {
+        //   console.log('d', d, 'elem', element, qElemNumMap[d.id]);
+        //   // this.props.select(Number(qElemNumMap[d.id]), 0);
+        // },
       },
       axis: {
         x: {
@@ -117,7 +124,6 @@ export default class BarChart extends React.Component {
     };
 
     if (options.refline) chartProps.grid = options.refline;
-    if (options.color) chartProps.color = options.color;
     if (options.numFormat.format === 'pct') {
       chartProps.data.labels = {
         format: d3.format(`.${options.numFormat.decimals}%`),
@@ -130,15 +136,30 @@ export default class BarChart extends React.Component {
     if (options.height) chartProps.size.height = options.height;
     if (options.axis) chartProps.axis.x = options.axis.x || chartProps.axis.x;
     if (options.rotated) chartProps.axis.rotated = options.rotated;
+    if (options.comparison) {
+      chartProps.data.keys.value = ['total', 'compare'];
+      chartProps.data.types = {
+        total: 'bar',
+        compare: 'line',
+      };
+      chartProps.labels = false;
+      chartProps.colors = {
+        total: options.color,
+        compare: '#f2f3f4',
+      };
+    } else {
+      chartProps.data.type = 'bar';
+      if (options.color) chartProps.color = options.color;
+    }
 
 
     const chart = c3.generate(chartProps);
 
-    d3.selectAll('.tick')
-      .on('click', (value, index) => {
-        console.log(this);
-        console.log([value, index]);
-      });
+    // d3.selectAll('.tick')
+    //   .on('click', (value, index) => {
+    //     console.log(this);
+    //     console.log([value, index]);
+    //   });
     /* eslint-disable react/no-did-mount-set-state */
     /* eslint-disable react/no-unused-state */
     this.setState({

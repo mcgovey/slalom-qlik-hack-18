@@ -223,7 +223,6 @@ export default class MapNewLayers extends React.Component {
 
     // console.log('qLayout', qLayout);
 
-    console.log(this.props.options.layerName, 'vals before reassign', colorSelection, options.color, colorVals.valMin, colorVals.valMax);
     if (options.color) {
       colorVals.valMin = qLayout.qHyperCube.qMeasureInfo[(+colorSelection.slice(-1) - 1)].qMin;
       colorVals.valMax = qLayout.qHyperCube.qMeasureInfo[(+colorSelection.slice(-1) - 1)].qMax;
@@ -236,8 +235,6 @@ export default class MapNewLayers extends React.Component {
     // const { map } = this.state;
     // const { options, map } = this.props;
 
-
-    console.log(this.props.options.layerName, 'vals', options.color, colorVals.valMin, colorVals.valMax);
 
     map.getSource(options.layerName).setData(geoJSON);
 

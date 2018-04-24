@@ -91,7 +91,7 @@ class PageOne extends React.Component {
       },
     };
     const buildingCubeProps = {
-      qTop: 0, qLeft: 0, qWidth: 10, qHeight: 10,
+      qTop: 0, qLeft: 0, qWidth: 12, qHeight: 10,
     };
     return (
       <div>

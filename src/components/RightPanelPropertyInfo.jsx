@@ -15,7 +15,7 @@ const dividerStyle = {
 const chartOptions = {
   emissions: {
     height: 30,
-    measureNum: 4,
+    measureNum: 7,
     rotated: true,
     sort: -1,
     color: {
@@ -29,11 +29,17 @@ const chartOptions = {
       x: {
         show: false,
       },
+    },
+    comparison: {
+      measureNum: 10,
+      name: 'Neighborhood Avg',
+      type: 'line',
+      color: '#f2f3f4',
     },
   },
   consumption: {
     height: 30,
-    measureNum: 5,
+    measureNum: 6,
     rotated: true,
     sort: -1,
     color: {
@@ -47,6 +53,12 @@ const chartOptions = {
       x: {
         show: false,
       },
+    },
+    comparison: {
+      measureNum: 11,
+      name: 'Neighborhood Avg',
+      type: 'line',
+      color: '#f2f3f4',
     },
   },
   emissionsOverTime: {
@@ -76,7 +88,7 @@ const chartOptions = {
 };
 
 const hcProps = {
-  qTop: 0, qLeft: 0, qWidth: 3, qHeight: 10,
+  qTop: 0, qLeft: 0, qWidth: 3, qHeight: 12,
 };
 export default class MapNewLayers extends React.Component {
   static propTypes = {
@@ -100,8 +112,8 @@ export default class MapNewLayers extends React.Component {
   }
 
   componentDidMount() {
-    const { qData, qLayout } = this.props;
-    console.log('property data', qData, qLayout);
+    // const { qData, qLayout } = this.props;
+    // console.log('property data', qData, qLayout);
   }
 
   componentWillUnmount() {
@@ -115,11 +127,11 @@ export default class MapNewLayers extends React.Component {
         color: '#f2f3f4',
       },
       data: {
-        color: '#0072c8',
+        color: '#f2f3f4',
       },
     };
     const { qMatrix } = this.props.qData;
-    console.log('matrix', qMatrix);
+    // console.log('matrix', qMatrix);
     return (
 
       <Card>
@@ -127,19 +139,19 @@ export default class MapNewLayers extends React.Component {
           <Typography variant="body2" style={styles.header} gutterBottom align="center">
             Property Name(s)
           </Typography>
-          <Typography variant="body2" style={styles.data} gutterBottom align="center">
+          <Typography variant="subheading" style={styles.data} gutterBottom align="center">
             {qMatrix[0][1].qText}
           </Typography>
           <Typography variant="body2" style={styles.header} gutterBottom align="center">
             Property Type
           </Typography>
-          <Typography variant="body2" style={styles.data} gutterBottom align="center">
+          <Typography variant="subheading" style={styles.data} gutterBottom align="center">
             {qMatrix[0][2].qText}
           </Typography>
           <Typography variant="body2" style={styles.header} gutterBottom align="center">
             Property Uses
           </Typography>
-          <Typography variant="body2" style={styles.data} gutterBottom align="center">
+          <Typography variant="subheading" style={styles.data} gutterBottom align="center">
             {qMatrix[0][3].qText}
           </Typography>
           <Divider style={dividerStyle} />
@@ -169,23 +181,23 @@ export default class MapNewLayers extends React.Component {
           />
           <Divider style={dividerStyle} />
           <Typography variant="body2" style={styles.header} gutterBottom align="center">
-            Emissions
+            GHG Intensity vs. Peers
           </Typography>
           <BarChart {...this.props} options={chartOptions.emissions} />
           <Typography variant="body2" style={styles.header} gutterBottom align="center">
-            Consumption
+            Site EUI vs. Peers
           </Typography>
           <BarChart {...this.props} options={chartOptions.consumption} />
           <Typography variant="body2" style={styles.header} gutterBottom align="center">
             Energy Star Score
           </Typography>
-          <Typography variant="body2" style={styles.data} gutterBottom align="center">
+          <Typography variant="subheading" style={styles.data} gutterBottom align="center">
             {qMatrix[0][8].qText}
           </Typography>
           <Typography variant="body2" style={styles.header} gutterBottom align="center">
             Renewable Energy Generation
           </Typography>
-          <Typography variant="body2" style={styles.data} gutterBottom align="center">
+          <Typography variant="subheading" style={styles.data} gutterBottom align="center">
             {qMatrix[0][9].qText}
           </Typography>
           {/*

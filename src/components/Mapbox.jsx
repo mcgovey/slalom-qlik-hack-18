@@ -121,7 +121,7 @@ export default class Mapbox extends React.Component {
 
   componentDidMount() {
     // console.log('map data', this.props.qData, 'layout', this.props.qLayout);
-    console.log('map mounted', this.props.colorSelection);
+    // console.log('map mounted', this.props.colorSelection);
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,

@@ -30,7 +30,7 @@ class QlikCurrentSelections extends React.Component {
 
   render() {
     // console.log('qlayout', this.props.qLayout);
-    console.log('qSelections', this.props.qLayout.qSelectionObject.qSelections);
+    // console.log('qSelections', this.props.qLayout.qSelectionObject.qSelections);
     return (
       <Paper style={{ backgroundColor: '#004797', opacity: 0.8 }}>
         {this.props.qLayout.qSelectionObject.qSelections.map(data =>

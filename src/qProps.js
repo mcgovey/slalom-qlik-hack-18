@@ -695,7 +695,12 @@ qProps.objectHCList = {
       },
     }, {
       qDef: {
-        qDef: 'AGGR(AVG(TOTAL <"Property Type", Cohort> [GHG Intensity (kgCO2/sf)]), "Property Type")',
+        qDef: 'AGGR(AVG(TOTAL <"Neighborhood"> [GHG Intensity (kgCO2/sf)]), Neighborhood)',
+        qLabel: 'GHG Intensity',
+      },
+    }, {
+      qDef: {
+        qDef: 'AGGR(AVG(TOTAL <"Neighborhood"> [Site EUI (kBTU/sf)]), Neighborhood)',
         qLabel: 'GHG Intensity',
       },
     }],

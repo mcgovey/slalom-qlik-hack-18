@@ -14,7 +14,7 @@ const hcProps = {
 
 const chartObjs = {
   emitters: {
-    height: 150,
+    height: 200,
     measureNum: 1,
     rotated: true,
     sort: -1,
@@ -27,7 +27,7 @@ const chartObjs = {
     },
   },
   yearOverYearChng: {
-    height: 200,
+    height: 150,
     measureNum: 1,
     sort: -1,
     color: {
