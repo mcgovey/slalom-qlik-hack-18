@@ -37,7 +37,7 @@ class Header extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit">
-              C40 Boston Building Energy
+              C40 Cities Building Energy
             </Typography>
           </Toolbar>
         </AppBar>

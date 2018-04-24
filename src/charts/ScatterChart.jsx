@@ -5,7 +5,7 @@ import * as d3 from 'd3';
 import '../../node_modules/c3/c3.css';
 import '../styles/chartStyles.css';
 
-export default class BarChart extends React.Component {
+export default class ScatterChart extends React.Component {
   static propTypes = {
     options: PropTypes.object.isRequired,
     qData: PropTypes.object.isRequired,
@@ -30,9 +30,7 @@ export default class BarChart extends React.Component {
           total: row[options.measureNum].qNum.toFixed(options.numFormat.decimals),
         };
       });
-      if (options.sort) {
-        jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
-      }
+      jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
       // jsonData.sort((a, b) => (b.total - a.total));
       const topJsonData = jsonData.slice(0, 5);
       // console.log('data to load', topJsonData, jsonData);
@@ -69,9 +67,7 @@ export default class BarChart extends React.Component {
       };
     });
     // console.log('json', jsonData, 'matrix', qData);
-    if (options.sort) {
-      jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
-    }
+    jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
     const topJsonData = jsonData.slice(0, 5);
 
     // console.log('topJsonData', topJsonData, 'jsonDatasort', jsonData);
@@ -79,34 +75,22 @@ export default class BarChart extends React.Component {
     const chartProps = {
       bindto: this.chartRef,
       size: {
-        height: 200,
+        height: 400,
       },
       data: {
-        type: 'bar',
+        type: 'scatter',
         json: topJsonData,
         keys: {
           x: 'indicator',
           value: ['total'],
         },
         labels: true,
-        onclick: (d, element) => {
-          console.log('d', d, 'elem', element, qElemNumMap[d.id]);
-          // this.props.select(Number(qElemNumMap[d.id]), 0);
-        },
       },
       axis: {
         x: {
           type: 'category',
         },
-        rotated: false,
-        y: {
-          show: false,
-        },
-      },
-      bar: {
-        width: {
-          ratio: 0.5,
-        },
+        rotated: true,
       },
       legend: {
         show: false,
@@ -116,29 +100,54 @@ export default class BarChart extends React.Component {
       },
     };
 
+    // var chart = c3.generate({
+    //   data: {
+
+    //   json: [
+    //     {name: 'www.site1.com', upload: 200, download: 200, total: 400},
+    //     {name: 'www.site2.com', upload: 100, download: 300, total: 400},
+    //     {name: 'www.site3.com', upload: 300, download: 200, total: 500},
+    //     {name: 'www.site4.com', upload: 400, download: 100, total: 500}
+    //   ],
+    //   keys: {
+    //     x: 'name', // it's possible to specify 'x' when category axis
+    //     value: ['total']
+    //   },
+    //       type: 'scatter'
+    //   },
+    //   axis: {
+    //       x: {
+    //           label: 'Sepal.Width',
+    //           tick: {
+    //               fit: false
+    //           },
+    //           type: 'category',
+    //       },
+    //       y: {
+    //           label: 'Petal.Width'
+    //       },
+    //       rotated: true,
+    //   }
+    // });
+
     if (options.refline) chartProps.grid = options.refline;
     if (options.color) chartProps.color = options.color;
-    if (options.numFormat.format === 'pct') {
+    if (options.numFormat.format) {
       chartProps.data.labels = {
-        format: d3.format(`.${options.numFormat.decimals}%`),
-      };
-    } else if (options.numFormat.format === 'comma') {
-      chartProps.data.labels = {
-        format: d3.format(`,.${options.numFormat.decimals}f`),
+        format: d3.format('.2%'),
       };
     }
     if (options.height) chartProps.size.height = options.height;
     if (options.axis) chartProps.axis.x = options.axis.x || chartProps.axis.x;
-    if (options.rotated) chartProps.axis.rotated = options.rotated;
 
 
     const chart = c3.generate(chartProps);
 
-    d3.selectAll('.tick')
-      .on('click', (value, index) => {
-        console.log(this);
-        console.log([value, index]);
-      });
+    // d3.selectAll('.tick')
+    //   .on('click', (value, index) => {
+    //     // console.log(this);
+    //     // console.log([value, index]);
+    //   });
     /* eslint-disable react/no-did-mount-set-state */
     /* eslint-disable react/no-unused-state */
     this.setState({

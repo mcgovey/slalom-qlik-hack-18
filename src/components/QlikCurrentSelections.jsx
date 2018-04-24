@@ -10,7 +10,7 @@ const styles = theme => ({
     justifyContent: 'center',
     flexWrap: 'wrap',
     padding: theme.spacing.unit / 2,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
   },
   chip: {
     margin: theme.spacing.unit / 2,
@@ -32,7 +32,7 @@ class QlikCurrentSelections extends React.Component {
     // console.log('qlayout', this.props.qLayout);
     console.log('qSelections', this.props.qLayout.qSelectionObject.qSelections);
     return (
-      <Paper style={{ backgroundColor: '#4b636e' }}>
+      <Paper style={{ backgroundColor: '#004797', opacity: 0.8 }}>
         {this.props.qLayout.qSelectionObject.qSelections.map(data =>
            (
              <Chip

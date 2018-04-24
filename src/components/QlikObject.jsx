@@ -103,9 +103,10 @@ export default class QlikObject extends React.Component {
     this.update(qTop);
   }
 
-  async update(qTop = this.state.qData.qArea.qTop) {
+  async update(qTop) {
+    const qTopDef = qTop || (this.state.qData.qArea ? this.state.qData.qArea.qTop : 0);
     this.setState({ updating: true });
-    const [qLayout, qData] = await Promise.all([this.getLayout(), this.getData(qTop)]);
+    const [qLayout, qData] = await Promise.all([this.getLayout(), this.getData(qTopDef)]);
     this.setState({ updating: false, qLayout, qData });
   }
 

@@ -104,8 +104,15 @@ export default class QlikFilter extends React.Component {
     } = this;
     const { qData, qLayout, offset } = this.props;
     const { dropdownOpen, searchListInputValue } = this.state;
+
+    const styles = {
+      dropdown: {
+        marginTop: '10px',
+        marginBottom: '10px',
+      },
+    };
     return (
-      <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+      <Dropdown style={styles.dropdown} isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle style={{ width: '100%' }} color="secondary" caret>
           {qLayout.qListObject.qDimensionInfo.qFallbackTitle}
         </DropdownToggle>

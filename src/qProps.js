@@ -94,12 +94,18 @@ qProps.pts = {
     qMeasures: [{
       qDef: {
         qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions (MTCO2e)])',
-        qLabel: 'EUI',
-        // qNumFormat: {
-        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
-        // },
+        qLabel: 'Emissions',
       },
-      // qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Total Site Energy (kBTU)])',
+        qLabel: 'Consumption',
+      },
+    }, {
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Site EUI (kBTU/sf)])',
+        qLabel: 'EUI',
+      },
     }, {
       qDef: {
         qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Intensity (kgCO2/sf)])',
@@ -155,12 +161,18 @@ qProps['building-shapes'] = {
     qMeasures: [{
       qDef: {
         qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions (MTCO2e)])',
-        qLabel: 'EUI',
-        // qNumFormat: {
-        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
-        // },
+        qLabel: 'Emissions',
       },
-      // qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Total Site Energy (kBTU)])',
+        qLabel: 'Consumption',
+      },
+    }, {
+      qDef: {
+        qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Site EUI (kBTU/sf)])',
+        qLabel: 'EUI',
+      },
     }, {
       qDef: {
         qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Intensity (kgCO2/sf)])',
@@ -230,6 +242,30 @@ qProps.propertyTypeList = {
     qAutoSortByState: { qDisplayNumberOfRows: 1 },
   },
 };
+qProps.cohortList = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['Cohort'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
+qProps.reductionStatusList = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['GHG Emissions Reduction Status'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
 qProps.objectList = {
   qInfo: {
     qType: 'visualization',
@@ -279,6 +315,16 @@ qProps.neighborhoods = {
     qMeasures: [{
       qDef: {
         qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions (MTCO2e)])',
+        qLabel: 'Emissions',
+      },
+    }, {
+      qDef: {
+        qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [Total Site Energy (kBTU)])',
+        qLabel: 'Consumption',
+      },
+    }, {
+      qDef: {
+        qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [Site EUI (kBTU/sf)])',
         qLabel: 'EUI',
       },
     }, {
@@ -323,6 +369,16 @@ qProps['city-council-districts'] = {
     qMeasures: [{
       qDef: {
         qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions (MTCO2e)])',
+        qLabel: 'Emissions',
+      },
+    }, {
+      qDef: {
+        qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [Total Site Energy (kBTU)])',
+        qLabel: 'Consumption',
+      },
+    }, {
+      qDef: {
+        qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [Site EUI (kBTU/sf)])',
         qLabel: 'EUI',
       },
     }, {
@@ -367,6 +423,16 @@ qProps['climate-ready-social-vulnerability'] = {
     qMeasures: [{
       qDef: {
         qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions (MTCO2e)])',
+        qLabel: 'Emissions',
+      },
+    }, {
+      qDef: {
+        qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [Total Site Energy (kBTU)])',
+        qLabel: 'Consumption',
+      },
+    }, {
+      qDef: {
+        qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [Site EUI (kBTU/sf)])',
         qLabel: 'EUI',
       },
     }, {
@@ -433,7 +499,7 @@ qProps.propertyEmissions = {
     qDimensions:
       [{
         qDef: {
-          qFieldDefs: ['Property Name'],
+          qFieldDefs: ['[Property Name]'],
           qFieldLabels: ['Property'],
           // qSortCriterias: [{ qSortByAscii: 1 }],
           // qSuppressMissing: true,
@@ -442,7 +508,7 @@ qProps.propertyEmissions = {
     qMeasures: [{
       qDef: {
         qDef: 'SUM({<BERDOYear={$(=max(BERDOYear))}>}[GHG Emissions (MTCO2e)])',
-        qLabel: 'EUI',
+        qLabel: 'Emissions',
         // qNumFormat: {
         //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
         // },
@@ -461,7 +527,7 @@ qProps.nearEmissionReductTarget = {
     qDimensions:
       [{
         qDef: {
-          qFieldDefs: ['Property Name'],
+          qFieldDefs: ['[Property Name]'],
           qFieldLabels: ['Property'],
           // qSortCriterias: [{ qSortByAscii: 1 }],
           // qSuppressMissing: true,
@@ -476,7 +542,7 @@ qProps.nearEmissionReductTarget = {
         (SUM({<BERDOYear={$(=max(BERDOYear))}>}[GHG Emissions (MTCO2e)]) - SUM({<BERDOYear={$(=max(BERDOYear)-2)}>}[GHG Emissions (MTCO2e)]))
         /
         SUM({<BERDOYear={$(=max(BERDOYear)-2)}>}[GHG Emissions (MTCO2e)])),0)`,
-        qLabel: 'EUI',
+        qLabel: 'Emissions',
         // qNumFormat: {
         //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
         // },
@@ -495,7 +561,7 @@ qProps.propertyEmissionReductions = {
     qDimensions:
       [{
         qDef: {
-          qFieldDefs: ['Property Name'],
+          qFieldDefs: ['[Property Name]'],
           qFieldLabels: ['Property'],
           // qSortCriterias: [{ qSortByAscii: 1 }],
           // qSuppressMissing: true,
@@ -505,7 +571,7 @@ qProps.propertyEmissionReductions = {
       qDef: {
         qDef: `IF((SUM({<BERDOYear={$(=max(BERDOYear))}>}[GHG Emissions (MTCO2e)])>0 AND SUM({<BERDOYear={$(=max(BERDOYear)-2)}>}[GHG Emissions (MTCO2e)])>0),
         SUM({<BERDOYear={$(=max(BERDOYear)-2)}>}[GHG Emissions (MTCO2e)])-SUM({<BERDOYear={$(=max(BERDOYear))}>}[GHG Emissions (MTCO2e)]),0)`,
-        qLabel: 'EUI',
+        qLabel: 'Emissions',
         // qNumFormat: {
         //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
         // },
@@ -581,6 +647,39 @@ qProps.objectHCList = {
       qDef: {
         qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Onsite Renewable (kWh)])',
         qLabel: 'Onsite Renewable Generation',
+      },
+    }, {
+      qDef: {
+        qDef: 'AGGR(AVG(TOTAL <"Property Type", Cohort> [GHG Intensity (kgCO2/sf)]), "Property Type")',
+        qLabel: 'GHG Intensity',
+      },
+    }],
+  },
+};
+
+qProps.objectHCTrend = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qHyperCubeDef: {
+    qDimensions:
+      [{
+        qDef: {
+          qFieldDefs: ['BERDOYear'],
+          qFieldLabels: ['Year'],
+          qSortCriterias: [{ qSortByAscii: 1 }],
+          qSuppressMissing: true,
+        },
+      }],
+    qMeasures: [{
+      qDef: {
+        qDef: 'Sum([GHG Emissions (MTCO2e)])',
+        qLabel: 'Emissions',
+      },
+    }, {
+      qDef: {
+        qDef: 'Sum([Total Site Energy (kBTU)])',
+        qLabel: 'Consumption',
       },
     }],
   },

@@ -27,6 +27,7 @@ class PageOne extends React.Component {
         'climate-ready-social-vulnerability': false,
         'city-council-districts': false,
       },
+      colorSelection: 'metric1',
       mapLayerProps: {
         pts: {
           type: 'qHyperCube',
@@ -74,6 +75,12 @@ class PageOne extends React.Component {
       mapSelections: currMapSelections,
     });
   };
+  changeColorDim = (value) => {
+    // console.log('change color called', value);
+    this.setState({
+      colorSelection: value,
+    });
+  };
 
   render() {
     const styles = {
@@ -91,6 +98,8 @@ class PageOne extends React.Component {
         <LeftDrawer
           mapSelections={this.state.mapSelections}
           changeMapLayer={this.changeMapLayer}
+          colorSelection={this.state.colorSelection}
+          changeColorDim={this.changeColorDim}
           {...this.props}
         />
         <div className="col12">

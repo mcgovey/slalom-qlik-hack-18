@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import mapboxgl from 'mapbox-gl';
+import centroid from '@turf/centroid';
+import { polygon, multiPolygon } from '@turf/helpers';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import MapNewLayers from './MapNewLayers';
 import MapExistingLayers from './MapExistingLayers';
@@ -14,43 +16,44 @@ const layerOptions = {
     layerName: 'pts',
     type: 'circle',
     color: {
+      colorByDim: 'metric1',
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
       opacity: 0.5,
     },
-    enableSelection: false,
-    minZoom: 10,
+    enableSelection: true,
+    minZoom: 8,
     maxZoom: 12,
   },
   'building-shapes': {
     layerName: 'building-shapes',
     type: 'fill',
     color: {
+      colorByDim: 'metric1',
       measureNum: 0,
-      minHex: '#b9b9b9',
+      minHex: '#FFFFFF',
       maxHex: '#9a0000',
-      border: '#222',
-      opacity: 0.8,
+      border: '#000000',
+      opacity: 1,
     },
     moveBbox: {
       zoomLvl: 2,
     },
     enableSelection: true,
     minZoom: 12,
+    aboveLayer: 'poi-scalerank1',
   },
   neighborhoods: {
     layerName: 'neighborhoods',
     type: 'fill',
     color: {
+      colorByDim: 'metric1',
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
       border: '#222',
       opacity: 0.3,
-    },
-    moveBbox: {
-      zoomLvl: 1,
     },
     enableSelection: true,
     aboveLayer: 'water',
@@ -59,30 +62,26 @@ const layerOptions = {
     layerName: 'city-council-districts',
     type: 'fill',
     color: {
+      colorByDim: 'metric1',
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
       border: '#222',
       opacity: 0.3,
     },
-    moveBbox: {
-      zoomLvl: 1,
-    },
     enableSelection: true,
-    aboveLayer: 'water',
+    aboveLayer: 'water-label',
   },
   'climate-ready-social-vulnerability': {
     layerName: 'climate-ready-social-vulnerability',
     type: 'fill',
     color: {
+      colorByDim: 'metric1',
       measureNum: 0,
       minHex: '#b9b9b9',
       maxHex: '#9a0000',
       border: '#444',
       opacity: 0.3,
-    },
-    moveBbox: {
-      zoomLvl: 1,
     },
     enableSelection: true,
     aboveLayer: 'water',
@@ -97,7 +96,12 @@ export default class Mapbox extends React.Component {
     // select: PropTypes.func.isRequired,
     mapSelections: PropTypes.object.isRequired,
     mapLayerProps: PropTypes.object.isRequired,
+    colorSelection: PropTypes.string,
   };
+
+  static defaultProps = {
+    colorSelection: 'metric1',
+  }
   static getDerivedStateFromProps(nextProps, prevState) {
     if (prevState.map) {
       if (JSON.stringify(prevState.mapSelections) !== JSON.stringify(nextProps.mapSelections)) {
@@ -111,13 +115,16 @@ export default class Mapbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      zoomLvl: 1,
+      // zoomProps: {
+      //   zoomLvl: 'neighborhoods',
+      //   zoomed: false,
+      // },
     };
   }
 
   componentDidMount() {
     // console.log('map data', this.props.qData, 'layout', this.props.qLayout);
-    console.log('map mounted');
+    console.log('map mounted', this.props.colorSelection);
 
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -127,24 +134,80 @@ export default class Mapbox extends React.Component {
     });
 
     this.map.on('style.load', () => {
+      // Create a popup, but don't add it to the map yet.
+      const popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+      });
+
+      this.bindHover();
       this.setState({
         map: this.map,
+        popup,
       });
     });
   }
 
   componentWillUnmount() {
-    console.log('map removed');
+    // console.log('map removed');
     this.map.remove();
   }
 
-  updateZoomLvl(zoomLvl) {
-    this.setState({ zoomLvl });
+  // updateZoomLvl(layer, zoomed) {
+  //   this.setState({
+  //     zoomProps: {
+  //       zoomLvl: layer,
+  //       zoomed,
+  //     },
+  //   });
+  // }
+  getCentroid(feature, polygonType) {
+    let turfPolygon = {};
+    if (this) {
+      turfPolygon = polygonType === 'Polygon' ? polygon(feature) : multiPolygon(feature);
+      // console.log('polygon', turfPolygon, centroid(turfPolygon));
+    }
+    return centroid(turfPolygon).geometry.coordinates;
+  }
+  bindHover() {
+    // Change the cursor to a pointer when the mouse is over the places layer.
+    this.map.on('mouseenter', 'building', (e) => {
+      this.map.getCanvas().style.cursor = 'pointer';
+
+      // console.log('building features', e.features[0]);
+      const { geometry, properties } = e.features[0];
+
+      const coordinates = geometry.type === 'Polygon' || geometry.type === 'MultiPolygon' ?
+        this.getCentroid(geometry.coordinates, geometry.type) :
+        geometry.coordinates.slice();
+      const description = `Building type: ${properties.type}`;
+
+      // // console.log('coords', coordinates, e.features[0], qHyperCube);
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      // Populate the popup and set its coordinates
+      // based on the feature found.
+      this.state.popup.setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(this.state.map);
+    });
+
+    // Change it back to a pointer when it leaves.
+    this.map.on('mouseleave', 'building', () => {
+      this.map.getCanvas().style.cursor = '';
+      // this.state.popup.remove();
+    });
   }
 
   renderNewIndividualLayer(layer) {
     const mapComponents = {
-      qTop: 0, qLeft: 0, qWidth: 7, qHeight: 500,
+      qTop: 0, qLeft: 0, qWidth: 9, qHeight: 500,
     };
     return (
       <QlikObject
@@ -157,8 +220,8 @@ export default class Mapbox extends React.Component {
           options: layerOptions[layer],
           map: this.state.map,
           mapSelections: this.props.mapSelections,
-          zoomLvl: this.state.zoomLvl,
-          updateZoomLvl: this.updateZoomLvl.bind(this),
+          colorSelection: this.props.colorSelection,
+          popup: this.state.popup,
         }}
       />
     );
@@ -192,6 +255,7 @@ export default class Mapbox extends React.Component {
           map: this.state.map,
           fieldName: this.props.mapLayerProps[layer].selectionField,
           dataType: this.props.mapLayerProps[layer].type,
+          popup: this.state.popup,
         }}
       />
     );
