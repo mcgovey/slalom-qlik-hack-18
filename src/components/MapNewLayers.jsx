@@ -85,8 +85,8 @@ export default class MapNewLayers extends React.Component {
     } = this.props;
 
     if (options.color) {
-      colorVals.valMin = qLayout.qHyperCube.qMeasureInfo[options.color.measureNum].qMin;
-      colorVals.valMax = qLayout.qHyperCube.qMeasureInfo[options.color.measureNum].qMax;
+      colorVals.valMin = qLayout.qHyperCube.qMeasureInfo[(+colorSelection.slice(-1) - 1)].qMin;
+      colorVals.valMax = qLayout.qHyperCube.qMeasureInfo[(+colorSelection.slice(-1) - 1)].qMax;
       colorVals.dotMin = options.color.dotMin || colorVals.dotMin;
       colorVals.dotMax = options.color.dotMax || colorVals.dotMax;
       colorVals.minHex = options.color.minHex || colorVals.minHex;
@@ -223,9 +223,10 @@ export default class MapNewLayers extends React.Component {
 
     // console.log('qLayout', qLayout);
 
+    console.log(this.props.options.layerName, 'vals before reassign', colorSelection, options.color, colorVals.valMin, colorVals.valMax);
     if (options.color) {
-      colorVals.valMin = qLayout.qHyperCube.qMeasureInfo[options.color.measureNum].qMin;
-      colorVals.valMax = qLayout.qHyperCube.qMeasureInfo[options.color.measureNum].qMax;
+      colorVals.valMin = qLayout.qHyperCube.qMeasureInfo[(+colorSelection.slice(-1) - 1)].qMin;
+      colorVals.valMax = qLayout.qHyperCube.qMeasureInfo[(+colorSelection.slice(-1) - 1)].qMax;
       colorVals.minHex = options.color.minHex || colorVals.minHex;
       colorVals.maxHex = options.color.maxHex || colorVals.maxHex;
     }
@@ -235,10 +236,13 @@ export default class MapNewLayers extends React.Component {
     // const { map } = this.state;
     // const { options, map } = this.props;
 
+
+    console.log(this.props.options.layerName, 'vals', options.color, colorVals.valMin, colorVals.valMax);
+
     map.getSource(options.layerName).setData(geoJSON);
 
     const { qStateCounts } = this.props.qLayout.qHyperCube.qDimensionInfo[0];
-    console.log('qStateCounts', qStateCounts);
+    // console.log('qStateCounts', this.props.options.layerName, qStateCounts, colorSelection);
     if (options.type === 'heatmap' && (qStateCounts.qSelected > 1 || qStateCounts.qOption > 1)) {
       map.setPaintProperty(options.layerName, 'heatmap-weight', [
         'interpolate',
@@ -272,6 +276,11 @@ export default class MapNewLayers extends React.Component {
   }
   componentWillUnmount() {
     // this.map.remove();
+    const {
+      map, options,
+    } = this.props;
+    map.removeLayer(options.layerName);
+    map.removeSource(options.layerName);
   }
 
   setLayerVisibility(layer) {
@@ -333,7 +342,8 @@ export default class MapNewLayers extends React.Component {
       ${qHyperCube.qMeasureInfo[2].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric3) || 0}</b> <br />
       ${qHyperCube.qMeasureInfo[3].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric4) || 0}</b> <br />
       ${qHyperCube.qMeasureInfo[4].qFallbackTitle}: <b>${d3.format(',.1f')(properties.metric5) || 0}</b> <br />
-      ${qHyperCube.qMeasureInfo[5].qFallbackTitle}: <b>${(properties.metric6) || 0}</b>`;
+      ${qHyperCube.qMeasureInfo[5].qFallbackTitle}: <b>${(properties.metric6) || 0}</b> <br />
+      ${qHyperCube.qMeasureInfo[6].qFallbackTitle}: <b>${d3.format(',.1%')(properties.metric7) || 0}</b>`;
 
       // console.log('coords', coordinates, e.features[0], qHyperCube);
 
@@ -383,6 +393,7 @@ export default class MapNewLayers extends React.Component {
           metric4: d[5].qNum,
           metric5: d[6].qNum,
           metric6: d[7].qNum,
+          metric7: d[8].qNum,
         },
       })),
     };

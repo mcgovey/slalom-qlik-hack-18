@@ -1,4 +1,5 @@
 .c3-axis-x > g,
-.c3-axis-y > g {
-  fill : #f2f3f4;
+.c3-axis-y > g,
+g.c3-texts-total > text {
+  fill : #f2f3f4 !important;
 }

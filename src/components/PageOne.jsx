@@ -107,6 +107,7 @@ class PageOne extends React.Component {
             <Mapbox
               mapSelections={this.state.mapSelections}
               mapLayerProps={this.state.mapLayerProps}
+              colorSelection={this.state.colorSelection}
             />
           </div>
           <div className="col4 fill-darken3 pin-right contain" style={styles.rightPanel}>

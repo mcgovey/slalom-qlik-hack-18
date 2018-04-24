@@ -31,7 +31,8 @@ class SelectionColorDim extends React.Component {
           >
             <MenuItem value="metric1">Emissions</MenuItem>
             <MenuItem value="metric2">Consumption</MenuItem>
-            <MenuItem value="metric3">Reduction Status</MenuItem>
+            <MenuItem value="metric4">GHG Intensity</MenuItem>
+            <MenuItem value="metric7">Reduction Status</MenuItem>
           </Select>
         </FormControl>
       </form>

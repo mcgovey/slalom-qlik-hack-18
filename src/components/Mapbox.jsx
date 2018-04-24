@@ -14,7 +14,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWNnb3ZleSIsImEiOiJjamZzYnltdDUwZGI4MzNxbDcze
 const layerOptions = {
   pts: {
     layerName: 'pts',
-    type: 'circle',
+    type: 'heatmap',
     color: {
       colorByDim: 'metric1',
       measureNum: 0,
@@ -96,12 +96,9 @@ export default class Mapbox extends React.Component {
     // select: PropTypes.func.isRequired,
     mapSelections: PropTypes.object.isRequired,
     mapLayerProps: PropTypes.object.isRequired,
-    colorSelection: PropTypes.string,
+    colorSelection: PropTypes.string.isRequired,
   };
 
-  static defaultProps = {
-    colorSelection: 'metric1',
-  }
   static getDerivedStateFromProps(nextProps, prevState) {
     if (prevState.map) {
       if (JSON.stringify(prevState.mapSelections) !== JSON.stringify(nextProps.mapSelections)) {
@@ -228,13 +225,12 @@ export default class Mapbox extends React.Component {
   }
 
   renderLayers() {
+    const { mapLayerProps, mapSelections } = this.props;
     return (
-      Object.keys(this.props.mapLayerProps).map((layer) => {
-        if (this.props.mapLayerProps[layer].builtBy === 'mapbox') {
-        // if (layer === 'neighborhoods') {
+      Object.keys(mapLayerProps).map((layer) => {
+        if (mapLayerProps[layer].builtBy === 'mapbox') {
           return this.renderExistingIndividualLayer(layer);
-        } else if (this.props.mapLayerProps[layer].builtBy === 'qlik') {
-          // console.log('built by qlik');
+        } else if (mapLayerProps[layer].builtBy === 'qlik' && mapSelections[layer]) {
           return this.renderNewIndividualLayer(layer);
         }
         return '';

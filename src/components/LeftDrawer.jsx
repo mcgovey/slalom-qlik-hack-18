@@ -55,8 +55,9 @@ class LeftDrawer extends React.Component {
           <QlikObject qProp={qProps.neighborhoodList} type="qListObject" Component={QlikFilter} />
           <QlikObject qProp={qProps.propertyTypeList} type="qListObject" Component={QlikFilter} />
           <QlikObject qProp={qProps.propertyUseList} type="qListObject" Component={QlikFilter} />
-          <QlikObject qProp={qProps.cohortList} type="qListObject" Component={QlikFilter} />
           <QlikObject qProp={qProps.reductionStatusList} type="qListObject" Component={QlikFilter} />
+          <QlikObject qProp={qProps.multiYearReporterList} type="qListObject" Component={QlikFilter} />
+          <QlikObject qProp={qProps.cohortList} type="qListObject" Component={QlikFilter} />
         </div>
       </Drawer>
     );

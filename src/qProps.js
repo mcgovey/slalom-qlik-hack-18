@@ -64,6 +64,11 @@ qProps.properties = {
         // },
       },
       // qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])',
+        qLabel: 'Not on Track',
+      },
     }],
     // qSuppressMissing: true,
     // qSuppressZero: true,
@@ -133,6 +138,11 @@ qProps.pts = {
         // },
       },
       // qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])',
+        qLabel: 'Not on Track',
+      },
     }],
     // qSuppressMissing: true,
     // qSuppressZero: true,
@@ -200,6 +210,11 @@ qProps['building-shapes'] = {
         // },
       },
       // qSortBy: { qSortByNumeric: -1 },
+    }, {
+      qDef: {
+        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])',
+        qLabel: 'Not on Track',
+      },
     }],
     // qSuppressMissing: true,
     // qSuppressZero: true,
@@ -261,6 +276,18 @@ qProps.reductionStatusList = {
   qListObjectDef: {
     qDef: {
       qFieldDefs: ['GHG Emissions Reduction Status'],
+    },
+    qShowAlternatives: true,
+    qAutoSortByState: { qDisplayNumberOfRows: 1 },
+  },
+};
+qProps.multiYearReporterList = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qListObjectDef: {
+    qDef: {
+      qFieldDefs: ['MultiYear Reporter'],
     },
     qShowAlternatives: true,
     qAutoSortByState: { qDisplayNumberOfRows: 1 },
@@ -342,6 +369,11 @@ qProps.neighborhoods = {
         qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [Onsite Renewable (kWh)])',
         qLabel: 'Onsite Renewable Generation',
       },
+    }, {
+      qDef: {
+        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])/Count(DISTINCT OBJECTID)',
+        qLabel: 'Pct Not on Track',
+      },
     }],
   },
 };
@@ -396,6 +428,11 @@ qProps['city-council-districts'] = {
         qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [Onsite Renewable (kWh)])',
         qLabel: 'Onsite Renewable Generation',
       },
+    }, {
+      qDef: {
+        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])/Count(DISTINCT OBJECTID)',
+        qLabel: 'Pct Not on Track',
+      },
     }],
   },
 };
@@ -449,6 +486,11 @@ qProps['climate-ready-social-vulnerability'] = {
       qDef: {
         qDef: 'Avg({<BERDOYear= {$(=max(BERDOYear))}>} [Onsite Renewable (kWh)])',
         qLabel: 'Onsite Renewable Generation',
+      },
+    }, {
+      qDef: {
+        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])/Count(DISTINCT OBJECTID)',
+        qLabel: 'Pct Not on Track',
       },
     }],
   },
@@ -527,22 +569,25 @@ qProps.nearEmissionReductTarget = {
     qDimensions:
       [{
         qDef: {
-          qFieldDefs: ['[Property Name]'],
-          qFieldLabels: ['Property'],
-          // qSortCriterias: [{ qSortByAscii: 1 }],
-          // qSuppressMissing: true,
+          qFieldDefs: ['[BERDOYear]'],
+          qFieldLabels: ['Year'],
         },
       }],
     qMeasures: [{
       qDef: {
-        qDef: `IF((SUM({<BERDOYear={$(=max(BERDOYear))}>}[GHG Emissions (MTCO2e)])>0 AND SUM({<BERDOYear={$(=max(BERDOYear)-2)}>}[GHG Emissions (MTCO2e)])>0),
-        IF((SUM({<BERDOYear={$(=max(BERDOYear))}>}[GHG Emissions (MTCO2e)]) - SUM({<BERDOYear={$(=max(BERDOYear)-2)}>}[GHG Emissions (MTCO2e)]))
-        /
-        SUM({<BERDOYear={$(=max(BERDOYear)-2)}>}[GHG Emissions (MTCO2e)])<-.15,0,
-        (SUM({<BERDOYear={$(=max(BERDOYear))}>}[GHG Emissions (MTCO2e)]) - SUM({<BERDOYear={$(=max(BERDOYear)-2)}>}[GHG Emissions (MTCO2e)]))
-        /
-        SUM({<BERDOYear={$(=max(BERDOYear)-2)}>}[GHG Emissions (MTCO2e)])),0)`,
+        qDef: `Sum({<[MultiYear Reporter]={'Yes'}>}
+        [GHG Emissions (MTCO2e)])`,
         qLabel: 'Emissions',
+        // qNumFormat: {
+        //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
+        // },
+      },
+      qSortBy: { qSortByNumeric: 1 },
+    }, {
+      qDef: {
+        qDef: `1-(Sum({<[MultiYear Reporter]={'Yes'}>}[GHG Emissions (MTCO2e)])/
+        Above(Sum({<[MultiYear Reporter]={'Yes'}>}[GHG Emissions (MTCO2e)]))))`,
+        qLabel: 'Emissions Pct',
         // qNumFormat: {
         //   qType: 'M', qUseThou: 1, qDec: '.', qThou: ',', qFmt: '$#,##0.00;($#,##0.00)',
         // },

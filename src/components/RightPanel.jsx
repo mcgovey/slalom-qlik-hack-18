@@ -14,7 +14,7 @@ const hcProps = {
 
 const chartObjs = {
   emitters: {
-    height: 200,
+    height: 150,
     measureNum: 1,
     rotated: true,
     sort: -1,
@@ -23,28 +23,41 @@ const chartObjs = {
     },
     numFormat: {
       decimals: 0,
+      format: 'comma',
     },
   },
-  reductions: {
+  yearOverYearChng: {
     height: 200,
     measureNum: 1,
-    rotated: true,
-    sort: 1,
-    refline: {
-      y: {
-        lines: [
-          { value: -0.15, text: '15%' },
-        ],
-      },
-    },
+    sort: -1,
     color: {
       pattern: ['#0072c8'],
     },
     numFormat: {
-      decimals: 2,
-      format: 'pct',
+      decimals: 0,
+      format: 'comma',
     },
   },
+  // reductions: {
+  //   height: 200,
+  //   measureNum: 1,
+  //   rotated: true,
+  //   sort: 1,
+  //   refline: {
+  //     y: {
+  //       lines: [
+  //         { value: -0.15, text: '15%' },
+  //       ],
+  //     },
+  //   },
+  //   color: {
+  //     pattern: ['#0072c8'],
+  //   },
+  //   numFormat: {
+  //     decimals: 2,
+  //     format: 'pct',
+  //   },
+  // },
   reductionAmount: {
     height: 200,
     measureNum: 1,
@@ -55,6 +68,7 @@ const chartObjs = {
     },
     numFormat: {
       decimals: 0,
+      format: 'comma',
     },
   },
 };
@@ -113,7 +127,19 @@ export default class RightPanel extends React.Component {
     return (
       <Card>
         <CardContent>
-          {/* <p>{qStateCounts.qOption} Options</p> */}
+          <Typography variant="subheading" gutterBottom align="center">
+            Emissions Trend
+          </Typography>
+          <QlikObject
+            qProp={qProps.nearEmissionReductTarget}
+            type="qHyperCube"
+            Component={BarChart}
+            qPage={hcProps}
+            componentProps={{
+              options: chartOptions.yearOverYearChng,
+            }}
+          />
+          <Divider style={dividerStyle} />
           <Typography variant="subheading" gutterBottom align="center">
             Largest Emitting Properties
           </Typography>
@@ -124,19 +150,6 @@ export default class RightPanel extends React.Component {
             qPage={hcProps}
             componentProps={{
               options: chartOptions.emitters,
-            }}
-          />
-          <Divider style={dividerStyle} />
-          <Typography variant="subheading" gutterBottom align="center">
-            Closest to 15% Reduction
-          </Typography>
-          <QlikObject
-            qProp={qProps.nearEmissionReductTarget}
-            type="qHyperCube"
-            Component={BarChart}
-            qPage={hcProps}
-            componentProps={{
-              options: chartOptions.reductions,
             }}
           />
           <Divider style={dividerStyle} />
