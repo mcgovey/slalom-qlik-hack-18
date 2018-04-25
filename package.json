@@ -52,6 +52,7 @@
   },
   "scripts": {
     "webpack": "cross-env ENV=production webpack",
+    "build": "cross-env ENV=production webpack",
     "dev": "cross-env ENV=development webpack-dev-server --hot --history-api-fallback --open",
     "lint": "eslint . --ignore-path .gitignore --cache"
   }

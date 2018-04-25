@@ -204,7 +204,7 @@ export default class Mapbox extends React.Component {
 
   renderNewIndividualLayer(layer) {
     const mapComponents = {
-      qTop: 0, qLeft: 0, qWidth: 9, qHeight: 500,
+      qTop: 0, qLeft: 0, qWidth: 9, qHeight: 1100,
     };
     return (
       <QlikObject
