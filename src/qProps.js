@@ -734,4 +734,32 @@ qProps.objectHCTrend = {
     }],
   },
 };
+
+qProps.objectHCTrend = {
+  qInfo: {
+    qType: 'visualization',
+  },
+  qHyperCubeDef: {
+    qDimensions:
+      [{
+        qDef: {
+          qFieldDefs: ['BERDOYear'],
+          qFieldLabels: ['Year'],
+          qSortCriterias: [{ qSortByAscii: 1 }],
+          qSuppressMissing: true,
+        },
+      }],
+    qMeasures: [{
+      qDef: {
+        qDef: 'Sum([GHG Emissions (MTCO2e)])',
+        qLabel: 'Emissions',
+      },
+    }, {
+      qDef: {
+        qDef: 'Sum([Total Site Energy (kBTU)])',
+        qLabel: 'Consumption',
+      },
+    }],
+  },
+};
 export default qProps;
