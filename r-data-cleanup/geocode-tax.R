@@ -4,7 +4,7 @@ berdo_data <- read.csv('data/propertyData.csv')
 
 summary(berdo_data)
 
-temp <- berdo_data[1:5,]
+temp <- berdo_data #berdo_data[1:5,]
 temp$fullAddress <- paste(temp$Address,' ',temp$ZIP)
 
 geocodeAddress <- function(address) {

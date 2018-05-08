@@ -8,46 +8,29 @@
       <Properties>
         <Configuration>
           <Passwords />
-          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="12">C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp</File>
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\PIDGeoKeys.txt</File>
           <FormatSpecificOptions>
-            <Projection />
-            <AllStrings>False</AllStrings>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
           </FormatSpecificOptions>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>Municipal_Building_Energy_Reporting_BERDO.shp</DefaultAnnotationText>
+          <DefaultAnnotationText>PIDGeoKeys.txt</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="OBJECTID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Int32" />
-            <Field name="Address" size="85" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Property_T" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Property_U" size="173" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Site_EUI" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="GHG_Intens" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="ShapeSTAre" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="ShapeSTLen" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="Reported" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Property_N" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Gross_Sq_F" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="EnergyStar" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Int32" />
-            <Field name="EnergySt_1" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Year_Built" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="GHG_Emissi" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="Site_Energ" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="Water_Inte" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="OnSite_Sol" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Owner_Subm" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="ZIP" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Tax_Parcel" size="230" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Pct_Electr" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="Pct_Gas" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="Pct_Steam" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Owner_Su_1" size="254" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Years_Repo" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="SpatialObj" size="2147483647" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="SpatialObj" />
+            <Field name="PID" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\PIDGeoKeys.txt" type="V_WString" />
+            <Field name="LATITUDE" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\PIDGeoKeys.txt" type="V_WString" />
+            <Field name="LONGITUDE" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\PIDGeoKeys.txt" type="V_WString" />
+            <Field name="%GeoKey" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\PIDGeoKeys.txt" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -92,8 +75,10 @@
         <Configuration>
           <OrderChanged value="False" />
           <SelectFields>
-            <SelectField field="OBJECTID" selected="True" />
+            <SelectField field="PID" selected="True" />
+            <SelectField field="%GeoKey" selected="True" />
             <SelectField field="Centroid" selected="True" />
+            <SelectField field="OBJECTID" selected="True" />
             <SelectField field="*Unknown" selected="False" />
           </SelectFields>
         </Configuration>
@@ -313,7 +298,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_ee401bdcea4c4a80add9398a0c9f86d4_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_9acf429bbac041fda97bb26248436262_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -329,7 +314,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_230bed63786e4dbc8158abccc1447134_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_91da949f664c4fdebcc25ea55d00ceda_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -360,7 +345,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_a5565dd3522f4920af7311302efaf675_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_60c6cc96e6ff4c02a8d82f90f458aa85_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -391,7 +376,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_786b2198d550431ba0216322c863c3c4_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_b970879723204326b547dcc2e0b76a6f_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -422,7 +407,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_ee6775127ce74b0595703c033cbe931a_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_e284d6b9fa144209b967109881a01ec8_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -453,7 +438,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_86d7395a98a8402cbe53e8ee34e874d1_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_9e4ac948888d4c939a5e21513b26029c_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -484,7 +469,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_cb1ab8cd6536492694e021f99c3066f7_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_098f9b8c3bb64a8b8dc296add43356c7_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -509,32 +494,29 @@
         <Configuration>
           <JoinByRecPos value="False" />
           <JoinFields>
+            <JoinInfo connection="#8">
+              <Field field="PID" />
+            </JoinInfo>
             <JoinInfo connection="#1">
-              <Field field="OBJECTID" />
+              <Field field="PID" />
             </JoinInfo>
             <JoinInfo connection="#2">
-              <Field field="OBJECTID" />
+              <Field field="PID" />
             </JoinInfo>
             <JoinInfo connection="#3">
-              <Field field="OBJECTID" />
+              <Field field="PID" />
             </JoinInfo>
             <JoinInfo connection="#4">
-              <Field field="OBJECTID" />
+              <Field field="PID" />
             </JoinInfo>
             <JoinInfo connection="#5">
-              <Field field="OBJECTID" />
+              <Field field="PID" />
             </JoinInfo>
             <JoinInfo connection="#6">
-              <Field field="OBJECTID" />
+              <Field field="PID" />
             </JoinInfo>
             <JoinInfo connection="#7">
-              <Field field="OBJECTID" />
-            </JoinInfo>
-            <JoinInfo connection="#8">
-              <Field field="OBJECTID" />
-            </JoinInfo>
-            <JoinInfo connection="#9">
-              <Field field="OBJECTID" />
+              <Field field="PID" />
             </JoinInfo>
           </JoinFields>
           <CartesianMode>Error</CartesianMode>
@@ -543,7 +525,10 @@
             <Configuration outputConnection="Output">
               <OrderChanged value="False" />
               <SelectFields>
-                <SelectField field="Input_#2_OBJECTID" selected="True" rename="Input_#2_OBJECTID" />
+                <SelectField field="Input_#1_PID" selected="True" rename="Input_#1_PID" />
+                <SelectField field="Input_#1_%GeoKey" selected="True" rename="Input_#1_%GeoKey" />
+                <SelectField field="Input_#2_PID" selected="True" rename="Input_#2_PID" />
+                <SelectField field="Input_#2_%GeoKey" selected="True" rename="Input_#2_%GeoKey" />
                 <SelectField field="Input_#2_Centroid" selected="True" rename="Input_#2_Centroid" />
                 <SelectField field="Input_#2_FID" selected="True" rename="Input_#2_FID" />
                 <SelectField field="Input_#2_Shape_Leng" selected="True" rename="Input_#2_Shape_Leng" />
@@ -551,45 +536,56 @@
                 <SelectField field="Input_#2_Shape__Are" selected="True" rename="Input_#2_Shape__Are" />
                 <SelectField field="Input_#2_Shape__Len" selected="True" rename="Input_#2_Shape__Len" />
                 <SelectField field="Input_#2_Universe_SpatialObj" selected="True" rename="Input_#2_Universe_SpatialObj" />
-                <SelectField field="Input_#3_OBJECTID" selected="True" rename="Input_#3_OBJECTID" />
+                <SelectField field="Input_#3_PID" selected="True" rename="Input_#3_PID" />
+                <SelectField field="Input_#3_%GeoKey" selected="True" rename="Input_#3_%GeoKey" />
                 <SelectField field="Input_#3_Centroid" selected="True" rename="Input_#3_Centroid" />
                 <SelectField field="Input_#3_FID" selected="True" rename="Input_#3_FID" />
+                <SelectField field="Input_#3_OBJECTID" selected="True" rename="Input_#3_OBJECTID" />
                 <SelectField field="Input_#3_Shape_Leng" selected="True" rename="Input_#3_Shape_Leng" />
                 <SelectField field="Input_#3_Shape_Area" selected="True" rename="Input_#3_Shape_Area" />
                 <SelectField field="Input_#3_Shape__Are" selected="True" rename="Input_#3_Shape__Are" />
                 <SelectField field="Input_#3_Shape__Len" selected="True" rename="Input_#3_Shape__Len" />
                 <SelectField field="Input_#3_Universe_SpatialObj" selected="True" rename="Input_#3_Universe_SpatialObj" />
-                <SelectField field="Input_#4_OBJECTID" selected="True" rename="Input_#4_OBJECTID" />
+                <SelectField field="Input_#4_PID" selected="True" rename="Input_#4_PID" />
+                <SelectField field="Input_#4_%GeoKey" selected="True" rename="Input_#4_%GeoKey" />
                 <SelectField field="Input_#4_Centroid" selected="True" rename="Input_#4_Centroid" />
                 <SelectField field="Input_#4_FID" selected="True" rename="Input_#4_FID" />
                 <SelectField field="Input_#4_Shape__Are" selected="True" rename="Input_#4_Shape__Are" />
                 <SelectField field="Input_#4_Shape__Len" selected="True" rename="Input_#4_Shape__Len" />
                 <SelectField field="Input_#4_Universe_SpatialObj" selected="True" rename="Input_#4_Universe_SpatialObj" />
-                <SelectField field="Input_#5_OBJECTID" selected="True" rename="Input_#5_OBJECTID" />
+                <SelectField field="Input_#5_PID" selected="True" rename="Input_#5_PID" />
+                <SelectField field="Input_#5_%GeoKey" selected="True" rename="Input_#5_%GeoKey" />
                 <SelectField field="Input_#5_Centroid" selected="True" rename="Input_#5_Centroid" />
-                <SelectField field="Input_#5_Universe_OBJECTID" selected="True" rename="Input_#5_Universe_OBJECTID" />
+                <SelectField field="Input_#5_OBJECTID" selected="True" rename="Input_#5_OBJECTID" />
                 <SelectField field="Input_#5_Universe_SpatialObj" selected="True" rename="Input_#5_Universe_SpatialObj" />
-                <SelectField field="Input_#6_OBJECTID" selected="True" rename="Input_#6_OBJECTID" />
+                <SelectField field="Input_#6_PID" selected="True" rename="Input_#6_PID" />
+                <SelectField field="Input_#6_%GeoKey" selected="True" rename="Input_#6_%GeoKey" />
                 <SelectField field="Input_#6_Centroid" selected="True" rename="Input_#6_Centroid" />
                 <SelectField field="Input_#6_FID" selected="True" rename="Input_#6_FID" />
-                <SelectField field="Input_#6_Universe_OBJECTID" selected="True" rename="Input_#6_Universe_OBJECTID" />
+                <SelectField field="Input_#6_OBJECTID" selected="True" rename="Input_#6_OBJECTID" />
                 <SelectField field="Input_#6_Id" selected="True" rename="Input_#6_Id" />
                 <SelectField field="Input_#6_Shape_area" selected="True" rename="Input_#6_Shape_area" />
                 <SelectField field="Input_#6_Universe_SpatialObj" selected="True" rename="Input_#6_Universe_SpatialObj" />
-                <SelectField field="Input_#7_OBJECTID" selected="True" rename="Input_#7_OBJECTID" />
+                <SelectField field="Input_#7_PID" selected="True" rename="Input_#7_PID" />
+                <SelectField field="Input_#7_%GeoKey" selected="True" rename="Input_#7_%GeoKey" />
                 <SelectField field="Input_#7_Centroid" selected="True" rename="Input_#7_Centroid" />
                 <SelectField field="Input_#7_FID" selected="True" rename="Input_#7_FID" />
-                <SelectField field="Input_#7_Universe_OBJECTID" selected="True" rename="Input_#7_Universe_OBJECTID" />
+                <SelectField field="Input_#7_OBJECTID" selected="True" rename="Input_#7_OBJECTID" />
                 <SelectField field="Input_#7_Shape_area" selected="True" rename="Input_#7_Shape_area" />
                 <SelectField field="Input_#7_Shape_len" selected="True" rename="Input_#7_Shape_len" />
                 <SelectField field="Input_#7_Universe_SpatialObj" selected="True" rename="Input_#7_Universe_SpatialObj" />
+                <SelectField field="Input_#9_Name" selected="True" rename="Neighborhood" />
+                <SelectField field="Input_#9_OBJECTID" selected="False" />
+                <SelectField field="Input_#2_OBJECTID" selected="True" rename="Input_#2_OBJECTID" />
+                <SelectField field="Input_#4_OBJECTID" selected="True" rename="Input_#4_OBJECTID" />
+                <SelectField field="Input_#5_Universe_OBJECTID" selected="True" rename="Input_#5_Universe_OBJECTID" />
+                <SelectField field="Input_#6_Universe_OBJECTID" selected="True" rename="Input_#6_Universe_OBJECTID" />
+                <SelectField field="Input_#7_Universe_OBJECTID" selected="True" rename="Input_#7_Universe_OBJECTID" />
                 <SelectField field="Input_#8_OBJECTID" selected="True" rename="Input_#8_OBJECTID" />
                 <SelectField field="Input_#8_ShapeSTAre" selected="True" rename="Input_#8_ShapeSTAre" />
                 <SelectField field="Input_#8_ShapeSTLen" selected="True" rename="Input_#8_ShapeSTLen" />
                 <SelectField field="Input_#8_Tax_Parcel" selected="True" rename="Input_#8_Tax_Parcel" />
                 <SelectField field="Input_#8_SpatialObj" selected="False" rename="Input_#8_SpatialObj" />
-                <SelectField field="Input_#9_OBJECTID" selected="False" rename="Input_#9_OBJECTID" />
-                <SelectField field="Input_#9_Name" selected="True" rename="Neighborhood" />
                 <SelectField field="Input_#2_Tax_Parcel" selected="True" rename="Input_#2_Tax_Parcel" />
                 <SelectField field="Input_#3_Tax_Parcel" selected="True" rename="Input_#3_Tax_Parcel" />
                 <SelectField field="Input_#4_Tax_Parcel" selected="True" rename="Input_#4_Tax_Parcel" />
@@ -655,6 +651,8 @@
         <Configuration>
           <OrderChanged value="False" />
           <SelectFields>
+            <SelectField field="Input_#1_PID" selected="False" />
+            <SelectField field="Input_#1_%GeoKey" selected="False" />
             <SelectField field="Centroid" selected="False" />
             <SelectField field="FID" selected="False" />
             <SelectField field="Shape_Leng" selected="False" />
@@ -662,7 +660,8 @@
             <SelectField field="Shape__Are" selected="False" />
             <SelectField field="Shape__Len" selected="False" />
             <SelectField field="Universe_SpatialObj" selected="False" />
-            <SelectField field="Input_#2_OBJECTID" selected="False" />
+            <SelectField field="Input_#2_PID" selected="False" />
+            <SelectField field="Input_#2_%GeoKey" selected="False" />
             <SelectField field="Input_#2_Centroid" selected="False" />
             <SelectField field="Input_#2_FID" selected="False" />
             <SelectField field="Input_#2_Shape_Leng" selected="False" />
@@ -670,11 +669,12 @@
             <SelectField field="Input_#2_Shape__Are" selected="False" />
             <SelectField field="Input_#2_Shape__Len" selected="False" />
             <SelectField field="Input_#2_Universe_SpatialObj" selected="False" />
-            <SelectField field="Input_#3_OBJECTID" selected="False" />
+            <SelectField field="Input_#3_PID" selected="False" />
+            <SelectField field="Input_#3_%GeoKey" selected="False" />
             <SelectField field="Input_#3_Centroid" selected="False" />
             <SelectField field="Input_#3_FID" selected="False" />
             <SelectField field="ORIG_FID" selected="False" />
-            <SelectField field="Universe_OBJECTID" selected="False" />
+            <SelectField field="Input_#3_OBJECTID" selected="False" />
             <SelectField field="Input_#3_Shape_Leng" selected="False" />
             <SelectField field="MBG_Width" selected="False" />
             <SelectField field="MBG_Length" selected="False" />
@@ -684,7 +684,8 @@
             <SelectField field="Input_#3_Shape__Are" selected="False" />
             <SelectField field="Input_#3_Shape__Len" selected="False" />
             <SelectField field="Input_#3_Universe_SpatialObj" selected="False" />
-            <SelectField field="Input_#4_OBJECTID" selected="False" />
+            <SelectField field="Input_#4_PID" selected="False" />
+            <SelectField field="Input_#4_%GeoKey" selected="False" />
             <SelectField field="Input_#4_Centroid" selected="False" />
             <SelectField field="Input_#4_FID" selected="True" rename="climate-ready-social-vulnerability" />
             <SelectField field="GEOID10" selected="True" rename="climate-ready-social-vulnerability-geoid" />
@@ -704,29 +705,40 @@
             <SelectField field="Input_#4_Shape__Len" selected="False" />
             <SelectField field="Input_#4_Universe_SpatialObj" selected="False" />
             <SelectField field="climate-ready-social-vulnerability" selected="True" rename="climate-ready-social-vulnerability-flag" />
-            <SelectField field="Input_#5_OBJECTID" selected="False" />
+            <SelectField field="Input_#5_PID" selected="False" />
+            <SelectField field="Input_#5_%GeoKey" selected="False" />
             <SelectField field="Input_#5_Centroid" selected="False" />
-            <SelectField field="Input_#5_Universe_OBJECTID" selected="False" />
+            <SelectField field="Input_#5_OBJECTID" selected="False" />
             <SelectField field="ID" selected="False" />
             <SelectField field="ShapeSTAre" selected="False" />
             <SelectField field="ShapeSTLen" selected="False" />
             <SelectField field="Input_#5_Universe_SpatialObj" selected="False" />
-            <SelectField field="Input_#6_OBJECTID" selected="False" />
+            <SelectField field="Input_#6_PID" selected="False" />
+            <SelectField field="Input_#6_%GeoKey" selected="False" />
             <SelectField field="Input_#6_Centroid" selected="False" />
             <SelectField field="Input_#6_FID" selected="False" />
-            <SelectField field="Input_#6_Universe_OBJECTID" selected="False" />
+            <SelectField field="Input_#6_OBJECTID" selected="False" />
             <SelectField field="Input_#6_Id" selected="False" />
             <SelectField field="Input_#6_Shape_area" selected="False" />
             <SelectField field="Shape_len" selected="False" />
             <SelectField field="Input_#6_Universe_SpatialObj" selected="False" />
-            <SelectField field="Input_#7_OBJECTID" selected="False" />
+            <SelectField field="Input_#7_PID" selected="False" />
+            <SelectField field="Input_#7_%GeoKey" selected="False" />
             <SelectField field="Input_#7_Centroid" selected="False" />
             <SelectField field="Input_#7_FID" selected="False" />
-            <SelectField field="Input_#7_Universe_OBJECTID" selected="False" />
+            <SelectField field="Input_#7_OBJECTID" selected="False" />
             <SelectField field="GRIDCODE" selected="False" />
             <SelectField field="Input_#7_Shape_area" selected="False" />
             <SelectField field="Input_#7_Shape_len" selected="False" />
             <SelectField field="Input_#7_Universe_SpatialObj" selected="False" />
+            <SelectField field="Input_#9_PID" selected="False" />
+            <SelectField field="Input_#9_%GeoKey" selected="False" />
+            <SelectField field="Input_#2_OBJECTID" selected="False" />
+            <SelectField field="Universe_OBJECTID" selected="False" />
+            <SelectField field="Input_#4_OBJECTID" selected="False" />
+            <SelectField field="Input_#5_Universe_OBJECTID" selected="False" />
+            <SelectField field="Input_#6_Universe_OBJECTID" selected="False" />
+            <SelectField field="Input_#7_Universe_OBJECTID" selected="False" />
             <SelectField field="Input_#8_OBJECTID" selected="False" />
             <SelectField field="Address" selected="False" />
             <SelectField field="Property_T" selected="False" />
@@ -770,25 +782,6 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="47">
-      <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
-        <Position x="246" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <SpatialObj field="SpatialObj" />
-          <SelectedItems>
-            <Item name="CentroidObj" />
-          </SelectedItems>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
-    </Node>
     <Node ToolID="48">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
         <Position x="474" y="54" />
@@ -811,51 +804,14 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
-    <Node ToolID="50">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="666" y="426" />
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.CreatePoints.CreatePoints">
+        <Position x="186" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Passwords />
-          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv</File>
-          <FormatSpecificOptions>
-            <CodePage>28591</CodePage>
-            <Delimeter>,</Delimeter>
-            <IgnoreErrors>False</IgnoreErrors>
-            <FieldLen>254</FieldLen>
-            <AllowShareWrite>False</AllowShareWrite>
-            <HeaderRow>True</HeaderRow>
-            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
-            <ImportLine>1</ImportLine>
-          </FormatSpecificOptions>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>objectid-to-neighborhoods.csv</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="OBJECTID" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="V_String" />
-            <Field name="Name" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="V_String" />
-            <Field name="RegionID" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="V_String" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
-    </Node>
-    <Node ToolID="52">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="858" y="426" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <SelectFields>
-            <SelectField field="OBJECTID" selected="True" type="Int64" size="8" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
+          <Fields fieldX="LONGITUDE" fieldY="LATITUDE" />
+          <Mode>Double</Mode>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -863,39 +819,11 @@
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="53">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
-        <Position x="762" y="426" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Fields>
-            <Field field="OBJECTID" selected="True" />
-            <Field field="Name" selected="True" />
-            <Field field="RegionID" selected="True" />
-            <Field field="*Unknown" selected="True" />
-          </Fields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="OBJECTID" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="Int16" />
-            <Field name="Name" size="17" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="V_String" />
-            <Field name="RegionID" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\objectid-to-neighborhoods.csv" type="Int32" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxCreatePoints" />
     </Node>
     <Node ToolID="49">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="413" y="126" width="301" height="728" />
+        <Position x="413" y="126" width="301" height="732" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -911,29 +839,13 @@
         </Annotation>
       </Properties>
       <ChildNodes>
-        <Node ToolID="15">
-          <GuiSettings>
-            <Position x="439" y="170" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <Value name="Text Box (12)">nine-inch-sea-level-rise</Value>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
-        </Node>
         <Node ToolID="16">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
             <Position x="535" y="170" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_a8b95517092f43f298ff0b54b8224457_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_d7b7ec42b8de42b9b8c00c014c119377_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -957,22 +869,6 @@
             </Annotation>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-        </Node>
-        <Node ToolID="17">
-          <GuiSettings>
-            <Position x="439" y="266" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <Value name="Text Box (12)">twentyone-inch-sea-level-rise</Value>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="18">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -980,7 +876,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_4200a7db4c144319aa1c7b3db2b123de_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_d1c96b8e32a34281b4e0e84207f75f5f_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1004,22 +900,6 @@
             </Annotation>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-        </Node>
-        <Node ToolID="26">
-          <GuiSettings>
-            <Position x="439" y="398.0001" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <Value name="Text Box (12)">thirtysix-inch-sea-level-rise</Value>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="27">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1027,7 +907,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_7622bac4f73042d0b74c22c67ce7d120_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_6640611f446c4912a1ff48d09b32455c_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1051,22 +931,6 @@
             </Annotation>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-        </Node>
-        <Node ToolID="28">
-          <GuiSettings>
-            <Position x="438.9999" y="494" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <Value name="Text Box (12)">climate-ready-social-vulnerability</Value>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="29">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1074,7 +938,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_4ef6f20c39524607bf30c920de907016_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_ba1f2c9cbdb14a32ba196c7cc1cde3d2_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1098,22 +962,6 @@
             </Annotation>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-        </Node>
-        <Node ToolID="30">
-          <GuiSettings>
-            <Position x="438" y="582" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <Value name="Text Box (12)">groundwater-conversvation</Value>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="31">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1121,7 +969,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_f3fa73205c76499098404e382d1b368d_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_3b0b605f560548cdb35c19f0e58771c6_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1145,22 +993,6 @@
             </Annotation>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-        </Node>
-        <Node ToolID="32">
-          <GuiSettings>
-            <Position x="439" y="686" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <Value name="Text Box (12)">fiveft-plus-sea-level-rise</Value>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
         </Node>
         <Node ToolID="33">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1168,7 +1000,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_3adda7d0c1314131b6826146dfef4e75_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_09bd3f43dcc149db9dd72aac0cc173cc_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1193,29 +1025,13 @@
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
         </Node>
-        <Node ToolID="34">
-          <GuiSettings>
-            <Position x="438.9999" y="770" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <Value name="Text Box (12)">sevenptfiveft-plus-sea-level-rise</Value>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\shapeFileCombine.yxmc" />
-        </Node>
         <Node ToolID="35">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
             <Position x="535" y="770" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_18388_0f4886b6234c492082d0195b28aaea39_\Engine_15284_2aa512133fd64fa0bb1ccb2e16f0feed_.yxdb</TempFile>
+              <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_7236_3b6dfda46d8d4a51a60f1e8652878bb3_\Engine_4632_62db54dddadf4b969cdfb6c447683d9e_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -1259,6 +1075,139 @@
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
         </Node>
+        <Node ToolID="56">
+          <GuiSettings>
+            <Position x="450" y="174" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">nine-inch-sea-level-rise</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="57">
+          <GuiSettings>
+            <Position x="450" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">twentyone-inch-sea-level-rise</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="58">
+          <GuiSettings>
+            <Position x="450" y="402" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">thirtysix-inch-sea-level-rise</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="59">
+          <GuiSettings>
+            <Position x="450" y="498" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">climate-ready-social-vulnerability</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="60">
+          <GuiSettings>
+            <Position x="438" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">groundwater-conversvation</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="61">
+          <GuiSettings>
+            <Position x="438.0001" y="690" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">fiveft-plus-sea-level-rise</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\shapeFileCombine.yxmc" />
+        </Node>
+        <Node ToolID="62">
+          <GuiSettings>
+            <Position x="438" y="774" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="Text Box (12)">sevenptfiveft-plus-sea-level-rise</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings Macro="C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\shapeFileCombine.yxmc" />
+        </Node>
       </ChildNodes>
     </Node>
   </Nodes>
@@ -1267,105 +1216,101 @@
       <Origin ToolID="5" Connection="Output" />
       <Destination ToolID="43" Connection="Input" />
     </Connection>
-    <Connection name="#9">
-      <Origin ToolID="52" Connection="Output" />
-      <Destination ToolID="43" Connection="Input" />
-    </Connection>
     <Connection name="#1">
-      <Origin ToolID="15" Connection="Output11" />
+      <Origin ToolID="56" Connection="Output11" />
       <Destination ToolID="43" Connection="Input" />
     </Connection>
     <Connection name="#2">
-      <Origin ToolID="17" Connection="Output11" />
+      <Origin ToolID="57" Connection="Output11" />
       <Destination ToolID="43" Connection="Input" />
     </Connection>
     <Connection name="#3">
-      <Origin ToolID="26" Connection="Output11" />
+      <Origin ToolID="58" Connection="Output11" />
       <Destination ToolID="43" Connection="Input" />
     </Connection>
     <Connection name="#4">
-      <Origin ToolID="28" Connection="Output11" />
+      <Origin ToolID="59" Connection="Output11" />
       <Destination ToolID="43" Connection="Input" />
     </Connection>
     <Connection name="#5">
-      <Origin ToolID="30" Connection="Output11" />
+      <Origin ToolID="60" Connection="Output11" />
       <Destination ToolID="43" Connection="Input" />
     </Connection>
     <Connection name="#6">
-      <Origin ToolID="32" Connection="Output11" />
+      <Origin ToolID="61" Connection="Output11" />
       <Destination ToolID="43" Connection="Input" />
     </Connection>
     <Connection name="#7">
-      <Origin ToolID="34" Connection="Output11" />
+      <Origin ToolID="62" Connection="Output11" />
       <Destination ToolID="43" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="5" Connection="Output" />
-      <Destination ToolID="47" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="6" Connection="Output" />
-      <Destination ToolID="15" Connection="ShapeFile" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="14" Connection="Output" />
-      <Destination ToolID="15" Connection="Buildings" />
+      <Destination ToolID="55" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="Output" />
       <Destination ToolID="36" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="14" Connection="Output" />
-      <Destination ToolID="17" Connection="Buildings" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="19" Connection="Output" />
-      <Destination ToolID="17" Connection="ShapeFile" />
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="56" Connection="ShapeFile" />
     </Connection>
     <Connection>
       <Origin ToolID="14" Connection="Output" />
-      <Destination ToolID="26" Connection="Buildings" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="20" Connection="Output" />
-      <Destination ToolID="26" Connection="ShapeFile" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="14" Connection="Output" />
-      <Destination ToolID="32" Connection="Buildings" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="24" Connection="Output" />
-      <Destination ToolID="32" Connection="ShapeFile" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="14" Connection="Output" />
-      <Destination ToolID="34" Connection="Buildings" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="25" Connection="Output" />
-      <Destination ToolID="34" Connection="ShapeFile" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="14" Connection="Output" />
-      <Destination ToolID="28" Connection="Buildings" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="21" Connection="Output" />
-      <Destination ToolID="28" Connection="ShapeFile" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="14" Connection="Output" />
-      <Destination ToolID="30" Connection="Buildings" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="22" Connection="Output" />
-      <Destination ToolID="30" Connection="ShapeFile" />
+      <Destination ToolID="56" Connection="Buildings" />
     </Connection>
     <Connection>
       <Origin ToolID="14" Connection="Output" />
       <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="57" Connection="Buildings" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="57" Connection="ShapeFile" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="58" Connection="Buildings" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="58" Connection="ShapeFile" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="59" Connection="Buildings" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="59" Connection="ShapeFile" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="60" Connection="Buildings" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="60" Connection="ShapeFile" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="61" Connection="Buildings" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="61" Connection="ShapeFile" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="62" Connection="Buildings" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="62" Connection="ShapeFile" />
     </Connection>
     <Connection>
       <Origin ToolID="19" Connection="Output" />
@@ -1400,48 +1345,40 @@
       <Destination ToolID="44" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="47" Connection="Output" />
+      <Origin ToolID="55" Connection="Output" />
       <Destination ToolID="14" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="50" Connection="Output" />
-      <Destination ToolID="53" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="53" Connection="Output" />
-      <Destination ToolID="52" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="15" Connection="Output11" />
-      <Destination ToolID="16" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="17" Connection="Output11" />
-      <Destination ToolID="18" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="26" Connection="Output11" />
-      <Destination ToolID="27" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="28" Connection="Output11" />
-      <Destination ToolID="29" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="30" Connection="Output11" />
-      <Destination ToolID="54" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="32" Connection="Output11" />
-      <Destination ToolID="33" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="34" Connection="Output11" />
-      <Destination ToolID="35" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="54" Connection="Output" />
       <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="Output11" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output11" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output11" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output11" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output11" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="61" Connection="Output11" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="62" Connection="Output11" />
+      <Destination ToolID="35" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

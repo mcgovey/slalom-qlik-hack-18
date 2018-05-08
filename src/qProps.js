@@ -8,7 +8,7 @@ qProps.properties = {
     qDimensions:
       [{
         qDef: {
-          qFieldDefs: ['OBJECTID'],
+          qFieldDefs: ['PID'],
           qFieldLabels: ['Property'],
           qSortCriterias: [{ qSortByAscii: 1 }],
           // qSuppressMissing: true,
@@ -82,7 +82,7 @@ qProps.pts = {
     qDimensions:
       [{
         qDef: {
-          qFieldDefs: ['OBJECTID'],
+          qFieldDefs: ['PID'],
           qFieldLabels: ['Property'],
           qSortCriterias: [{ qSortByAscii: 1 }],
           // qSuppressMissing: true,
@@ -156,7 +156,7 @@ qProps['building-shapes'] = {
     qDimensions:
       [{
         qDef: {
-          qFieldDefs: ['OBJECTID'],
+          qFieldDefs: ['PID'],
           qFieldLabels: ['Property'],
           qSortCriterias: [{ qSortByAscii: 1 }],
           // qSuppressMissing: true,
@@ -299,7 +299,7 @@ qProps.objectList = {
   },
   qListObjectDef: {
     qDef: {
-      qFieldDefs: ['OBJECTID'],
+      qFieldDefs: ['PID'],
     },
     qShowAlternatives: false,
     qAutoSortByState: { qDisplayNumberOfRows: 1 },
@@ -371,7 +371,7 @@ qProps.neighborhoods = {
       },
     }, {
       qDef: {
-        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])/Count(DISTINCT OBJECTID)',
+        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])/Count(DISTINCT PID)',
         qLabel: 'Pct Not on Track',
       },
     }],
@@ -430,7 +430,7 @@ qProps['city-council-districts'] = {
       },
     }, {
       qDef: {
-        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])/Count(DISTINCT OBJECTID)',
+        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])/Count(DISTINCT PID)',
         qLabel: 'Pct Not on Track',
       },
     }],
@@ -489,7 +489,7 @@ qProps['climate-ready-social-vulnerability'] = {
       },
     }, {
       qDef: {
-        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])/Count(DISTINCT OBJECTID)',
+        qDef: '1-Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions Reduction Status Flag])/Count(DISTINCT PID)',
         qLabel: 'Pct Not on Track',
       },
     }],
@@ -636,7 +636,7 @@ qProps.objectHCList = {
     qDimensions:
       [{
         qDef: {
-          qFieldDefs: ['OBJECTID'],
+          qFieldDefs: ['PID'],
           qFieldLabels: ['Property'],
           qSortCriterias: [{ qSortByAscii: 1 }],
           qSuppressMissing: true,
@@ -645,21 +645,21 @@ qProps.objectHCList = {
       {
         qDef: {
           qFieldDefs: [`=AGGR(CONCAT({<BERDOYear= {$(=max(BERDOYear))}>} [Property Name],', ')
-            ,OBJECTID)`],
+            ,PID)`],
           qFieldLabels: ['Property Name'],
         },
       },
       {
         qDef: {
           qFieldDefs: [`=AGGR(CONCAT({<BERDOYear= {$(=max(BERDOYear))}>} [Property Type],', '),
-            OBJECTID)`],
+            PID)`],
           qFieldLabels: ['Property Type'],
         },
       },
       {
         qDef: {
           qFieldDefs: [`=AGGR(CONCAT({<BERDOYear= {$(=max(BERDOYear))}>} [Property Uses],', '),
-            OBJECTID)`],
+            PID)`],
           qFieldLabels: ['Property Use'],
         },
       }],

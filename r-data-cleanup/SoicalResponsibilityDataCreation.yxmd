@@ -89,7 +89,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_018f7420b93844ae9cf7fd144b42eead_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_2160_657ab6495cce472993d73c97f9963fb0_\Engine_16756_506432e9fc0f4d93866ea85b4b8a78ec_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -116,7 +116,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
-        <Position x="450" y="114" />
+        <Position x="474" y="114" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -187,61 +187,9 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="8">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Passwords />
-          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="12">C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp</File>
-          <FormatSpecificOptions>
-            <Projection />
-            <AllStrings>False</AllStrings>
-          </FormatSpecificOptions>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Municipal_Building_Energy_Reporting_BERDO.shp</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="OBJECTID" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Int32" />
-            <Field name="Address" size="85" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Property_T" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Property_U" size="173" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Site_EUI" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="GHG_Intens" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="ShapeSTAre" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="ShapeSTLen" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="Reported" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Property_N" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Gross_Sq_F" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="EnergyStar" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Int32" />
-            <Field name="EnergySt_1" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Year_Built" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="GHG_Emissi" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="Site_Energ" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="Water_Inte" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="OnSite_Sol" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Owner_Subm" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="ZIP" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Tax_Parcel" size="230" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Pct_Electr" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="Pct_Gas" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="Double" />
-            <Field name="Pct_Steam" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Owner_Su_1" size="254" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="Years_Repo" size="80" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="V_String" />
-            <Field name="SpatialObj" size="2147483647" source="File: C:\Users\kevin.mcgovern\Dropbox\Slalom\Qlik\QlikHackChallenge18\Municipal_Building_Energy_Reporting_BERDO.shp" type="SpatialObj" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
-    </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="246" y="54" />
+        <Position x="378" y="102" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -275,6 +223,10 @@
             <SelectField field="Years_Repo" selected="False" />
             <SelectField field="ZIP" selected="False" />
             <SelectField field="Centroid" selected="True" />
+            <SelectField field="PID" selected="True" />
+            <SelectField field="LATITUDE" selected="False" />
+            <SelectField field="LONGITUDE" selected="False" />
+            <SelectField field="%GeoKey" selected="True" />
             <SelectField field="*Unknown" selected="False" />
           </SelectFields>
         </Configuration>
@@ -288,11 +240,11 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="546" y="78" />
+        <Position x="570" y="78" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_0d1603daeaaa485ba68ac15f77493dde_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_2160_657ab6495cce472993d73c97f9963fb0_\Engine_16756_005595ec163a4737945f12ff5d246750_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -323,7 +275,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_ef990e9b1c5a414eb720821962c63a93_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_2160_657ab6495cce472993d73c97f9963fb0_\Engine_16756_d78cdc1a72b84ebea293fb2bb88a4798_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -348,32 +300,13 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
-    <Node ToolID="13">
-      <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialInfo.SpatialInfo">
-        <Position x="150" y="54" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <SpatialObj field="SpatialObj" />
-          <SelectedItems>
-            <Item name="CentroidObj" />
-          </SelectedItems>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSpatialInfo" />
-    </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.SpatialMatch.SpatialMatch">
-        <Position x="546" y="150" />
+        <Position x="570" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Target SpatialObj="SpatialObj" />
+          <Target SpatialObj="Centroid" />
           <Universe SpatialObj="SpatialObj" />
           <Method method="Intersects" />
           <SelectConfiguration>
@@ -389,7 +322,7 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>SpatialObj Intersects SpatialObj</DefaultAnnotationText>
+          <DefaultAnnotationText>Centroid Intersects SpatialObj</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -397,11 +330,11 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="618" y="210" />
+        <Position x="666" y="210" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_4332_bc1e307a7b9d43ada1528d67b0926940_\Engine_15284_ace14b96ed364e829abd9be323bdc716_.yxdb</TempFile>
+          <TempFile>C:\Users\KEVIN~1.MCG\AppData\Local\Temp\Engine_2160_657ab6495cce472993d73c97f9963fb0_\Engine_16756_b7bf9f4efbe845bead962926143fe405_.yxdb</TempFile>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -512,11 +445,79 @@
           <DefaultAnnotationText>bos-neighborhoods.kml</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="90" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\PIDGeoKeys.txt</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>PIDGeoKeys.txt</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="PID" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\PIDGeoKeys.txt" type="V_WString" />
+            <Field name="LATITUDE" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\PIDGeoKeys.txt" type="V_WString" />
+            <Field name="LONGITUDE" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\PIDGeoKeys.txt" type="V_WString" />
+            <Field name="%GeoKey" size="254" source="File: C:\Users\kevin.mcgovern\Documents\Projects\slalom-qlik-hack-18\r-data-cleanup\data\PIDGeoKeys.txt" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="186" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.CreatePoints.CreatePoints">
+        <Position x="282" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields fieldX="LONGITUDE" fieldY="LATITUDE" />
+          <Mode>Double</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxCreatePoints" />
     </Node>
   </Nodes>
   <Connections>
@@ -565,14 +566,6 @@
       <Destination ToolID="6" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="8" Connection="Output" />
-      <Destination ToolID="13" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="13" Connection="Output" />
-      <Destination ToolID="9" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="14" Connection="Matched" />
       <Destination ToolID="12" Connection="Input" />
     </Connection>
@@ -595,6 +588,18 @@
     <Connection>
       <Origin ToolID="19" Connection="Output" />
       <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
