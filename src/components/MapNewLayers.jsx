@@ -163,6 +163,14 @@ export default class MapNewLayers extends React.Component {
           0, 2,
           9, 20,
         ],
+        // // Transition from heatmap to circle layer by zoom level
+        // 'heatmap-opacity': [
+        //   'interpolate',
+        //   ['linear'],
+        //   ['zoom'],
+        //   7, 1,
+        //   9, 0,
+        // ],
       };
     }
     if (options.aboveLayer) {

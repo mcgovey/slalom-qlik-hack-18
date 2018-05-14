@@ -85,30 +85,6 @@ const chartOptions = {
       format: 'comma',
     },
   },
-  emissionsOverTime: {
-    height: 60,
-    measureNum: 1,
-    sort: false,
-    color: {
-      pattern: ['#0072c8'],
-    },
-    numFormat: {
-      decimals: 0,
-      format: 'comma',
-    },
-  },
-  consumptionOverTime: {
-    height: 60,
-    measureNum: 2,
-    sort: false,
-    color: {
-      pattern: ['#0072c8'],
-    },
-    numFormat: {
-      decimals: 0,
-      format: 'comma',
-    },
-  },
 };
 
 const hcProps = {

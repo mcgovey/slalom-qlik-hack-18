@@ -8,8 +8,9 @@ import MapNewLayers from './MapNewLayers';
 import MapExistingLayers from './MapExistingLayers';
 import QlikObject from './QlikObject';
 import qProps from '../qProps';
+import config from '../qConfig';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoibWNnb3ZleSIsImEiOiJjamZzYnltdDUwZGI4MzNxbDczeG5tZzJ5In0.8k2lw8EcAl9UCyNBHmvlVQ';
+mapboxgl.accessToken = config.accessToken;
 
 const layerOptions = {
   pts: {
