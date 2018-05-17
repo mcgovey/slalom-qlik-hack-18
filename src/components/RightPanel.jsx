@@ -4,6 +4,7 @@ import Typography from 'material-ui/Typography';
 import Card, { CardContent } from 'material-ui/Card';
 import Divider from 'material-ui/Divider';
 import BarChart from '../charts/BarChart';
+// import BarChartPicasso from '../charts/BarChartPicasso';
 import QlikObject from './QlikObject';
 import RightPanelPropertyInfo from './RightPanelPropertyInfo';
 import qProps from '../qProps';
@@ -127,6 +128,15 @@ export default class RightPanel extends React.Component {
     return (
       <Card>
         <CardContent>
+          {/* <QlikObject
+            qProp={qProps.nearEmissionReductTarget}
+            type="qHyperCube"
+            Component={BarChartPicasso}
+            qPage={hcProps}
+            componentProps={{
+              options: chartOptions.yearOverYearChng,
+            }}
+          /> */}
           <Typography variant="subheading" gutterBottom align="center">
             Emissions Trend
           </Typography>

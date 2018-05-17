@@ -36,6 +36,6 @@ async function qAppAsync() {
   });
 }
 
-const qAppPromise = qAppAsync();
+// const qAppPromise = qAppAsync();
 
 export default qAppPromise;

@@ -1,56 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as c3 from 'c3';
-import * as d3 from 'd3';
-import '../../node_modules/c3/c3.css';
-import '../styles/chartStyles.css';
+// import * as c3 from 'c3';
+// import * as d3 from 'd3';
+// import '../../node_modules/c3/c3.css';
+// import '../styles/chartStyles.css';
+import picasso from 'picasso.js';
 
-export default class BarChart extends React.Component {
+export default class BarChartPicasso extends React.Component {
   static propTypes = {
-    options: PropTypes.object.isRequired,
+    // options: PropTypes.object.isRequired,
     qData: PropTypes.object.isRequired,
-    // qLayout: PropTypes.object.isRequired,
+    qLayout: PropTypes.object.isRequired,
     // select: PropTypes.func.isRequired,
   };
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    // console.log('chart props', nextProps, prevState.chart);
-    let { chart } = prevState;
-    const { chartProps } = prevState;
-    const { options } = nextProps;
-    if (chart) {
-      // console.log('update chart', nextProps, chart);
-      const { qMatrix } = nextProps.qData;
-      const qElemNumMap = {};
-      const jsonData = qMatrix.map((row) => {
-        qElemNumMap[row[0].qText] = row[0].qElemNumber;
-        const element = {
-          id: row[0].qElemNumber,
-          indicator: row[0].qText,
-          total: row[options.measureNum].qNum.toFixed(options.numFormat.decimals),
-        };
-        if (options.comparison) {
-          element.compare = row[options.comparison.measureNum].qNum;
-        }
-        return element;
-      });
-      if (options.sort) {
-        jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
-      }
-      // jsonData.sort((a, b) => (b.total - a.total));
-      const topJsonData = jsonData.slice(0, 5);
-      // console.log('data to load', topJsonData, jsonData);
-      // chart.load({
-      //   json: jsonData,
-      //   unload: missingChartIds,
-      // });
-      chartProps.data.json = topJsonData;
-
-      chart = c3.generate(chartProps);
-      return { chart, chartProps };
-    }
-    return null;
-  }
 
   constructor(props) {
     super(props);
@@ -61,110 +23,72 @@ export default class BarChart extends React.Component {
 
   componentDidMount() {
     // console.log('map data', this.props, this.props.qData);
-    const { qData, options } = this.props;
-    const qElemNumMap = {};
-    const jsonData = qData.qMatrix.map((row) => {
-      qElemNumMap[row[0].qText] = row[0].qElemNumber;
-      // console.log('row', row);
-      const element = {
-        id: row[0].qElemNumber,
-        indicator: row[0].qText,
-        total: row[options.measureNum].qNum.toFixed(options.numFormat.decimals),
-      };
-      if (options.comparison) {
-        element.compare = row[options.comparison.measureNum].qNum;
+    const { qData, qLayout } = this.props;
+
+    const data = () => {
+      const arr = [
+        ['Month', 'Sales'],
+      ];
+
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      for (let m = 0; m < months.length; m += 1) {
+        arr.push([
+          months[m],
+          parseFloat((Math.random() * 10000).toFixed(0)),
+        ]);
       }
-      return element;
-    });
-    // console.log('json', jsonData, 'matrix', qData);
-    if (options.sort) {
-      jsonData.sort((a, b) => (options.sort === -1 ? (b.total - a.total) : (a.total - b.total)));
-    }
-    const topJsonData = jsonData.slice(0, 5);
-
-    // console.log('topJsonData', topJsonData, 'jsonDatasort', jsonData);
-
-    const chartProps = {
-      bindto: this.chartRef,
-      size: {
-        height: 200,
-      },
-      data: {
-        json: topJsonData,
-        keys: {
-          x: 'indicator',
-          value: ['total'],
-        },
-        labels: true,
-        // onclick: (d, element) => {
-        //   console.log('d', d, 'elem', element, qElemNumMap[d.id]);
-        //   // this.props.select(Number(qElemNumMap[d.id]), 0);
-        // },
-      },
-      axis: {
-        x: {
-          type: 'category',
-        },
-        rotated: false,
-        y: {
-          show: false,
-        },
-      },
-      bar: {
-        width: {
-          ratio: 0.5,
-        },
-      },
-      legend: {
-        show: false,
-      },
-      transition: {
-        duration: 1500,
-      },
+      return [{
+        type: 'matrix',
+        data: arr,
+      }];
     };
+    console.log('picasso', qData, qLayout, this.chartRef, data());
 
-    if (options.refline) chartProps.grid = options.refline;
-    if (options.numFormat.format === 'pct') {
-      chartProps.data.labels = {
-        format: d3.format(`.${options.numFormat.decimals}%`),
-      };
-    } else if (options.numFormat.format === 'comma') {
-      chartProps.data.labels = {
-        format: d3.format(`,.${options.numFormat.decimals}f`),
-      };
-    }
-    if (options.height) chartProps.size.height = options.height;
-    if (options.axis) chartProps.axis.x = options.axis.x || chartProps.axis.x;
-    if (options.rotated) chartProps.axis.rotated = options.rotated;
-    if (options.comparison) {
-      chartProps.data.keys.value = ['total', 'compare'];
-      chartProps.data.types = {
-        total: 'bar',
-        compare: 'line',
-      };
-      chartProps.labels = false;
-      chartProps.colors = {
-        total: options.color,
-        compare: '#f2f3f4',
-      };
-    } else {
-      chartProps.data.type = 'bar';
-      if (options.color) chartProps.color = options.color;
-    }
-
-
-    const chart = c3.generate(chartProps);
-
-    // d3.selectAll('.tick')
-    //   .on('click', (value, index) => {
-    //     console.log(this);
-    //     console.log([value, index]);
-    //   });
-    /* eslint-disable react/no-did-mount-set-state */
-    /* eslint-disable react/no-unused-state */
-    this.setState({
-      chart,
-      chartProps,
+    picasso.chart({
+      element: this.chartRef,
+      data: data(),
+      settings: {
+        scales: {
+          y: {
+            data: { field: 'Sales' },
+            include: [0],
+          },
+          c: {
+            data: { field: 'Sales' },
+            type: 'color',
+          },
+          t: { data: { extract: { field: 'Month' } }, padding: 0.3 },
+        },
+        components: [{
+          type: 'axis',
+          dock: 'left',
+          scale: 'y',
+        }, {
+          type: 'axis',
+          dock: 'bottom',
+          scale: 't',
+        }, {
+          key: 'bars',
+          type: 'box',
+          data: {
+            extract: {
+              field: 'Month',
+              props: {
+                start: 0,
+                end: { field: 'Sales' },
+              },
+            },
+          },
+          settings: {
+            major: { scale: 't' },
+            minor: { scale: 'y' },
+            orientation: 'horizontal',
+            box: {
+              fill: { scale: 'c', ref: 'end' },
+            },
+          },
+        }],
+      },
     });
   }
   componentDidUpdate() {
@@ -177,6 +101,10 @@ export default class BarChart extends React.Component {
 
 
   render() {
-    return <div ref={(el) => { this.chartRef = el; }} />;
+    const style = {
+      height: '150px',
+      width: '100%',
+    };
+    return <div style={style} ref={(el) => { this.chartRef = el; }} />;
   }
 }

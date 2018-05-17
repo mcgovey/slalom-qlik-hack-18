@@ -15,51 +15,8 @@ export default class MapNewLayers extends React.Component {
     options: PropTypes.object.isRequired,
     colorSelection: PropTypes.string.isRequired,
     popup: PropTypes.object.isRequired,
+    // offset: PropTypes.func.isRequired,
   };
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   // console.log('called props', nextProps, prevState);
-
-  //   const { qStateCounts } = nextProps.qLayout.qHyperCube.qDimensionInfo[0];
-  //   // const { options } = nextProps;
-
-  //   console.log('called props', nextProps.options.layerName, qStateCounts.qSelected, prevState);
-  //   // if ( qStateCounts.qSelected > 1 && prevState.zoomed!==true ) {
-  //   //   return { zoomed: true };
-  //   // } else if (nextProps.zoomProps.defaultZoom)
-  //   // selected but not previously selected, zoom it
-  //   // default zoom to all
-  //   // if (qStateCounts.qSelected === 1 && nextProps.zoomLvl === 1) {
-  //   //   return {
-  //   //     zoomLvl: 2,
-  //   //   };
-  //   // } else if (qStateCounts.qSelected !== 1 && nextProps.zoomLvl > 1) {
-  //   //   return {
-  //   //     zoomLvl: 1,
-  //   //   };
-  //   // } else if (!prevState.zoomLvl) {
-  //   //   return {
-  //   //     zoomLvl: nextProps.zoomLvl,
-  //   //   };
-  //   // }
-
-
-  //   //   if (nextProps.map) {
-  //   //     if (JSON.stringify(prevState.mapSelections) !==
-  //   // JSON.stringify(nextProps.mapSelections)) {
-  //   //       console.log('need a layer update', 'selections',
-  //   // prevState.mapSelections, nextProps.mapSelections);
-  //   //       return { mapSelections: nextProps.mapSelections };
-  //   //     } else if (JSON.stringify(prevState.qData) !== JSON.stringify(nextProps.qData)) {
-  //   //       console.log('need a data update');
-  //   //       return { qData: nextProps.qData };
-  //   //     } else if (JSON.stringify(prevState.map) !== JSON.stringify(nextProps.map)) {
-  //   //       console.log('need a map update');
-  //   //       return { map: nextProps.map };
-  //   //     }
-  //   //     console.log('map layer but no state updates');
-  //   //   }
-  //   return null;
-  // }
 
   constructor(props) {
     super(props);
@@ -77,6 +34,7 @@ export default class MapNewLayers extends React.Component {
   }
 
   componentDidMount() {
+    // console.log('mounted', this.props);
     const geoJSON = this.createJSONObj();
 
     const { colorVals } = this.state;
@@ -202,11 +160,15 @@ export default class MapNewLayers extends React.Component {
     }
     // neighborhoods
 
-    this.setLayerVisibility(options.layerName);
+    // this.setLayerVisibility(options.layerName);
 
     if (options.enableSelection) {
       this.makeSelections(options.layerName, 0);
     }
+    // if (qLayout.qHyperCube.qSize.qcy > 1100) {
+    //   console.log('calling offset');
+    //   offset(1100);
+    // }
   }
 
   // shouldComponentUpdate(nextProps) {
@@ -221,7 +183,7 @@ export default class MapNewLayers extends React.Component {
   // }
 
   componentDidUpdate() {
-    // prevProps, prevState
+    // // prevProps, prevState
     // console.log('update called', this.props);
 
     const { colorVals } = this.state;
@@ -248,7 +210,7 @@ export default class MapNewLayers extends React.Component {
 
     const { qStateCounts } = this.props.qLayout.qHyperCube.qDimensionInfo[0];
     // console.log('qStateCounts', this.props.options.layerName, qStateCounts, colorSelection);
-    if (options.type === 'heatmap' && (qStateCounts.qSelected > 1 || qStateCounts.qOption > 1)) {
+    if (options.type === 'heatmap' && (qStateCounts.qOption > 1)) {
       map.setPaintProperty(options.layerName, 'heatmap-weight', [
         'interpolate',
         ['linear'],
@@ -256,7 +218,7 @@ export default class MapNewLayers extends React.Component {
         colorVals.valMin, 0,
         colorVals.valMax, 1,
       ]);
-    } else {
+    } else if (options.type === 'fill' || options.type === 'pts') {
       map.setPaintProperty(options.layerName, options.type === 'fill' ? 'fill-color' : 'circle-color', {
         property: colorSelection,
         stops: [
@@ -273,7 +235,7 @@ export default class MapNewLayers extends React.Component {
     //     [colorVals.valMax, colorVals.maxHex],
     //   ],
     // });
-    this.setLayerVisibility(options.layerName);
+    // this.setLayerVisibility(options.layerName);
 
     if (options.moveBbox) {
       this.moveBoundingBox(geoJSON);

@@ -85,7 +85,7 @@ qProps.pts = {
           qFieldDefs: ['PID'],
           qFieldLabels: ['Property'],
           qSortCriterias: [{ qSortByAscii: 1 }],
-          // qSuppressMissing: true,
+          qSuppressMissing: true,
         },
       },
       {
@@ -101,6 +101,7 @@ qProps.pts = {
         qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions (MTCO2e)])',
         qLabel: 'Emissions',
       },
+      qSortBy: { qSortByNumeric: -1 },
     }, {
       qDef: {
         qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Total Site Energy (kBTU)])',
@@ -144,6 +145,7 @@ qProps.pts = {
         qLabel: 'Not on Track',
       },
     }],
+    qInterColumnSortOrder: [2, 0, 1],
     // qSuppressMissing: true,
     // qSuppressZero: true,
   },
@@ -159,13 +161,16 @@ qProps['building-shapes'] = {
           qFieldDefs: ['PID'],
           qFieldLabels: ['Property'],
           qSortCriterias: [{ qSortByAscii: 1 }],
-          // qSuppressMissing: true,
+          qSuppressMissing: true,
+          qSuppressZero: true,
         },
       },
       {
         qDef: {
           qFieldDefs: ['buildareas.Area'],
           qFieldLabels: ['Area'],
+          qSuppressMissing: true,
+          qSuppressZero: true,
         },
       }],
     qMeasures: [{
@@ -173,6 +178,7 @@ qProps['building-shapes'] = {
         qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [GHG Emissions (MTCO2e)])',
         qLabel: 'Emissions',
       },
+      qSortBy: { qSortByNumeric: -1 },
     }, {
       qDef: {
         qDef: 'Sum({<BERDOYear= {$(=max(BERDOYear))}>} [Total Site Energy (kBTU)])',
@@ -216,7 +222,8 @@ qProps['building-shapes'] = {
         qLabel: 'Not on Track',
       },
     }],
-    // qSuppressMissing: true,
+    qInterColumnSortOrder: [2, 0, 1],
+    qSuppressMissing: true,
     // qSuppressZero: true,
   },
 };
